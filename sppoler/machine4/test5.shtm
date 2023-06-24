@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Column - Grouped</title>
+
+ <script src="../js/apex.js"></script>
+
+    <link href="../js/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/jqueryc.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="../js/jquery.modal.min.css" />
+    <link href="../js/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/jqueryc.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+
+    <style>
+        #container {
+            max-width: 650px;
+            margin: 35px auto;
+        }
+
+    </style>
+     <script>
+
+         window.onload= myFunction();
+            function myFunction() {
+        var options = {
+
+
+        	tooltip: {
+         shared: false,
+      followCursor: true,
+      intersect: true,
+      inverseOrder: true,
+      custom: undefined,
+      fillSeriesColor: true,
+      theme: true,
+
+      style: {
+        fontSize: '12px',
+        fontFamily: undefined,
+        filter:opacity=40
+      },
+      onDatasetHover: {
+          highlightDataSeries: false,
+      },
+
+
+
+
+                x: {
+
+
+                    formatter: function (val) {
+						           var s = '<b>'+ val +'</b>';
+                 $("#xvalue").html(s);
+                 $('#textbox').val(val); //value to set in textbox
+
+                $.each(this.points, function(i, point) {
+                    s += '<br/>'+ point.series.name +': '+
+                        point.y +'m';
+                });
+
+						        return val;
+                    }
+
+                }
+            },
+            chart: {
+                 height: 350,
+                type: 'bar',
+
+
+
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+
+                    columnWidth: '55%',
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: []
+            },
+            series: [{
+                name: '%Availability',
+                data: []
+            }, {
+                name: '% Slow Speed',
+                data: []
+            }, {
+                name: '% Down Time',
+                data: []
+            }],
+            xaxis: {
+                categories: [],
+            },
+            yaxis: {
+                title: {
+                    text: '% Time'
+                }
+            },
+            fill: {
+                opacity: 1
+
+            }
+
+
+        }
+ $.get('data/oee.csv', function(data) {
+    // Split the lines
+    var lines = data.split('\n');
+            var x = document.getElementById("myText1").value;
+
+    // Push column data into data list
+    for (var i =1; i < lines.length-1; i++) {
+        var cat = lines[i].split(",")[0];
+        var firCol = lines[i].split(",")[2];
+        var secCol = lines[i].split(",")[3];
+        var thCol = lines[i].split(",")[5];
+        var th1Col = lines[i].split(",")[7];
+
+         //  var tCol = lines[i].split(",")[2];
+
+         if((x >= cat)&&(x <= cat))
+           {
+    options.xaxis.categories.push(firCol)
+    options.series[0].data.push(parseFloat(secCol))
+    options.series[1].data.push(parseFloat(thCol))
+    options.series[2].data.push(parseFloat(th1Col))
+
+    }
+    else{
+
+    }
+}
+
+    // Create the chart
+    var chart = new ApexCharts(
+            document.querySelector("#chart"),
+            options
+        );
+
+        chart.render();
+chart.updateOptions({
+  xaxis: {
+    labels: {
+      show: true
+    }
+  },
+  yaxis: {
+
+  }
+})
+
+});
+}
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+ <center>  <label style="text-align: center;
+
+font-size: x-large;
+
+font-weight: bold;
+
+color: rebeccapurple;
+
+font-size: 20px;
+
+font-variant: petite-caps;">Operator Performance Comparison</label>
+</center>
+<br>
+    <input style= "background-color: #ff3333; color: white; width: 120px;height:30px;  text-align: center; font-size: 15px; font-weight: bold;
+  content: "";
+
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;" type="text" id="myText1" value="<%#TagSSI,date%>" readonly>
+<button style= " width: 120px;height:30px;  text-align: center; font-size: 15px; font-weight: bold;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;" type="button" onclick="myFunction()">Submit</button>
+
+     <div id="chart">
+
+    </div>
+</div>
+
+</body>
+<script>
+    $(document).ready(function () {
+       $('input[id$=myText1]').datepicker({
+    dateFormat: 'dd/mm/yy'
+});
+    });
+</script>
+
+</html>

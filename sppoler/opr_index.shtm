@@ -1,0 +1,169 @@
+<html>
+    <head>
+    <title>
+      LE Sm@rt Factory
+    </title>
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+              <link rel="stylesheet" href="../css/mystyle.css">
+       <link rel="stylesheet" href="../css/form.css">
+         <link rel="stylesheet" href="../css/drop.css">
+
+    </head>
+<script>
+
+</script>
+    <style type="text/css">
+  #menu {
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Times New Roman";
+    }
+  .child {
+  display: inline;
+  position: absolute;
+  background-color: #444;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left:-1px;
+  margin-top: 12px;
+  }
+  .child li {
+  background-color: #444;
+  line-height: 30px;
+  border-bottom:#CCC 1px solid;
+  border-right:#CCC 1px solid;
+  width:100%;
+  }
+  .child li a{
+  color:whitesmoke;
+  }
+  ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  font-weight: bold;
+    }
+  li {
+  float: center;
+  }
+  .parent{
+  text-decoration: none;
+  background-color: #444;
+  padding:0;
+  position: relative;
+  border-bottom: 4px solid #999;
+  margin: 0 0.1em;
+  transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+  cursor: pointer;
+  min-width: 6em;
+  text-align: center;
+  font-size: 16px;
+
+  }
+  .parent:hover{
+  background-color: red;
+  }
+  li:hover {
+  background-color: #444;
+  }
+  .parent li:hover {
+  background-color: #444;
+  padding:0;
+  }
+   li.parent{
+    display:block;
+  }
+  .child a {
+  color: whitesmoke;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: inline;
+  text-align: left;
+  }
+
+  #t{
+    padding:8px 6px;
+  }
+
+  .child a:hover{
+    background-color: #8b0e1ade;
+  }
+h1 {
+  font-family: Verdana;
+  font-weight: normal;
+  color: #024457;
+}
+h1 span {
+  color: #167F92;
+}
+</style>
+    <body >
+
+            <div class="container" style="width:55%;">
+          <div class="header">
+
+                         <table style="width: 100%;margin-bottom: -2%; ">
+                <tr>
+                  <td ><img src="../css/factory.JPG" style="margin-left: 2%;
+
+height: 100px;">
+  <td style="width: 15%;" ><img src="../css/PikPng.com_lincoln-png_897101.png" style="margin-left: 2%;
+height: 62px;"></td>
+                </tr>
+            </table>
+            <br>
+          <div class="content" style="padding-bottom: 1%;height:auto;">
+                            <p style="font-size: 14px;
+
+font-weight: bolder;
+
+padding-left: 13%;
+
+text-align: center;
+
+color: white;
+
+font-variant: petite-caps;" > WET DRAW <br> Operator Screen - Dashboard</td>
+</p>
+          <ul id="menu" style="margin-left: 35%; width: 35%;">
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine1/table2.shtm" target="_blank">WET DRAW 1</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine2/table2.shtm" target="_blank">WET DRAW 2</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine3/table2.shtm" target="_blank">WET DRAW 3</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine4/table2.shtm" target="_blank">WET DRAW 4</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine5/table2.shtm" target="_blank">WET DRAW 5</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine6/table2.shtm" target="_blank">WET DRAW 6</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine8/table2.shtm" target="_blank">WET DRAW 8</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine9/table2.shtm" target="_blank">WET DRAW 9</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine10/table2.shtm" target="_blank">WET DRAW 10</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine11/table2.shtm" target="_blank">WET DRAW 11</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/machine12/table2.shtm" target="_blank">WET DRAW 12</a>
+</li>
+  </ul>
+          </div>
+          <div class="footer" style="height: 15%;">
+
+
+      <label style="float: right;
+color: white;
+font-size: 16px;
+margin-right: 3%;
+margin-top: 2%;font-weight: bolder;
+font-variant: all-small-caps;">LINCOLN ELECTRIC INDIA LTD.</label>
+
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,116 @@
+area,reason,maj_id,maj,min_id,min,sub_min_id,sub_min,sub_sub_min
+,,,No plan,,No plan,,No plan,No plan
+,,,Automatic Reel change,,Not Applicable,,Not Applicable,Not Applicable
+,,,Reel change,,Not Applicable,,Not Applicable,Not Applicable
+,,,Bobbin Change,,Kg Completed,,Not Applicable,Not Applicable
+,,,Bobbin Change,,others,,wirecut,Not Applicable
+,,,Bobbin Change,,others,,travels problem,Not Applicable
+,,,Bobbin Change,,others,,QA check,Not Applicable
+,,,WireCut,,die broken,,Not Applicable,Not Applicable
+,,,WireCut,,Block,,Die Broken,Not Applicable
+,,,WireCut,,Block,,Material Problem,Not Applicable
+,,,Final Die Change,,Life Completed,,Not Applicable,Not Applicable
+,,,Final Die Change,,others,,Die Oversize,Not Applicable
+,,,Final Die Change,,others,,Die Broken,Not Applicable
+,,,Final Die Change,,others,,Die Scratch,Not Applicable
+,,,Die Change,,Life Completed,,Not Applicable,Not Applicable
+,,,Die Change,,others,,Die Oversize,Not Applicable
+,,,Die Change,,others,,Die Scratch,Not Applicable
+,,,Die Change,,others,,Die Broken,Not Applicable
+,,,Wire Pulling,,Not Applicable,,Not Applicable,Not Applicable
+,,,skin pass Change,,Life Completed,,Not Applicable,Not Applicable
+,,,skin pass Change,,Die Scratch,,Not Applicable,Not Applicable
+,,,skin pass Change,,Wire Scratch,,Not Applicable,Not Applicable
+,,,Steel Wool Change,,Life Completed,,Not Applicable,Not Applicable
+,,,Pre-final die change,,Life Completed,,Not Applicable,Not Applicable
+,,,Pre-final die change,,others,,Die Oversize,Not Applicable
+,,,Pre-final die change,,others,,Die Broken,Not Applicable
+,,,Pre-final die change,,others,,Die Scratch,Not Applicable
+,,,Pre-final die change,,Wire Scratch,,Not Applicable,Not Applicable
+,,,Other M/C Work,,Not Applicable,,Not Applicable,Not Applicable
+,,, Pulley Change,,Life Completed,,Not Applicable,Not Applicable
+,,, Pulley Change,,others,,Not Applicable,Not Applicable
+,,,Pulley Check,,others,,Not Applicable,Not Applicable
+,,,StartUp,,M/C startup,,Not Applicable,Not Applicable
+,,,StartUp,,Meeting,,Not Applicable,Not Applicable
+,,,StartUp,,Coummunication,,Not Applicable,Not Applicable
+,,,Dry Draw Reel Not Available,,Not Applicable,,Not Applicable,Not Applicable
+,,,Empty Bobbin Not Availabel,,Not Applicable,,Not Applicable,Not Applicable
+,,,Wire Scratch,,Die Problem,,Not Applicable,Not Applicable
+,,,Wire Scratch,,Material Problem,,Not Applicable,Not Applicable
+,,,Color Problem,,Not Applicable,,Not Applicable,Not Applicable
+,,, Leakage,,Rinse water Leakage,,Not Applicable,Not Applicable
+,,, Leakage,,Emulsion Tank Leakage,,Not Applicable,Not Applicable
+,,, Leakage,,Copper Leakage,,Not Applicable,Not Applicable
+,,,Copper  Flow,,Flow Issues,,Not Applicable,Not Applicable
+,,,Emulsion Flow,,Flow Issues,,Not Applicable,Not Applicable
+,,,Copper Temperature ,,low,,Not Applicable,Not Applicable
+,,,Copper Temperature ,,high,,Not Applicable,Not Applicable
+,,,Emulsion Tempeature,,low,,Not Applicable,Not Applicable
+,,,Emulsion Tempeature,,high,,Not Applicable,Not Applicable
+,,,Setting Change,,Life Completed,,Not Applicable,Not Applicable
+,,,Setting Change,,Grade Change,,ER70S-6,Not Applicable
+,,,Setting Change,,Grade Change,,ER90S-G,Not Applicable
+,,,Setting Change,,Grade Change,,EM12K,Not Applicable
+,,,Setting Change,,Grade Change,,EH10K,Not Applicable
+,,,Setting Change,,Grade Change,,EA2,Not Applicable
+,,,Setting Change,,Dia Change,,0.8,Not Applicable
+,,,Setting Change,,Dia Change,,0.9,Not Applicable
+,,,Setting Change,,Dia Change,,1,Not Applicable
+,,,Setting Change,,Dia Change,,1.2,Not Applicable
+,,,Setting Change,,Dia Change,,1.32,Not Applicable
+,,,Setting Change,,Dia Change,,1.4,Not Applicable
+,,,Setting Change,,Dia Change,,1.6,Not Applicable
+,,,Setting Change,,Dia Change,,2,Not Applicable
+,,,re-setting ,,plan change,,Not Applicable,Not Applicable
+,,,re-setting ,,setting brokken,,Not Applicable,Not Applicable
+,,,Utility Breakdown,,BOPT,,Not Available,Not Applicable
+,,,Utility Breakdown,,BOPT,,Not Working Condition,Not Applicable
+,,,Utility Breakdown,,BOPT,,Not Charged,Not Applicable
+,,,Utility Breakdown,,Welding machines,,Not Applicable,Not Applicable
+,,,Utility Breakdown,,Machine Utilities,,Not Applicable,Not Applicable
+,,,Power Cut,,Not Applicable,,Not Applicable,Not Applicable
+,,,Power Change,,Not Applicable,,Not Applicable,Not Applicable
+,,,Man Loss,,Absent,,Not Applicable,Not Applicable
+,,,Man Loss,,Permission,,Not Applicable,Not Applicable
+,,,Man Loss,,Cab Late,,Not Applicable,Not Applicable
+,,,Breakdown,,Mechanical,,Safety Door issue,Not Applicable
+,,,Breakdown,,Mechanical,,Die not rotating,Block die
+,,,Breakdown,,Mechanical,,Die not rotating,Final die
+,,,Breakdown,,Mechanical,,jog pedal not working,Not Applicable
+,,,Breakdown,,Mechanical,,Motor problem,Block die
+,,,Breakdown,,Mechanical,,Motor problem,Final die
+,,,Breakdown,,Mechanical,,Motor problem,Others
+,,,Breakdown,,Mechanical,,Dancer problem,Not Applicable
+,,,Breakdown,,Mechanical,,bobbin clamping problem,Not Applicable
+,,,Breakdown,,Mechanical,,Cone bolt problem,Not Applicable
+,,,Breakdown,,Mechanical,,vibration problem,Die holder
+,,,Breakdown,,Mechanical,,vibration problem,Block
+,,,Breakdown,,Mechanical,,Pull block problem,Not rotating
+,,,Breakdown,,Mechanical,,Pull block problem,Others
+,,,Breakdown,,Mechanical,,Shaft Broken,Not Applicable
+,,,Breakdown,,Electrical,,Door Sensor problem,Not Applicable
+,,,Breakdown,,Electrical,,Dancer Sensor problem,Not Applicable
+,,,Breakdown,,Electrical,,Others Sensor problem,Not Applicable
+,,,Breakdown,,Electrical,,Display problem,Not Applicable
+,,,Breakdown,,Electrical,,Drive alarm,Not Applicable
+,,,Breakdown,,Electrical,,Air pressure Alarm,Not Applicable
+,,,Breakdown,,Electrical,,Wire brake Alarm,Not Applicable
+,,,Breakdown,,Electrical,,Selected output Alarm,Not Applicable
+,,,Breakdown,,Electrical,,Others Alarm,Not Applicable
+,,,Breakdown,,Mechanical,,Pay off,oil leakage
+,,,Breakdown,,Mechanical,,Pay off,Sensor problem
+,,,Breakdown,,Mechanical,,Pulley  problem,Others
+,,,Breakdown,,Electrical,,Sensor problem,Door
+,,,Breakdown,,Electrical,,Sensor problem,Travers
+,,,Breakdown,,Electrical,,Sensor problem,Others
+,,,Breakdown,,Electrical,,Display problem,Not Applicable
+,,,Breakdown,,Electrical,,Alarm,Drive alarm
+,,,Breakdown,,Electrical,,Alarm,Air pressure
+,,,Breakdown,,Electrical,,Alarm,Others
+,,,NPD Trial ,,Not Applicable,,Not Applicable,Not Applicable
+,,,Others,,Not Applicable,,Not Applicable,Not Applicable
+,,,Breakdown,,Electrical,,Display problem,Not Applicable
+,,,Breakdown,,Electrical,,Alarm,Drive alarm
+,,,Breakdown,,Electrical,,Alarm,Air pressure
+,,,Breakdown,,Electrical,,Alarm,Others

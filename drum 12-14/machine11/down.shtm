@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<style type="text/css">
+  * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  color: #5e5d52;
+}
+
+a {
+  color: #337aa8;
+}
+a:hover, a:focus {
+  color: #4b8ab2;
+}
+
+.container {
+  margin: 5% 3%;
+}
+@media (min-width: 48em) {
+  .container {
+    margin: 2%;
+  }
+}
+@media (min-width: 75em) {
+  .container {
+    margin: 2em auto;
+    max-width: 75em;
+  }
+}
+
+.responsive-table {
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-spacing: 0;
+
+}
+
+
+    .responsive-table th {
+    text-align: center;
+      background-color: #1d96b2;
+    border: 1px solid #1d96b2;
+    font-weight: normal;
+    color: white;
+    position: sticky;
+    top: 0;
+        border: 1px solid;
+    }
+@media (min-width: 48em) {
+  .responsive-table {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table {
+    font-size: 1em;
+  }
+}
+.responsive-table thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .responsive-table thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+  }
+}
+.responsive-table thead th {
+  background-color: #1d96b2;
+  border: 1px solid #1d96b2;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+}
+.responsive-table thead th:first-of-type {
+  text-align: left;
+}
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table th,
+.responsive-table td {
+  display: block;
+  padding: 0;
+
+  white-space: normal;
+}
+@media (min-width: 48em) {
+  .responsive-table tr {
+    display: table-row;
+  }
+}
+.responsive-table th,
+.responsive-table td {
+  padding: 0.5em;
+  vertical-align: middle;
+}
+@media (min-width: 30em) {
+  .responsive-table th,
+.responsive-table td {
+    padding: 0.75em 0.5em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table th,
+.responsive-table td {
+    display: table-cell;
+    padding: 0.5em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table th,
+.responsive-table td {
+    padding: 0.75em 0.5em;
+  }
+}
+@media (min-width: 75em) {
+  .responsive-table th,
+.responsive-table td {
+    padding: 0.75em;
+  }
+}
+.responsive-table caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .responsive-table caption {
+    font-size: 1.5em;
+  }
+}
+.responsive-table tfoot {
+  font-size: 0.8em;
+  font-style: italic;
+}
+@media (min-width: 62em) {
+  .responsive-table tfoot {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody {
+    display: table-row-group;
+  }
+}
+.responsive-table tbody tr {
+  margin-bottom: 1em;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+}
+.responsive-table tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+}
+.responsive-table tbody th[scope=row] {
+  background-color: #1d96b2;
+  color: white;
+}
+@media (min-width: 30em) {
+  .responsive-table tbody th[scope=row] {
+    border-left: 1px solid #1d96b2;
+    border-bottom: 1px solid #1d96b2;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody th[scope=row] {
+    background-color: transparent;
+    color: #5e5d52;
+
+  }
+}
+.responsive-table tbody td {
+
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td {
+    border-left: 1px solid #1d96b2;
+    border-bottom: 1px solid #1d96b2;
+    text-align: center;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td:last-of-type {
+    border-right: 1px solid #1d96b2;
+  }
+}
+.responsive-table tbody td[data-type=currency] {
+
+}
+.responsive-table tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: 0.8em;
+  color: rgba(94, 93, 82, 0.75);
+}
+@media (min-width: 30em) {
+  .responsive-table tbody td[data-title]:before {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table tbody td[data-title]:before {
+    content: none;
+  }
+}
+#inp4 td {
+  color: black;
+  font-weight: bold;
+}
+#inp4 th {
+  
+  font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+    $(document).ready(function() 
+  {
+ $.ajax({
+type: "Get",
+// url: "chat.json.shtm",
+url: "data/shift_down_reason.csv?"+Math.random(),
+async: true,
+success: function (data_chat) {
+  var down_data = data_chat.split(/\r?\n|\r/);
+  var table = document.createElement("table");
+var tblBody = document.createElement("tbody");
+table.id = "inp4";
+table.setAttribute("class", "responsive-table");
+var body = document.getElementById("down_table");
+  for(var i=down_data.length;i>0;i--)
+  {
+    
+    var tr = document.createElement("tr");
+    for(var j=0;j<=9;j++)
+    {
+      if(i==down_data.length)
+      {
+if(j==0)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Date");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==1)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Shift");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==2)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Operator");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==3)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Reason");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==4)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("From Time");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==5)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("To Time");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==6)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Time [Min]");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==7)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Minor ");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==8)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Sub Minor");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      if(j==9)
+      {
+        var th = document.createElement("TH");
+          var cellText = document.createTextNode("Sub Sub Minor");
+          th.setAttribute("id","head_col"+j);
+          th.appendChild(cellText);
+          tr.appendChild(th);
+      }
+      }
+      else if(i==down_data.length-1)
+      {
+      
+          if(j==0)
+      {
+        var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput1");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Date");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==1)
+      {
+         var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput2");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","shift");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==2)
+      {
+         var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput3");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Operator");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==3)
+      {
+         var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput4");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Reason");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==4)
+      {
+         var th = document.createElement("TH");
+          
+          tr.appendChild(th);
+      }
+      if(j==5)
+      {
+         var th = document.createElement("TH");
+         
+          tr.appendChild(th);
+      }
+      if(j==6)
+      {
+         var th = document.createElement("TH");
+         
+          tr.appendChild(th);
+      }
+      
+     
+      
+      
+      if(j==7)
+      {
+        var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput5");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Minor Reason");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==8)
+      {
+       var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput6");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Sub Minor");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+      if(j==9)
+      {
+        var th = document.createElement("TH");
+          var input=document.createElement("input");
+          input.setAttribute("id","myInput7");
+          input.setAttribute("oninput","myFunction();");
+          input.setAttribute("placeholder","Sub Sub Minor");
+          input.setAttribute("style","width: 100%;height: 35px;border-radius: 9px;")
+          th.appendChild(input);
+          tr.appendChild(th);
+      }
+
+
+      }
+      else
+      {
+        var down_line = down_data[i].split(',');
+
+        if(j==0)
+      {
+
+      	var split=down_line[0].split(" ");
+
+      	var split1=split[0].split("/");
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(split1[2]+"-"+split1[1]+"-"+split1[0]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==1)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[1]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==2)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[2]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==3)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[6]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==4)
+      {
+      	var split=down_line[4].split(" ");
+
+      	var split1=split[0].split("/");
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(split1[2]+"-"+split1[1]+"-"+split1[0]+" "+split[1]);
+       
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==5)
+      {
+        var split=down_line[5].split(" ");
+
+      	var split1=split[0].split("/");
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(split1[2]+"-"+split1[1]+"-"+split1[0]+" "+split[1]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==6)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[3]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==7)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[7]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==8)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[8]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+      if(j==9)
+      {
+        var td = document.createElement("td");
+          var cellText = document.createTextNode(down_line[9]);
+          td.setAttribute("id","head_col"+j);
+          td.appendChild(cellText);
+          tr.appendChild(td);
+      }
+
+
+
+      }
+      
+      
+    }
+
+                tblBody.appendChild(tr);
+                table.appendChild(tblBody);
+                body.appendChild(table);
+
+
+  }
+
+
+
+
+
+}});
+
+  })
+ function myFunction() {
+  var filter1,filter2,filter3,filter4,filter5,filter6,filter7,table, tr,td1,td2,td3,td4,td5,td6,td7,i, txtValue;
+  var input1=document.getElementById("myInput1");
+  var input2=document.getElementById("myInput2");
+  var input3=document.getElementById("myInput3");
+  var input4=document.getElementById("myInput4");
+  var input5=document.getElementById("myInput5");
+  var input6=document.getElementById("myInput6");
+  var input7=document.getElementById("myInput7");
+
+ 
+   filter1 = input1.value.toUpperCase();
+   filter2 = input2.value.toUpperCase();
+   filter3 = input3.value.toUpperCase();
+   filter4 = input4.value.toUpperCase();
+   filter5 = input5.value.toUpperCase();
+   filter6 = input6.value.toUpperCase();
+   filter7 = input7.value.toUpperCase();
+   
+  table = document.getElementById("inp4");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+ 
+  td1 = tr[i].getElementsByTagName("td")[0];
+   td2 = tr[i].getElementsByTagName("td")[1];
+   td3 = tr[i].getElementsByTagName("td")[2];
+   td4 = tr[i].getElementsByTagName("td")[3];
+   td5 = tr[i].getElementsByTagName("td")[7];
+   td6 = tr[i].getElementsByTagName("td")[8];
+   td7 = tr[i].getElementsByTagName("td")[9];
+   console.log(td1);
+  if ((td1)||(td2)||(td3)||(td4)||(td5)||(td6)||(td7)) {
+
+     
+      var txtValue1 = td1.textContent || td1.innerText;
+    var txtValue2 = td2.textContent || td2.innerText;
+    var txtValue3 = td3.textContent || td3.innerText;
+    var txtValue4 = td4.textContent || td4.innerText;
+    var txtValue5 = td5.textContent || td5.innerText;
+    var txtValue6 = td6.textContent || td6.innerText;
+    var txtValue7 = td7.textContent || td7.innerText;
+    
+    if ((txtValue1.toUpperCase().indexOf(filter1) > -1)&&(txtValue2.toUpperCase().indexOf(filter2) > -1)&&(txtValue3.toUpperCase().indexOf(filter3) > -1)&&(txtValue4.toUpperCase().indexOf(filter4) > -1)&&(txtValue5.toUpperCase().indexOf(filter5) > -1)&&(txtValue6.toUpperCase().indexOf(filter6) > -1)&&(txtValue7.toUpperCase().indexOf(filter7) > -1)) {
+        tr[i].style.display = "";
+      }
+     else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<body>
+
+<div id="down_table" style="height: 400px; overflow-y: scroll;border: 5px solid black; border-style: double;"></div>
+</body>
+
+</html>

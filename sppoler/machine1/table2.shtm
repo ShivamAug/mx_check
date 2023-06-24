@@ -1,0 +1,2585 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%#TagSSI,st3_mc1%> </title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/papaparse.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.modal.min.js"></script>
+	  <link rel="stylesheet" href="../js/bootstrap.css" />
+	<link rel="stylesheet" href="../css/operator.css" />
+    <link href="../assets/docs.css" rel="stylesheet">
+    <script src="../dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="../dist/sweetalert.css">
+       <script src="operator.js"></script>
+       <script src="../js/operator_common.js"></script>
+    <style type="text/css">
+  .lead
+  {
+    color: black;
+    font-weight: bold;
+  }
+  </style>
+	 </head>  
+       <script type="text/javascript">
+    function alphaMobile_New(e) {
+  var inpval = e.target.value;
+  var inp_length = inpval.length - 1;
+  var res = inpval.substring(0, inp_length);
+  var regex =/^[^*|\":<>[\]{}`\\()';@&$]+$/;
+  if (!regex.test(res)) {
+  }
+ e.target.value = e.target.value.replace(/[^-a-z0-9-/._ [\]]/gi,"");
+  return false;
+} 
+
+var output_product = [];
+var input_product = [];
+var operator = [];
+var supplier = [];
+var quality_master = [];
+var random_number = Math.random() * 1000;
+var product_list = [];
+var downtime_reason = [];
+var inp_name = "";
+var stack = 0;
+var reason_check = 0;
+	var reason_val = "";
+var ack_random = "";					
+	// varriables for quick reason
+var initial_down = 0;   
+var quick_reason_start_time = "";   
+var quick_date = "";    
+var quick_shift = "";   
+var quick_machine = ""; 
+var quick_operator = "";      
+var quick_grade = "";   
+var quick_null_grade = "";						  
+var quick_runtime = ""; 
+var quick_out_ref_id = "";    
+var quick_input_ref = "";     
+var quick_supplier = "";      
+var quick_week = "";    
+var quick_month = "";   
+var quick_inp_code = "";
+var quick_reason_array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];    
+var quick_d_slow1 = 0;
+var quick_d_kg1 = 0;
+var quick_mx_sp1 = 0;
+var quick_act1 = 0;
+var quick_trg1 = 0;					  
+var key_var = "";
+var online_set='';
+//End of variable
+function sup1_click(x) {
+  
+   $("#supplier_dropdown1").html($('#sup1_li' + x).html());
+}
+function sup2_click(x) {
+  
+					  
+  
+   $("#supplier_dropdown2").html($('#sup2_li' + x).html());
+}
+function input1_click(x) {
+  
+   $("#inputproductcode_dropdown1").html($('#input1_li' + x).html());
+}
+function input2_click(x) {
+  
+						
+  
+   $("#inputproductcode_dropdown2").html($('#input2_li' + x).html());
+}
+function output1_click(x) {
+  
+   $("#outputproductcode_dropdown1").html($('#output1_li' + x).html());
+   output();
+}
+function output2_click(x) {
+  
+						 
+  
+   $("#outputproductcode_dropdown2").html($('#output2_li' + x).html());
+   output1();
+}
+ function reload_fun()
+	{
+			location.reload();
+			setTimeout(function () { reload_fun(); }, 3600000);
+	}                    
+	
+
+$(document).ready(function () {
+	var triger_check = "<%#TagSSI,break_tg1%>";
+	if (triger_check == 1) {
+		$('#br_in').prop('checked', true);
+		$('#bd').text('M/C under Breakdown')
+	} else {
+		$('#br_in').prop('checked', false);
+		$('#bd').text('M/C Down')
+	}
+ GetTagValues();
+ 	 setTimeout(function () { reload_fun(); }, 3600000);
+	$.get('../../../sdext/Management_report/data/operator.csv?' + random_number, function (data) {
+		var lines = data.split('\n');
+		var pcars = [];
+		var pcars1 = [];
+		var body = document.getElementById("ult1");
+		var body1 = document.getElementById("ult2");
+		var body2 = document.getElementById("ult3");
+
+		$('#ult1 li').remove();
+		$('#ult2 li').remove();
+		$('#ult3 li').remove();
+
+		if ("<%#TagSSI,operator1%>" != "") {
+			document.getElementById("oper_but").innerHTML = "<%#TagSSI,operator1%>";
+		}
+		if ("<%#TagSSI,operator1%>" != "") {
+			document.getElementById("oper_but1").innerHTML = "<%#TagSSI,operator1%>";
+		}
+		for (var i = 1; i < lines.length - 1; i++) {
+		lines[i]=lines[i].replace(/['"]+/g,'');
+			pcars[i] = lines[i].split(",")[0];
+			pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+		}
+		pcars1.sort();
+		for (var i = 0; i < pcars1.length; i++) {
+
+			var li = document.createElement("li");
+			li.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			li.setAttribute("id", "optrd" + i);
+			li.setAttribute("onclick", 'opt("' + i + '");');
+			var cellText = document.createTextNode(pcars1[i]);
+			li.appendChild(cellText);
+			body.appendChild(li);
+
+
+			var li1 = document.createElement("li");
+			li1.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			li1.setAttribute("id", "optr" + i);
+			li1.setAttribute("onclick", 'opt1("' + i + '");');
+			var cellText1 = document.createTextNode(pcars1[i]);
+			li1.appendChild(cellText1);
+			body1.appendChild(li1);
+
+
+			var li2 = document.createElement("li");
+			li2.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			li2.setAttribute("id", "opdr" + i);
+			li2.setAttribute("onclick", 'opt2("' + i + '");');
+			var cellText1 = document.createTextNode(pcars1[i]);
+			li2.appendChild(cellText1);
+			body2.appendChild(li2);
+
+		}
+
+
+	});
+	
+	$.get('../../../sdext/Management_report/data/shop1sup.csv?' + random_number, function (data) {
+		var lines = data.split('\n');
+		var pcars = [];
+		var pcars1 = [];
+		var count = 0;
+		var body = document.getElementById("supplier_drop1");
+		var body1 = document.getElementById("supplier_drop2");
+		
+		if ("<%#TagSSI,sup1%>" != "") {
+			document.getElementById("supplier_dropdown1").innerHTML = "<%#TagSSI,sup1%>";
+		}
+		if ("<%#TagSSI,sup1%>" != "") {
+			document.getElementById("supplier_dropdown2").innerHTML = "<%#TagSSI,sup1%>";
+		}
+		
+		for (var i = 1; i < lines.length - 1; i++) {
+		lines[i]=lines[i].replace(/['"]+/g,'');
+			supplier[i] = lines[i].split(",")[0];
+			pcars[i] = lines[i].split(",")[0];
+			pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+		}
+		for (var i = 0; i < pcars1.length; i++) {
+			var li = document.createElement("li");
+			li.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			var cellText = document.createTextNode(pcars1[i]);
+			li.setAttribute("onclick",'sup1_click('+i+')');
+			li.setAttribute("id",'sup1_li'+i);
+			li.appendChild(cellText);
+			body.appendChild(li);
+			var li1 = document.createElement("li");
+			li1.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			var cellText = document.createTextNode(pcars1[i]);
+			li1.setAttribute("onclick",'sup2_click('+i+')');
+			li1.setAttribute("id",'sup2_li'+i);
+			li1.appendChild(cellText);
+			body1.appendChild(li1);
+		}
+		
+  
+	});
+	$.get('../../../sdext/Management_report/data/shop1inp_pro.csv?' + random_number, function (data) {
+		var lines = data.split('\n');
+		var pcars = [];
+		var pcars1 = [];
+		var count = 0;
+		var body = document.getElementById("inputproductcode_drop1");
+		var body1 = document.getElementById("inputproductcode_drop2");
+		
+		if ("<%#TagSSI,in_pr_co1%>" != "") {
+			document.getElementById("inputproductcode_dropdown1").innerHTML = "<%#TagSSI,in_pr_co1%>";
+		}
+		if ("<%#TagSSI,in_pr_co1%>" != "") {
+			document.getElementById("inputproductcode_dropdown2").innerHTML = "<%#TagSSI,in_pr_co1%>";
+		}
+		for (var i = 1; i < lines.length - 1; i++) {
+			lines[i]=lines[i].replace(/['"]+/g,'');
+			var shop_name = lines[i].split(",")[6];
+			var shop_split = shop_name.split("-");
+			var valuepp = parseFloat(shop_split[0]);
+			if ((valuepp == 0) || (valuepp == 1)) {
+				input_product[count] = lines[i].split(",");
+				pcars[count] = lines[i].split(",")[5];
+				count++;
+			}
+			pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+		}
+		for (var i = 0; i < pcars1.length; i++) {
+		var li = document.createElement("li");
+			li.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			var cellText = document.createTextNode(pcars1[i]);
+			li.setAttribute("onclick",'input1_click('+i+')');
+			li.setAttribute("id",'input1_li'+i);
+			li.appendChild(cellText);
+			body.appendChild(li);
+			var li1 = document.createElement("li");
+			li1.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			var cellText = document.createTextNode(pcars1[i]);
+			li1.setAttribute("onclick",'input2_click('+i+')');
+			li1.setAttribute("id",'input2_li'+i);
+			li1.appendChild(cellText);
+			body1.appendChild(li1);	
+		}
+		
+	});
+$.get('../../../sdext/Management_report/data/shop1out_pro.csv?' + random_number, function (data) {
+      var lines = data.split('\n');
+      var pcars = [];
+      var pshift = [];
+      var poperator = [];
+      var pcars1 = [];
+      var count = 0;
+      var body = document.getElementById("outputproductcode_drop1");
+      var body1 = document.getElementById("outputproductcode_drop2");
+  
+      if ("<%#TagSSI,grade1%>" != "") {
+         document.getElementById("outputproductcode_dropdown1").innerHTML = "<%#TagSSI,grade1%>";
+      }
+      if ("<%#TagSSI,grade1%>" != "") {
+         document.getElementById("outputproductcode_dropdown2").innerHTML = "<%#TagSSI,grade1%>";
+      }
+      for (var i = 1; i < lines.length - 1; i++) {
+         lines[i] = lines[i].replace(/['"]+/g, '');
+         var shop_name = lines[i].split(",")[18];
+                          
+         var shop_split = shop_name.split("-");
+         var valuepp = parseFloat(shop_split[0]);
+         if ((valuepp == 0) || (valuepp == 1)) {
+            output_product[count] = lines[i].split(",");
+            pcars[count] = lines[i].split(",")[5];
+            count++;
+         }
+         pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+      }
+      for (var i = 0; i < pcars1.length; i++) {
+         var li = document.createElement("li");
+         li.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+         var cellText = document.createTextNode(pcars1[i]);
+         li.setAttribute("onclick", 'output1_click(' + i + ')');
+         li.setAttribute("id", 'output1_li' + i);
+         li.appendChild(cellText);
+         body.appendChild(li);
+         var li1 = document.createElement("li");
+         li1.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+         var cellText = document.createTextNode(pcars1[i]);
+         li1.setAttribute("onclick", 'output2_click(' + i + ')');
+         li1.setAttribute("id", 'output2_li' + i);
+         li1.appendChild(cellText);
+         body1.appendChild(li1);
+  
+      }
+      output();
+      output1();
+   });
+
+
+	$.get('../../../sdext/Management_report/data/shop1.csv', function (data) {
+		// Split the lines
+		var lines = data.split('\n');
+		var cars = [];
+		var shift = [];
+		var operator = [];
+		var cars1 = [];
+
+		if ("<%#TagSSI,major1%>" != "") {
+			document.getElementById("down_major").innerHTML = "<%#TagSSI,major1%>";
+		} else {
+			document.getElementById("down_major").innerHTML = "Select Reason";
+		}
+		var body = document.getElementById("major_1");
+		$('#major_1 li').remove();
+									
+		for (var i = 1; i < lines.length-1; i++) {
+		lines[i]=lines[i].replace(/['"]+/g,'');
+			downtime_reason[i] = lines[i].split(",");
+			cars[i] = lines[i].split(",")[3];
+			cars1 = cars.filter((x, i, a) => a.indexOf(x) == i)
+		}
+
+		for (var i = 0; i < cars1.length; i++) {
+			var li = document.createElement("li");
+			li.setAttribute("style", "    padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;font-size: 25px;font-weight: bold;width:100%;");
+			li.setAttribute("id", "major_re" + i);
+			li.setAttribute("onclick", 'val("' + i + '");ss1();');
+			var cellText = document.createTextNode(cars1[i]);
+			li.appendChild(cellText);
+			body.appendChild(li);						  
+
+		}
+
+
+	});
+
+
+
+
+    });
+var quick_output_product = "";
+
+
+
+
+var view = ""
+var real_kg12;
+var reason_val1 = "";
+var alert_set = 0;
+var alert_random = "";                      
+function GetTagValues() {
+	jQuery.ajax({
+		url: "tags.json.shtm",
+		dataType: "json",
+		success: TagValuesReceived,
+		error: TagValuesError,
+		timeout: 4000
+	});
+}
+var onetime=0;
+function TagValuesReceived(json) {
+	 wifi = 0;
+   mc_com = 0;
+   wifi_st_plus = 0;
+   mc_status = json.mc_status;
+   mc_error();
+   var ctp_data=json.ctp1+json.ctp2+json.ctp3+json.ctp4+json.ctp5+json.ctp6+json.ctp7+json.ctp8+json.ctp9+json.ctp10;
+    var ctp_data1=ctp_data.split('&#34;');
+    let result = ctp_data1.filter(item => item.includes('<%#TagSSI,st3_mc1%>,'));
+    // Create a new table element
+    if(onetime==0)
+    {
+var table = $("<table>");
+table.attr("id", "t1");
+table.attr("class", "qa_table");
+table.attr("width", "99%");
+table.attr("margin-left", "1%");
+// Create three rows with five cells in the first row, three in the second, and one in the third
+var length=result.length;
+var split_length=parseInt(length/2);
+var split_length1=length-split_length;
+var first_no=0;
+var second_no=0;
+if(split_length1>=split_length)
+{
+  first_no=split_length1;
+  second_no=split_length;
+}
+else
+{
+  first_no=split_length;
+  second_no=split_length1;
+}
+var ct_name=1;
+var ct_val=1;
+for (var i = 1; i <= 4; i++) {
+  var row = $("<tr>");
+  var numCols =0;
+ if((i==1)||(i==2))
+ {
+numCols=first_no;
+ }
+ else
+ {
+numCols=second_no;
+ }
+ 
+  for (var j = 1; j <= numCols; j++) {
+     if ((i==1)||(i==3))
+  {
+   row.attr("id", "tr1");
+   var cell = $("<th>");
+   cell.attr("width", "1%");
+   cell.text("Row " + i + ", Column " + j);
+   cell.attr("id", 'ctp'+ct_name+'_name'); 
+   ct_name++; 
+  }
+  else
+  {
+   row.attr("id", "tr2");
+   var cell = $("<td>");
+   cell.attr("width", "1%");
+   cell.text("Row " + i + ", Column " + j);
+   cell.attr("id", 'ctp'+ct_val+'_value');  
+   ct_val++; 
+  }
+    row.append(cell);
+  }
+  table.append(row);
+}
+// Add the table to the document
+$("#quality_table").append(table);
+   $('.qa_table td').click(function() {
+    
+      var a1 = $(this).attr('machine_name');
+      var a2 = $(this).attr('parameter_name');
+      var a3 =  $(this).attr('ref_id');
+      var a4 = $(this).attr('ctp_no');
+      var a5 = $(this).attr('shop_name');
+      var a6 = $(this).attr('product');
+      var a7 = $(this).attr('run_shift');
+      var entry_type = $(this).attr('par_type');
+      var a8 = $(this).attr('operator_name');
+      
+      if(entry_type==1)
+      {
+         var realtime_modal = document.getElementById("q_a_modal");
+   realtime_modal.style.display = "block";
+ document.getElementById("qa_iframe").innerHTML = "<iframe src=\"http://172.20.12.3/quality_operator/graph_online.php?"+a1+"###"+a2+"###"+a3+"###"+a4+"###"+a5+"###"+a6+"###"+a7+"###"+a8+"\" height=\"450\" width=\"100%\" ></iframe>";  
+      }
+      else
+      {
+         var shop_name = $(this).attr('shop_name');
+         var product = $(this).attr('product');
+          var realtime_modal = document.getElementById("q_a_modal");
+   realtime_modal.style.display = "block";
+ document.getElementById("qa_iframe").innerHTML = "<iframe src=\"http://172.20.12.3/quality_operator/graph_offline.php?"+a1+"###"+a2+"###"+a3+"###"+a4+"###"+a5+"###"+a6+"###"+a7+"###"+a8+"\" height=\"450\" width=\"100%\" ></iframe>";  
+      }
+  });
+        $('#sop2_qa').css('color','navy');
+onetime=1;
+}
+    for(var i=0;i<10;i++)
+    {
+      var it=i+1;
+      if(result[i]>='')
+      {
+         $('#ctp'+ it +'_name').show();
+         $('#ctp'+ it +'_value').show();
+      $('#ctp'+ it +'_name').html(result[i].split(",")[4])
+       $('#ctp'+ it +'_value').attr('parameter_name',result[i].split(",")[4]);
+         $('#ctp'+ it +'_value').attr('machine_name','<%#TagSSI,st3_mc1%>');
+     $('#ctp'+ it +'_value').attr('ref_id',json.out_pro_id);
+         $('#ctp'+ it +'_value').attr('ctp_no',result[i].split(",")[7]);
+          $('#ctp'+ it +'_value').attr('shop_name','<%#TagSSI,station1%>');
+          $('#ctp'+ it +'_value').attr('operator_name',json.operator);
+                 $('#ctp'+ it +'_value').attr('product',json.out_pro_code);
+         $('#ctp'+ it +'_value').attr('run_shift',json.shift);
+          document.getElementById('ctp'+ it +'_value').style.border="1px solid black";
+      
+      if(result[i].split(",")[5]==="Online sensor")
+      {
+        
+         $('#ctp'+ it +'_value').attr('par_type','1');
+   
+        
+      }
+      else
+      {
+       
+         $('#ctp'+ it +'_value').attr('par_type','0');
+        
+      }
+$('#ctp'+ it +'_value').html(parseFloat(result[i].split(",")[3]).toFixed(2)+"- "+parseFloat(result[i].split(",")[2]).toFixed(2)+" ["+parseFloat(result[i].split(",")[1]).toFixed(2)+"]");   
+      if (isNaN(parseFloat(result[i].split(",")[3]).toFixed(2)))
+      {
+         $('#ctp'+ it +'_value').html(''); 
+         $('#ctp'+ it +'_value').css('background-color','whitesmoke');
+         $('#ctp'+ it +'_value').css('color','white');  
+      }
+      else
+      {
+      $('#ctp'+ it +'_value').html(parseFloat(result[i].split(",")[3]).toFixed(2)+"- "+parseFloat(result[i].split(",")[2]).toFixed(2)+" ["+parseFloat(result[i].split(",")[1]).toFixed(2)+"]");   
+           if(parseFloat(result[i].split(",")[1]).toFixed(2)>0)
+      {
+         $('#ctp'+ it +'_value').css('background-color','red');
+         $('#ctp'+ it +'_value').css('color','whitesmoke');
+      }
+      else if((parseFloat(result[i].split(",")[1]).toFixed(2)==0)&&(parseFloat(result[i].split(",")[2]).toFixed(2)>0))
+      {
+           $('#ctp'+ it +'_value').css('background-color','yellow');
+         $('#ctp'+ it +'_value').css('color','black');
+      }
+      else if((parseFloat(result[i].split(",")[1]).toFixed(2)==0)&&(parseFloat(result[i].split(",")[2]).toFixed(2)==0))
+      {
+            $('#ctp'+ it +'_value').css('background-color','lime');
+         $('#ctp'+ it +'_value').css('color','black');
+      }
+      else
+      {
+          $('#ctp'+ it +'_value').css('background-color','whitesmoke');
+         $('#ctp'+ it +'_value').css('color','white');
+         
+      }
+        if(parseInt(result[i].split(",")[6])==0)
+      {
+        if(parseFloat(result[i].split(",")[1]).toFixed(2)>0)
+      {
+         var x = document.getElementById("quality_table");
+       if (x.style.display === "none") {
+            $("#sop2_qa").attr('class','blink');
+         $('#sop2_qa').css('background-color','red');
+         $('#sop2_qa').css('color','whitesmoke');
+         }
+         $('#ctp'+ it +'_value').attr('class','blink');
+         $('#ctp'+ it +'_value').css('background-color','red');
+         $('#ctp'+ it +'_value').css('color','whitesmoke');
+      }
+      else
+      {
+        $('#ctp'+ it +'_value').attr('class','no-blink'); 
+      } 
+      } 
+      else
+      {
+          $('#ctp'+ it +'_value').attr('class','no-blink');
+           var x = document.getElementById("quality_table");
+            if (x.style.display === "none") {
+            $("#sop2_qa").attr('class','no-blink');
+         $('#sop2_qa').css('background-color','#efefef');
+         $('#sop2_qa').css('color','navy');
+         }
+      }
+      } 
+      }
+      else
+      {
+         $('#ctp'+ it +'_name').hide();
+         $('#ctp'+ it +'_value').hide();
+      }
+      
+    }
+       var x = document.getElementById("quality_table");
+       if (x.style.display === "block") {
+            $("#sop2_qa").attr('class','no-blink');
+            $('#sop2_qa').css('background-color','#efefef');
+            $('#sop2_qa').css('color','navy');
+         }
+   if (json.trig == 1) {
+      if (json.manual == 1) {
+         if (json.set_speed == 0) {
+            $("#but_save1").show();
+            $("#but_sub1").hide();
+            $("#but_save2").show();
+            $("#but_sub2").hide();
+            $("#kgsubmit").hide();
+            $("#kgsubmit1").hide();
+            $("#kgsubmit2").hide();
+         } else {
+						  
+					   
+            $("#but_save1").hide();
+            $("#but_sub1").show();
+            $("#but_save2").hide();
+            $("#but_sub2").show();
+            $("#kgsubmit").show();
+            $("#kgsubmit1").show();
+            $("#kgsubmit2").show();
+         }
+      } else {
+				  
+					
+         $("#but_save1").hide();
+         $("#but_save2").hide();
+         $("#but_sub1").hide();
+         $("#but_sub2").hide();
+         $("#kgsubmit").hide();
+         $("#kgsubmit1").hide();
+         $("#kgsubmit2").hide();
+      }
+			   
+	
+   } else {
+					   
+      $("#but_sub1").hide();
+      $("#but_sub2").hide();
+      $("#kgsubmit").hide();
+      $("#kgsubmit1").hide();
+      $("#kgsubmit2").hide();
+   }
+   
+   if (json.reasonsave_pop == 1) {
+      $("#reasonsubmit").show();
+	
+   } else {
+      $("#reasonsubmit").hide();
+   }
+
+	//console.log("yes");
+	
+		var grade = json.grade;
+		view = json.view;
+		var a = json.o4;
+		var sp = json.o2;
+		sp = sp.toFixed(3);
+		document.getElementById("s2").innerHTML = sp;
+		var a = json.o3;
+		var value = a.toFixed(2);
+		document.getElementById("s3").innerHTML = value;
+		var a = json.o4;
+		var value = a.toFixed(2);
+		document.getElementById("s4").innerHTML = value;
+		var a = json.o5;
+		var value = a.toFixed(2);
+		document.getElementById("s5").innerHTML = value;
+		document.getElementById("s6").innerHTML = json.o7;
+		document.getElementById("s7").innerHTML = json.o6;
+		document.getElementById("s8").innerHTML = json.o8;
+		var value=parseFloat(json.real_kg);
+		document.getElementById("s9").innerHTML = value.toFixed(2);
+		document.getElementById("prev_ref_lb1").innerHTML = " Previous_Output ref Id : "+json.prev_out_pro_id;
+document.getElementById("prev_ref_lb2").innerHTML = " Previous_Output ref Id : "+json.prev_out_pro_id;
+		document.getElementById("kg11").innerHTML = json.kg;
+		document.getElementById("inp_code").innerHTML = json.inp;
+		document.getElementById("dtd1").innerHTML = 'Date:-' + json.date + "-/-" + 'Shift:-' + json.shift;;
+		document.getElementById("out_code1").innerHTML = json.out_pro_code;
+		document.getElementById("out_ref").innerHTML = json.out_pro_id;
+          quick_output_product = json.out_pro_code;                                     
+		document.getElementById("opt_checker").value = json.operator;
+		  document.getElementById("json_shift").value=json.shift;
+      document.getElementById("json_date").value=json.date;
+      document.getElementById("json_station").value="<%#TagSSI,station1%>";
+      document.getElementById("json_operator").value=json.operator;
+      document.getElementById("json_machine").value="<%#TagSSI,st3_mc1%>";
+      document.getElementById("json_inpqty").value=json.inputqty;
+    quick_d_slow1 = json.quick_d_slow;
+   quick_d_kg1 = json.quick_d_kg;
+   quick_mx_sp1 = json.quick_mx_sp;                                      
+		var speed = json.speed;
+		var set_speed = json.set_speed;
+		var zero_speed = json.zero_speed;
+		var d_time = json.d_time;
+			var run = json.run;					  
+   initial_down = d_time;
+   $("#quik_downtime").html(d_time.toFixed(2) + ' Min');
+       if(json.quick_start_time>"")
+		      {
+		      	quick_reason_start_time = json.quick_start_time; 
+		      } 
+		      else
+		      {
+		      	quick_reason_start_time = json.dtime; 
+		      } 
+   quick_date = json.date;
+   quick_shift = json.shift;
+   quick_machine = "<%#TagSSI,st3_mc1%>";
+   quick_operator = json.operator;
+   quick_grade = json.grade;
+   if (json.grade !== 'Nil') {
+      quick_grade = json.grade;
+   } else {
+      quick_grade = json.prev_grade;
+   }
+   quick_null_grade = json.grade;
+   quick_runtime = json.run_time;
+   quick_out_ref_id = json.out_pro_id;
+   quick_input_ref = json.inp;
+   quick_supplier = json.supplier;
+   quick_week = json.week;
+   quick_month = json.month;
+   quick_inp_code = json.input_product_no;
+					   
+   $("#waiting").html('Waiting For Reason Entry : ' + d_time + ' Min');				
+					if(grade=="Nil")
+		            {
+		            	$("#noplan_box").hide();
+		            }
+		            else
+		            {
+		            	$("#noplan_box").show();
+		            }                                                    
+   var run = json.run;
+   var modal1 = document.getElementById("myModal1");
+   $("#prev_kg2").val(json.out_pro_id);
+   $("#prev_kg1").val(json.out_pro_id);
+												   
+                                                   
+
+   if (grade != "Nil") {
+      real_kg1 = json.o9;
+      if (run == 1) {
+         if (((speed <= zero_speed) && (speed < set_speed)) || (d_time > 0)) {
+
+
+            modal1.style.display = "block";
+    
+            reason_val1 = json.major;
+
+            if (reason_val != reason_val1) {
+               document.getElementById("down_major").innerHTML = json.major;
+               $('#id_child').find('option').remove();
+               var opt = document.createElement('option');
+               opt.textContent = json.minor;
+               opt.value = json.minor;
+               $('#id_child').append(opt);
+               document.getElementById("id_child").value = json.minor;
+               $('#id_parent2').find('option').remove();
+               var opt = document.createElement('option');
+               opt.textContent = json.subminor;
+               opt.value = json.subminor;
+               $('#id_parent2').append(opt);
+               document.getElementById("id_parent2").value = json.subminor;
+               $('#id_child2').find('option').remove();
+               var opt = document.createElement('option');
+               opt.textContent = json.subsubminor;
+               opt.value = json.subsubminor;
+               $('#id_child2').append(opt);
+               document.getElementById("id_child2").value = json.subsubminor;
+               reason_val = reason_val1;
+               if ($('.largerCheckbox').prop('checked') == true) {
+                  $('.largerCheckbox').prop('checked', !$('.largerCheckbox').prop('checked'));
+                  $(".quick_input").val(0);
+                  $(".quick_input").css("border", "1px solid");
+               }
+               var modal_quick = document.getElementById("quick_reason_modal");
+               modal_quick.style.display = "none";
+            }
+         } else {
+            modal1.style.display = "none";
+         }
+    
+
+      }
+     
+   } else {
+      modal1.style.display = "none";
+   
+    
+   }
+   var op_modal = document.getElementById("operator_modal");
+   if (json.operator_pop == 1) {
+      document.getElementById("opt_lavel").innerHTML = "Please Select Operator Name for Shift :-" + json.shift;
+      op_modal.style.display = "block";
+
+   } else {
+      op_modal.style.display = "none";
+   }
+ 
+  var chat1 = ""
+   var chat = []
+   if (view > "") {
+      chat = view.split(',');
+      chat1 = "New Message:-" + chat[0] + "-" + "Sender:-" + chat[2] + " - " + "Thread:-" + chat[4] + "  -  " + " Msg:- " + chat[3];
+   }
+   if (json.downtime_submit > "") {
+               
+      chat1 = json.downtime_submit;
+   }
+   $('#chat').val(chat1);
+   $('#chat1').val(chat1);
+                                                                                         
+                                                                        
+																		
+   if ((speed / set_speed) * 100 >= json.speed_usl) {
+      $('#si2').css({
+         "background-color": "#4cff85",
+         "color": "black",
+         "font-weight": "Bold"
+      });
+   } else if ((speed / set_speed) * 100 <= json.speed_lsl) {
+      $('#si2').css({
+         "background-color": "#FF4C4C",
+         "color": "black",
+         "font-weight": "Bold"
+      });
+   } else {
+      $('#si2').css({
+         "background-color": "#fcff4c",
+         "color": "black",
+         "font-weight": "Bold"
+      });
+   }
+                                                                        
+																		
+                                                                       
+																	   
+   if ((json.o3 / json.target_up) * 100 <= json.target_lsl) {
+      $('#si3').css({
+         "background-color": "#FF4C4C",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+
+   } else if ((json.o3 / json.target_up) * 100 >= json.target_usl) {
+      $('#si3').css({
+         "background-color": "#4cff85",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+
+   } else {
+      $('#si3').css({
+         "background-color": "#fcff4c",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+   }
+                                                                      
+                                                                       
+   if ((json.p_kg / json.ac_target) * 100 <= json.kg_lsl) {
+      $('#si9').css({
+         "background-color": "#FF4C4C",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+   } else if ((json.p_kg / json.ac_target) * 100 >= json.kg_usl) {
+
+      $('#si9').css({
+         "background-color": "#4cff85",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+   } else {
+      $('#si9').css({
+         "background-color": "#fcff4c",
+         "color": "black",
+
+         "font-weight": "Bold"
+      });
+
+   }
+																	  
+                                                                      
+																						 
+                                                                                         
+
+ 
+
+   setTimeout("GetTagValues()", 2000);
+
+}
+
+function TagValuesError() {
+   wifi_error();                     
+   GetTagValues();
+
+}
+$(document).ready(function () {
+   GetTagValues();
+});
+
+
+
+
+
+
+var e1;
+var e2;
+var e3;
+var e4;
+
+function val(x) {
+   var d = document.getElementById('major_re' + x).innerHTML;
+   document.getElementById("down_major").innerHTML = d;
+   e1 = d;
+   var shift = [];
+   var operator = [];
+   var cars = [];
+   var ab = [];
+ 
+ 
+   $('#id_child')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select Minor Reason</option>')
+      .val('');
+ 
+   $('#id_child2')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select sub sub Minor Reason</option>')
+      .val('');
+ 
+   $('#id_parent2')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select Sub Minor Reason</option>')
+      .val('');
+ 
+   // Push column data into data list
+   for (var i = 1; i < downtime_reason.length; i++) {
+      shift[i] = downtime_reason[i][5];
+
+      cars[i] = downtime_reason[i][3];
+      var name = downtime_reason[i][3];
+   }
+   for (var i = 0; i < shift.length; i++) {
+      var n = d.localeCompare(cars[i]);
+      if (n == 0) {
+         ab[i] = shift[i];
+
+      }
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      var option = document.createElement("OPTION"),
+         txt = document.createTextNode(ab[i]);
+      option.appendChild(txt);
+      option.setAttribute("value", ab[i]);
+      id_child.insertBefore(option, id_child.lastChild);
+   }
+   if (ab.length == 1) {
+      document.getElementById("id_child").value = ab[0];
+      val1();
+   }
+}
+function val1() {
+   reason_check = 1;
+   var d = document.getElementById("id_child").value;
+   e2 = d;
+
+   var shift = [];
+   var operator = [];
+   var cars = [];
+   var cars1 = [];
+   var ab = [];
+   $('#id_child2')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select sub sub Minor Reason</option>')
+      .val('');
+ 
+   $('#id_parent2')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select Sub Minor Reason</option>')
+      .val('');
+ 
+ 
+ 
+                                   
+   for (var i = 1; i < downtime_reason.length; i++) {
+      shift[i] = downtime_reason[i][7];
+      cars[i] = downtime_reason[i][5];
+      cars1[i] = downtime_reason[i][3];
+      var name = downtime_reason[i][5];
+   }
+   for (var i = 0; i < shift.length; i++) {
+
+      var n = e2.localeCompare(cars[i]);
+      var m1 = e1.localeCompare(cars1[i]);
+      if ((n == 0) && (m1 == 0)) {
+         ab[i] = shift[i];
+
+      }
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      var option = document.createElement("OPTION"),
+         txt = document.createTextNode(ab[i]);
+      option.appendChild(txt);
+      option.setAttribute("value", ab[i]);
+      id_parent2.insertBefore(option, id_parent2.lastChild);
+   }
+   if (ab.length == 1) {
+      document.getElementById("id_parent2").value = ab[0];
+      val2();
+   }
+}
+function val2() {
+   var d = document.getElementById("id_parent2").value;
+   e3 = d;
+
+   var shift = [];
+   var operator = [];
+   var cars = [];
+   var cars1 = [];
+   var cars2 = [];
+
+
+   var ab = [];
+   $('#id_child2')
+      .find('option')
+      .remove()
+      .end()
+      .append('<option value="">Select sub sub Minor Reason</option>')
+      .val('');
+ 
+ 
+ 
+                                   
+   for (var i = 1; i < downtime_reason.length; i++) {
+      shift[i] = downtime_reason[i][8];
+      cars[i] = downtime_reason[i][7];
+      cars1[i] = downtime_reason[i][3];
+      cars2[i] = downtime_reason[i][5];
+
+   }
+   for (var i = 0; i < shift.length; i++) {
+      var n = e3.localeCompare(cars[i]);
+      var n2 = e1.localeCompare(cars1[i]);
+      var n3 = e2.localeCompare(cars2[i]);
+
+
+      if ((n == 0) && (n2 == 0) && (n3 == 0)) {
+         ab[i] = shift[i];
+
+      }
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+   }
+   for (var i = 0; i < ab.length; i++) {
+      var option = document.createElement("OPTION"),
+         txt = document.createTextNode(ab[i]);
+      option.appendChild(txt);
+      option.setAttribute("value", ab[i]);
+      id_child2.insertBefore(option, id_child2.lastChild);
+   }
+   if (ab.length == 1) {
+      document.getElementById("id_child2").value = ab[0];
+   }
+}
+// function for quick reason  
+function reset_val_reason() { 
+      var main_value = initial_down;      
+      var sum = 0;      
+      for (var i = 1; i < 11; i++) {      
+            if (i !== key_var) {    
+                  if ($("#quick_reason_downtime" + i).val() !== "") {   
+                        sum = sum + parseFloat($("#quick_reason_downtime" + i).val());    
+                  }     
+            }     
+      }     
+      var actual_value = initial_down - sum;    
+      $("#quick_reason_downtime" + key_var).val(actual_value);    
+}
+
+function quick_reason1() {          
+      var modal = document.getElementById("quick_reason_modal");        
+      var btn = document.getElementById("clo_reason");            
+      modal.style.display = "block";            
+      btn.onclick = function () {         
+            modal.style.display = "none";       
+      }           
+}           
+var quick_from_time = [];           
+var quick_to_time = [];       
+var quick_major=[];           
+var quick_reason_time=[];           
+function quick_time_assign() {
+   quick_from_time = [];
+   quick_to_time = [];
+   quick_reason = [];
+   quick_reason_time = [];
+   var initial_time = "";
+   var quick_alert = 0;
+   var i = 0;
+   var reason_list_array = ['<%#TagSSI,reason_list1%>', '<%#TagSSI,reason_list2%>', '<%#TagSSI,reason_list3%>', '<%#TagSSI,reason_list4%>', '<%#TagSSI,reason_list5%>', '<%#TagSSI,reason_list6%>', '<%#TagSSI,reason_list7%>', '<%#TagSSI,reason_list8%>', '<%#TagSSI,reason_list9%>', '<%#TagSSI,reason_list10%>'];
+   $('.largerCheckbox').each(function (key) {
+      if ($(this).prop('checked') == true) {
+         var ket1 = key + 1;
+         token = ket1;
+         token++;
+         if ($("#quick_reason_downtime" + ket1).val() == "") {
+            $("#quick_reason_downtime" + ket1).val(0);
+         }
+         if (quick_null_grade == 'Nil') {
+            $("#quick_reason_downtime" + ket1).val(0);
+            if (quick_from_time.length == 0) {
+               quick_from_time[0] = quick_reason_start_time;
+               var split_time = quick_from_time[0].split(" ");
+               var split_time1 = split_time[0].split("/");
+               var get_time = split_time1[2] + "/" + split_time1[1] + "/" + split_time1[0] + " " + split_time[1];
+               var now = new Date(get_time);
+               var next = AddMinutesToDate(now, 0);
+               var plus1_time = parseInt(initial_down);
+               var next1 = AddMinutesToDate(now, plus1_time);
+               quick_to_time[i] = DateFormat(next1);
+               quick_from_time[i + 1] = DateFormat(next1);
+               quick_major[i] = reason_list_array[key];
+               quick_reason_time[i] = $("#quick_reason_downtime" + ket1).val();
+               if ($("#quick_reason_downtime" + ket1).val() == 0) {
+                  quick_alert++;
+               }
+               i++;
+               quick_from_time[0] = DateFormat(next1);
+            } else {
+               var split_time = quick_to_time[i - 1].split(" ");
+               var split_time1 = split_time[0].split("/");
+               var get_time = split_time1[2] + "/" + split_time1[1] + "/" + split_time1[0] + " " + split_time[1];
+               var now = new Date(get_time);
+               var next = AddMinutesToDate(now, 0);
+               var plus1_time = parseInt($("#quick_reason_downtime" + ket1).val());
+               var next1 = AddMinutesToDate(now, plus1_time);
+               quick_to_time[i] = DateFormat(next);
+               quick_from_time[i + 1] = DateFormat(next1);
+               quick_major[i] = reason_list_array[key];
+               quick_reason_time[i] = $("#quick_reason_downtime" + ket1).val();
+               if ($("#quick_reason_downtime" + ket1).val() == 0) {
+                  quick_alert++;
+               }
+               i++;
+            }
+         } else {
+            if (quick_from_time.length == 0) {
+               quick_from_time[0] = quick_reason_start_time;
+               var split_time = quick_from_time[0].split(" ");
+               var split_time1 = split_time[0].split("/");
+               var get_time = split_time1[2] + "/" + split_time1[1] + "/" + split_time1[0] + " " + split_time[1];
+               var now = new Date(get_time);
+               var next = AddMinutesToDate(now, $("#quick_reason_downtime" + ket1).val());
+               var plus1_time = parseInt($("#quick_reason_downtime" + ket1).val());
+               var next1 = AddMinutesToDate(now, plus1_time);
+               quick_to_time[i] = DateFormat(next);
+               quick_from_time[i + 1] = DateFormat(next1);
+               quick_major[i] = reason_list_array[key];
+               quick_reason_time[i] = $("#quick_reason_downtime" + ket1).val();
+               if ($("#quick_reason_downtime" + ket1).val() == 0) {
+                                    
+                  quick_alert++;
+               }
+               i++;
+            } else {
+               var split_time = quick_to_time[i - 1].split(" ");
+               var split_time1 = split_time[0].split("/");
+               var get_time = split_time1[2] + "/" + split_time1[1] + "/" + split_time1[0] + " " + split_time[1];
+               var now = new Date(get_time);
+               var next = AddMinutesToDate(now, $("#quick_reason_downtime" + ket1).val());
+               var plus1_time = parseInt($("#quick_reason_downtime" + ket1).val());
+               var next1 = AddMinutesToDate(now, plus1_time);
+               quick_to_time[i] = DateFormat(next);
+               quick_from_time[i + 1] = DateFormat(next1);
+               quick_major[i] = reason_list_array[key];
+               quick_reason_time[i] = $("#quick_reason_downtime" + ket1).val();
+               if ($("#quick_reason_downtime" + ket1).val() == 0) {
+                                    
+                  quick_alert++;
+               }
+               i++;
+            }
+         }
+      }
+   });
+   if (quick_alert >= 0) {
+				  
+                  
+                  
+                                                            
+      if (quick_null_grade != "Nil") {
+         var total = 0;
+         $.each(quick_reason_time, function () {
+            total += parseInt(this);
+         });
+         if (total < initial_down.toFixed(0)) {
+            var split_time = quick_from_time[quick_to_time.length - 1].split(" ");
+            var split_time1 = split_time[0].split("/");
+            var get_time = split_time1[2] + "/" + split_time1[1] + "/" + split_time1[0] + " " + split_time[1];
+            var now = new Date(get_time);
+            var next = AddMinutesToDate(now, initial_down.toFixed(0) - total);
+            var plus1_time = parseInt(initial_down.toFixed(0) - total);
+            var next1 = AddMinutesToDate(now, plus1_time);
+            quick_to_time[quick_to_time.length - 1] = DateFormat(next);
+            quick_reason_time[quick_to_time.length - 1] = parseFloat(quick_reason_time[quick_to_time.length - 1])+parseFloat(initial_down.toFixed(0) - total);
+         }
+      } else {
+     
+         document.getElementById("d_time_val").value = initial_down;
+         document.getElementById("quick_start_id").value = quick_reason_start_time;
+      }
+      for (var i = 0; i < quick_to_time.length; i++) {
+         var quick_line_master = quick_date + "," + quick_shift + ",<%#TagSSI,st3_mc1%>," + quick_operator + "," + parseInt(quick_reason_time[i]) + "," + quick_from_time[i] + "," + quick_to_time[i] + "," + quick_major[i] + "," + quick_grade + ",0," + quick_input_ref + "," + quick_out_ref_id + "," + quick_supplier + "," + quick_week + "," + quick_month + "," + quick_inp_code + ",0,0,0";
+         if (i == 0) {
+            quick_line_master = quick_date + "," + quick_shift + ",<%#TagSSI,st3_mc1%>," + quick_operator + "," + parseInt(quick_reason_time[i]) + "," + quick_from_time[i] + "," + quick_to_time[i] + "," + quick_major[i] + "," + quick_grade + "," + quick_runtime + "," + quick_input_ref + "," + quick_out_ref_id + "," + quick_supplier + "," + quick_week + "," + quick_month + "," + quick_inp_code + "," + quick_d_slow1 + "," + quick_d_kg1 + "," + quick_mx_sp1;
+         }
+         var quick_line_machine = quick_date + "," + quick_shift + "," + quick_operator + "," + parseInt(quick_reason_time[i]) + "," + quick_from_time[i] + "," + quick_to_time[i] + "," + quick_major[i];
+         var major_split = quick_major[i].split(',');
+         var quick_line_live = "<%#TagSSI,st3_mc1%>," + major_split[0] + "," + parseInt(quick_reason_time[i]);
+         $("#live_quick_" + i).val(quick_line_live);
+         $("#machine_" + i).val(quick_line_machine);
+         $("#master_" + i).val(quick_line_master);
+      }
+      if (quick_to_time.length == i) {
+                 
+         var id = i - 1;
+         var quick_reason_split_task = ($("#master_" + id).val()).split(",");
+         document.getElementById("show_last_reason").value = "Last Downtime reason :" + quick_reason_split_task[7] + "," + quick_reason_split_task[8] + "," + quick_reason_split_task[9] + "," + quick_reason_split_task[10] + ", @ " + quick_reason_split_task[6];
+      }
+      if (quick_to_time.length > 0) {
+         $('#quick_form_submit').submit();
+      }
+   } else {
+				  
+                  
+                  
+   }
+}
+function AddMinutesToDate(date, minutes) {
+   return new Date(date.getTime() + minutes * 60000);
+}
+function DateFormat(date) {
+   var days = date.getDate();
+   var year = date.getFullYear();
+   var month = (date.getMonth() + 1);
+   var hours = date.getHours();
+   var minutes = date.getMinutes();
+   var seconds = date.getSeconds();
+   days = days < 10 ? '0' + days : days;
+   month = month < 10 ? '0' + month : month;
+   hours = hours < 10 ? '0' + hours : hours;
+   minutes = minutes < 10 ? '0' + minutes : minutes;
+   seconds = seconds < 10 ? '0' + seconds : seconds;
+   var strTime = days + '/' + month + '/' + year + ' ' + hours + ':' + minutes + ":" + seconds;
+   return strTime;
+}
+                        
+                                          
+
+						
+										  
+$(document).ready(function () {
+                                
+								
+   var reason_button_name_array = ['<%#TagSSI,reason_button_name1%>', '<%#TagSSI,reason_button_name2%>', '<%#TagSSI,reason_button_name3%>', '<%#TagSSI,reason_button_name4%>', '<%#TagSSI,reason_button_name5%>', '<%#TagSSI,reason_button_name6%>', '<%#TagSSI,reason_button_name7%>', '<%#TagSSI,reason_button_name8%>', '<%#TagSSI,reason_button_name9%>', '<%#TagSSI,reason_button_name10%>'];
+   for (var i = 0; i < reason_button_name_array.length; i++) {
+       
+      if ((reason_button_name_array[i] == "--") || (reason_button_name_array[i] == "N/A")) {
+			 
+             
+         $("#quick_tr" + i).hide();
+      }
+   }
+      
+   $("#error_log_quick1").css("display", "none");
+   $(document).on('click', '.largerCheckbox', function () {
+      var error_log = 0;
+      $('.largerCheckbox').each(function (key) {
+         if ($(this).prop('checked') == true) {
+            if (quick_null_grade !== 'Nil') {
+               let s = new Set(quick_reason_array);
+               if (s.size == 1) {
+                  var ket = key + 1;
+                  key_var = ket;
+                  $("#quick_reason_downtime" + ket).val(initial_down);
+                  $("#quick_reason_downtime" + ket).attr("readonly", true);
+                  quick_reason_array[key] = initial_down;
+                  if (initial_down == 0) {
+                               
+                     $("#quick_reason_downtime" + ket).css("border", "2px solid red");
+                     error_log++;
+                  } else {
+                                  
+                               
+                     $("#quick_reason_downtime" + ket).css("border", "1px solid");
+                  }
+						 
+                         
+               } else {
+                         
+                  var ket = key + 1;
+                  if ($("#quick_reason_downtime" + ket).val() == 0) {
+							   
+                               
+                     $("#quick_reason_downtime" + ket).css("border", "2px solid red");
+                     error_log++;
+                  } else {
+                  }
+								  
+							   
+                                  
+							   
+                               
+               }
+            } else {
+               var ket = key + 1;
+               key_var = ket;
+               $("#quick_reason_downtime" + ket).attr("readonly", true);
+            }
+                        
+         } else {
+            quick_reason_array[key] = 0;
+            var ket1 = key + 1;
+            $("#quick_reason_downtime" + ket1).css("border", "1px solid");
+            $("#quick_reason_downtime" + ket1).attr("readonly", false);
+            var get_sum = parseFloat($("#quick_reason_downtime" + key_var).val()) + parseFloat(document.getElementById("quick_reason_downtime" + ket1).value);
+            $("#quick_reason_downtime" + key_var).val(get_sum);
+            document.getElementById("quick_reason_downtime" + ket1).value = 0;
+
+         }
+      });
+      if (error_log > 0) {
+             
+                                                          
+             
+                
+             
+         $("#error_log_quick1").css("display", "none");
+      } else {
+				
+			 
+         $("#error_log_quick1").css("display", "none");
+      }
+            
+   })
+   $("input[type='number']").on("input", function () {
+      var main_value = initial_down;
+      var sum = 0;
+      for (var i = 1; i < 11; i++) {
+         if (i !== key_var) {
+            if ($("#quick_reason_downtime" + i).val() !== "") {
+               if ($("#quick_reason_check_box" + i).is(":checked") == true) {
+							   
+                               
+                                    
+                  if (($("#quick_reason_downtime" + i).val() == 0) || ($("#quick_reason_downtime" + i).val() == "")) {
+                                     
+                     $("#error_log_quick1").css("display", "none");
+                     $("#quick_reason_downtime" + i).css("border", "2px solid red");
+                  } else {
+                                     
+                                        
+                                     
+									 
+                     $("#error_log_quick1").css("display", "none");
+                     $("#quick_reason_downtime" + i).css("border", "1px solid");
+                                          
+                  }
+                  sum = sum + parseFloat($("#quick_reason_downtime" + i).val());
+
+               }
+            }
+         }
+      }
+      var actual_value = initial_down - sum;
+      if (actual_value < 1) {
+         $(this).val(0);
+         reset_val_reason();
+      } else {
+         $("#quick_reason_downtime" + key_var).val(actual_value);
+      }
+   });
+}); 
+
+
+//End
+//   quality js
+function qa_div_hide() {
+  var x = document.getElementById("quality_table");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  
+            $("#sop2_qa").attr('class','no-blink');
+            $('#sop2_qa').css('background-color','#efefef');
+            $('#sop2_qa').css('color','navy');
+  } else {
+    x.style.display = "none";
+ 
+  }
+}
+</script>
+
+<body id="body">
+   <div>
+      <table style="width: 100%;
+         border-right-style: dashed;
+         color:
+         whitesmoke;
+         text-align: center;
+         font-family: Arial initial;
+         background: #7b2020;font-variant: initial;
+         border-radius: 4px;
+         padding-left: 10px;
+         padding-right: 10px;
+         height: 51px;
+         font-size: 18px;
+         font-weight: bolder;">
+         <tr >
+            <td colspan="2" style="text-align: left;padding-top: 0px;">
+               <label style="font-size: 22px;"> Shop: <%#TagSSI,station1%></label> 
+               <label style="font-size: 22px;">Machine:<%#TagSSI,st3_mc1%></label>
+               <br> 
+               <label id="dtd1" style="font-size: 22px;"></label>
+               <table style="width: max-content;    float: right;    margin-top: -20px;">
+              <tr style="background: #efefef">
+                     <td style="border-radius: 0px;padding-left: 20px;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: navy;line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;    max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;appearance: none;background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;    background-size: .65em auto, 100%;height: 35px;font-size: 15px;text-align: inherit;background-color: #efefef;">Select Operator Name</td>
+                     <td style="width:33%">
+                        <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="oper_but" type="button" style="white-space: nowrap;transition: all .2s ease-out, color .2s ease-out;cursor: pointer;font-family: Bookman, URW Bookman L, serif; font-weight: 700;color: #444;line-height: 0px;padding: .6em 1.4em .5em .8em; box-sizing: border-box; margin: 0;border: 0px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%); appearance: none;background-color: #fff;background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;    background-size: .65em auto, 100%; height: 35px; font-size: 15px;" data-toggle="dropdown" >Operator Name  <span class="caret"></span></button>
+                           <ul id="ult1" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;">
+                              <input class="form-control" id="myInput" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                     </td>
+                     <td style="width:33%">
+                        <button style="border-radius: 0px;padding-left: 20px;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: navy;line-height: 0;padding: .6em 1.4em .5em .8em;max-width: 100%;    box-sizing: border-box;margin: 0;border: 0px solid #aaa;appearance: none;background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 35px;font-size: 15px;background-color: #efefef;float: right;width: 136px;text-align: center;" class="button" onclick="operator1();">Save</button>
+                     </td>
+                     <td>  <button style="border-radius: 0px;padding-left: 20px;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: navy;line-height: 1.3;padding: .6em 1.4em .5em .8em;  max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;appearance: none;background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;    background-size: .65em auto, 100%;height: 37px;font-size: 15px;background-color: #efefef;float: right;margin-top: 1.5px;width: 136px;text-align: center;" onclick="thread();">Chat</button>   </td>
+		   
+                  </tr>
+               </table>
+            <form style="float: right;height: auto;margin: 0px; padding: 0px;" id="operator_sub1"  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+              <input type="hidden" name="TagName1" value="operator1">
+              <input id="op12" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue1" autocomplete="off" size="20" value="<%#TagSSI,operator1%>" required>
+              <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+            </form>
+          </td>
+        </tr>
+        <tr style="height: 35px;">
+          <td style="width: 80%;">
+            <textarea id="chat" style="width: 100%;margin-bottom: 0px;padding: 6px;font-size: 15px;font-weight: bold;color: initial;height:41px;" rows="1" cols="50" maxlength="200" readonly ></textarea>
+          </td>
+          <td style="width:1%;"><button id="sop2_qa" style="width:max-content;height: 41px;" onclick="qa_div_hide();"  >Quality Live</button></td>
+        </tr>
+      </table>
+    </div>
+   
+    <div id="json_modal" class="modal" style="background: white;z-index: 100;padding-top: 0px;">
+      <!-- Modal content -->
+      <div class="modal-content" style="background-color: silver;  width: 100%;padding:0px;height:100%;">
+       
+        <table>
+          <tr>
+            <td><input type="text" id="json_date" name=""></td>
+            <td><input type="text" id="json_shift" name=""></td>
+            <td><input type="text" id="json_machine" name=""></td>
+            <td><input type="text" id="json_operator" name=""></td>
+            <td><input type="text" id="json_station" name=""></td>
+            <td><input type="text" id="json_inpqty" name=""></td>
+            <input id="ctpdata" value="" >
+          </tr>
+        </table>
+       
+      </div>
+    </div>
+    <div id="operator_modal" class="modal" style="background: white;z-index: 100;padding-top: 0px;">
+      <!-- Modal content -->
+      <div class="modal-content" style="background-color: silver;  width: 100%;padding:0px;height:100%;">
+        <form style=" " id="operat_modal"  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+          <center style="padding-top: 20px;">
+            <LABEL style="   font-size: 40px;    color: maroon;    font-variant: all-small-caps;    height: 50px;"  id="opt_lavel"> <u> Please select Operator Name</u> </LABEL>
+            <div class="dropdown" style="margin-top: 20px; ">
+              <button class="btn btn-secondary dropdown-toggle" id="oper_but2" type="button" style="    white-space: nowrap;
+                transition: all .2s ease-out, color .2s ease-out;
+                cursor: pointer;
+                font-family: 'Poppins', sans-serif;
+                color: whitesmoke;
+                text-align: center;
+                font-size: 40px;
+                background-color: #8c9cbf;
+                background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+                font-variant: initial;
+                font-weight: inherit;
+                margin-top: 0px;
+                border: 2px solid;
+                border-radius: 4px;
+                height: auto;
+                width: 60%;" data-toggle="dropdown" >Operator Name  <span class="caret"></span></button>
+              <ul id="ult3" class="dropdown-menu"style="width: 60%; left: 20%;   overflow: scroll;    height: 300px;    font-size: 25px;">
+                <input class="form-control" id="myInput3" style="position: sticky;top: 0px; height: 40px; font-size: 25px;"  autocomplete="off" type="text" placeholder="Search..">
+              </ul>
+            </div>
+          </center>
+          <input type="hidden" name="TagName1" value="operator1">
+          <input id="op_shift12" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue1" autocomplete="off" size="20" value="" >
+          <input type="hidden" name="TagName2" value="Opt_pop_mc1">
+          <input  style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue2" autocomplete="off" size="20" value="0" required>
+          <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+        </form>
+        <center>
+          <button onclick="shift_opt();" style="    width: 30%;
+            height: 58px;
+            white-space: nowrap;
+            border-radius: .5px;
+            transition: all .2s ease-out, color .2s ease-out;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            color: whitesmoke;
+            text-align: center;
+            font-size: 28px;
+            background: #7b2020;
+            font-variant: initial;
+            font-weight: inherit;
+            margin-top: 20px;">Submit</button>
+        </center>
+        <input type="text" id="opt_checker" name="" value="" style="width: 0px; height: 0px;visibility: hidden;">
+      </div>
+    </div>
+    <div id="thread_modal" class="modal" style="background: transparent;">
+      <!-- Modal content -->
+      <div class="modal-content" style="width: 870px;padding:0px;height:auto;">
+        <header style="white-space: nowrap;
+          border-radius: .5px;
+          transition: all .2s ease-out, color .2s ease-out;
+          font-family: 'Poppins', sans-serif;
+          color:
+          whitesmoke;
+          background-color:
+          #8c9cbf;
+          background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+          font-variant: initial;
+          font-weight: inherit;
+          padding: 5px;
+          font-size: 9px;
+          width: -webkit-available;height:35px;">
+          <label class="lab1" style="font-size: 13px;
+            font-weight: bold;
+            color:
+            white;
+            white-space: nowrap;
+            font-family: 'Poppins',sans-serif;">Hi: <%#TagSSI,operator1%></label>
+          <button id="clo1"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;">X</button>
+        </header>
+        <div style="height:460px; background: white;padding-top: 4px;padding-bottom: 4px;">
+          <iframe style="width: 100%;height: inherit;" src="chat3.shtm"></iframe>
+        </div>
+        <footer style="height:20;background:#930707;padding-top: 4px;padding-bottom: 4px;">
+          <table style="width: 100%">
+            <tr>
+              <td style="width: 25%"></td>
+              <td style="width: 25%"></td>
+              <td style="width: 25%"></td>
+            </tr>
+          </table>
+        </footer>
+      </div>
+    </div>
+   
+    <div id="quality_table" style="display:none;">
+      <label style="color: white;font-size: 18px;background: maroon;width: 100% !important;display: block;padding-bottom: 5px;padding-top: 5px;padding-right: 30px;text-align: right;"><span style="padding-top:2px;float: left;font-size: 14px;">**Note: Data in Below Table: Current Value- Samples outside ctrl limit [Samples outside spec. limit]</span><span>Quality Live</span></label>
+   
+    </div>
+     <label style="color: white;font-size: 18px;background: maroon;width: 100% !important;display: block;padding-bottom: 5px;padding-top: 5px;padding-right: 30px;text-align: right;">Production Live</label>
+    <table id="t1" style="
+      width: 95%;
+      
+                              
+                            
+                                        
+                                 
+                               
+                             
+                                   
+                               
+                                
+                            
+      padding: 8px;
+      margin: 1%;    margin-top: 2px;">
+      <tr id="tr1">
+        <th style="font-size:23px;padding: 0px;">Input Ref. id</th>
+        <th style="font-size:23px;padding: 0px;">Output Product code</th>
+        <th style="font-size:23px;padding: 0px;">Output Ref. Id</th>
+        <th style="font-size:23px;padding: 0px;">Machine Speed</th>
+      </tr>
+      <tr id="tr2">
+        <td style="font-size:23px;padding: 0px;">
+          <span id="inp_code"></span>
+        </td>
+        <td style="font-size:23px;padding: 0px;">
+          <span id="out_code1"></span>
+        </td>
+        <td style="font-size:23px;padding: 0px;">
+          <span id="out_ref"></span>
+        </td>
+        <td style="font-size:23px;padding: 0px;" id="si2"><span id="s2" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >M/S </span></td>
+      </tr>
+      <tr id="tr3">
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="tr1">
+        <th style="font-size:23px;padding: 0px;">Uptime</th>
+        <th style="font-size:23px;padding: 0px;">SLOW SPEED</th>
+        <th style="font-size:23px;padding: 0px;">DOWNTIME</th>
+        <th style="font-size:23px;padding: 0px;">shift (Weight) </th>
+      </tr>
+      <tr id="tr2">
+        <td id="si3" style="font-size:20px;padding: 0px;"><span id="s3" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >% </span></td>
+        <td id="si4" style="font-size:20px;padding: 0px;"><span id="s4" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >%</span></td>
+        <td id="si5" style="font-size:20px;padding: 0px;"><span id="s5" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >%</span></td>
+        <td id="si9" style="font-size:20px;padding: 0px;"><span id="s9" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" ></span></td>
+      </tr>
+      <tr id="tr2" style="padding-bottom: 0px;display: contents;">
+        <td style="font-size:20px;padding: 0px;" id="si6"><span id="s6" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >Min.</span></td>
+        <td style="font-size:20px;padding: 0px;" id="si7"><span id="s7" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >Min.</span></td>
+        <td style="font-size:20px;padding: 0px;" id="si8"><span id="s8" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" >Min.</span></td>
+        <td style="font-size:20px;padding: 0px;" id="kgi11"><span id="kg11" > </span ><span style="margin-left: 10px;font-variant: petite-caps;font-size: 23px;" ></span></td>
+      </tr>
+    </table>
+   <!-- The Modal -->
+   <div id="myModal" class="modal" style="padding-top: 10px; background: whitesmoke;">
+      <!-- Modal content -->
+      <div class="modal-content" style="margin: auto;padding: 20px;border: 0px solid lightseagreen;width: 95%;background: whitesmoke;position: initial;">
+         <div id="pop_main1" class="row" style="overflow: visible;height: 100%; width: 100%; ">
+            <button id="clo2"  style="width: 45px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px;float: right;">X</button>
+            <br><br><br><br><br>
+            <center><button class="pop_but" onclick="pop_sub1();">Incoming Material Details</button>
+               <br>
+               <button class="pop_but" onclick="pop_sub2();">Outgoing Material Details</button>
+            </center>
+         </div>
+         <div id="pop_sub1" class="row" style="width: 100%;">
+            <center>
+               <label class="pop_label"style="font-size: 25px; height: auto;">Incoming Material Details</label>
+               <button onclick="pop_main1();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+            </center>
+            <center>
+               <table id="t21" style=" color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                  <tr>
+                     <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Supplier Name:
+                     </th>
+                  </tr>
+                  <tr>
+                     <td colspan="2" >
+                     	    <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="supplier_dropdown1" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,sup1%></button>
+                           <ul id="supplier_drop1" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="supplier_inp1" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                       
+                     </td>
+                  </tr>
+                  <tr>
+                    <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Input Product Code:
+                     </th>
+                  </tr>
+                  <tr>
+                     <td colspan="2">
+                     	<div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="inputproductcode_dropdown1" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,in_pr_co1%></button>
+                           <ul id="inputproductcode_drop1" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="inputproductcode_inp1" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                   <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Input Ref. id:
+                     </th>
+                  </tr>
+                  <tr >
+                     <td colspan="2">
+                        <input class="pop_input" id="coil_run" onkeyup="alphaMobile_New(event);" autocomplete="off" value="<%#TagSSI,op_coil1%>"style="font-size: 25px; height: auto;">
+                     </td>
+                  </tr>
+                  <tr>
+                     <th style="font-size: 25px; height: auto;">
+                        Input Quantity:
+                     </th>
+                      <td>
+                        <input class="pop_input"  oninput="restrict(this);" id="inp_qty1"    size="50" value="<%#TagSSI,wd1_inp_qty%>"  required style="font-size: 25px; height: auto;">
+                     </td>
+                  </tr>
+                  </table>
+            </center>
+            <button class="pop_but_sub" onclick="input_sub();" style="margin-top: 10px;float: right;width: 300px;margin-right: 30px;" >Submit</button>
+            <form  id ="pop_input_enter1"style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+               <input type="hidden" name="TagName1" value="in_pr_co1">
+               <input style="width: 1px; height: 1px;visibility: hidden;" id="pop_inp_pro1"   name="TagValue1" size="50" value="<%#TagSSI,in_pr_co1%>"  required>
+               <input type="hidden" name="TagName2" value="sup1">
+               <input  style="width: 1px; height: 1px;visibility: hidden;" id="pop_sup_1"  name="TagValue2" size="50" value="<%#TagSSI,sup1%>"  required>
+               <input type="hidden" name="TagName3" value="coil1">
+               <input style="width: 1px; height: 1px;visibility: hidden;" id="pop_inp_coil1"  name="TagValue3" size="50" value="<%#TagSSI,coil1%>"  required>
+               <input type="hidden" name="TagName4" value="op_coil1">
+               <input style="width: 1px; height: 1px;visibility: hidden;" id="pop_inop_coil1"  name="TagValue4" size="50" value="<%#TagSSI,op_coil1%>"  required>
+               <input type="hidden" name="TagName5" value="wd1_inp_qty">
+               <input style="width: 1px; height: 1px;visibility: hidden;" id="pop_inop_qty"  name="TagValue5" size="50" value="<%#TagSSI,wd1_inp_qty%>"  required>
+
+
+               <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+            </form>
+         </div>
+         <div id="pop_sub2" class="row" style=" width: 100%;">
+            <center>
+               <label class="pop_label">Outgoing Material Details</label>
+               <button onclick="pop_main1();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+               <button  style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;margin-right: 10px;"onclick="reset1();"   >Reset</button>
+            </center>
+            <div class="row" style="height: auto;" >
+               <div class="column" style="width: 50%;border-right: 3px solid darkmagenta;">
+                  <table id="t21" style="color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                     <tr>
+                        <th >
+                           Output Product code:
+                        </th>
+                     </tr>
+                     <tr>
+                        <td>
+                        	<div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="outputproductcode_dropdown1" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,in_pr_co1%></button>
+                           <ul id="outputproductcode_drop1" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="outputproductcode_inp1" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th >
+                           Output Ref. Id:
+                        </th>
+                     </tr>
+                     <tr>
+                        <td>
+                           <input class="pop_input"  autocomplete="off" id="out_value"  oninput="out_product_check();"  onkeyup="alphaMobile_New(event);"  autocomplete="off" value="<%#TagSSI,reel1%>">
+                        </td>
+                     </tr>
+                  </table>
+				  <label id="prev_ref_lb1" style="color:black;font-size: 20px;"></label>
+                  <button class="pop_but_sub" onclick="prd_sub()"id="but_save1"  style="margin-top: 10px;float: right;width: 300px;margin-right: 30px;"  >Start</button>
+                  <label id="status"></label>
+                  <form  id ="form_start1"style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+                     <input type="hidden" name="TagName1" value="reel1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="out_input1" name="TagValue1" size="50" value=""  required>
+                     <input type="hidden" name="TagName2" value="dia1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="dia" name="TagValue2" size="50" value="<%#TagSSI,dia1%>"  required>
+                     <input type="hidden" name="TagName3" value="grade1">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="out_pro_co" name="TagValue3" size="50" value="<%#TagSSI,grade1%>"  required>
+                     <input type="hidden" name="TagName4" value="set_speed1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="spd" name="TagValue4" size="50" value="<%#TagSSI,set_speed1%>"  required>
+                     <input type="hidden" name="TagName5" value="wd1_speed_usl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_usl" name="TagValue5" size="50" value="<%#TagSSI,wd1_speed_usl%>"  required>
+                     <input type="hidden" name="TagName6" value="wd1_speed_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_lsl" name="TagValue6" size="50" value="<%#TagSSI,wd1_speed_lsl%>"  required>
+                     <input type="hidden" name="TagName7" value="targetkg_1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_kg" name="TagValue7" size="50" value="<%#TagSSI,targetkg_1%>"  required>    
+                     <input type="hidden" name="TagName8" value="wd1_kg_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="tg_lsl" name="TagValue8" size="50" value="<%#TagSSI,wd1_kg_lsl%>"  required>
+                     <input type="hidden" name="TagName9" value="wd1_kg_usl">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_usl" name="TagValue9" size="50" value="<%#TagSSI,wd1_kg_usl%>"  required>
+                     <input type="hidden" name="TagName10" value="wd_target_up1">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_t" name="TagValue10" size="50" value="<%#TagSSI,wd_target_up1%>"  required>
+                     <input type="hidden" name="TagName11" value="wd1_up_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;"id="up_lsl" name="TagValue11" size="50" value="<%#TagSSI,wd1_up_lsl%>"  required>
+                     <input type="hidden" name="TagName12" value="wd1_up_usl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_usl" name="TagValue12" size="50" value="<%#TagSSI,wd1_up_usl%>"  required>
+                     <input type="hidden" name="TagName13" value="in_pr_co1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="in_pro_co" name="TagValue13" size="50" value="<%#TagSSI,in_pr_co1%>"  required>
+                     <input type="hidden" name="TagName14" value="sup1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="sup_inp" name="TagValue14" size="50" value="<%#TagSSI,sup1%>"  required>
+                     <input type="hidden" name="TagName15" value="button1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="sub_but" name="TagValue15" size="50" value="<%#TagSSI,button1%>"  required>
+                     <input type="hidden" name="TagName16" value="op_reel1">
+                <input style="width: 1px; height: 1px;visibility: hidden;" id="op_reel" name="TagValue16" size="50" value=""  required>
+                     <input type="hidden" name="ResultPageOk" id="start1" value="/usr/Factory/machines/machine1/table2.shtm">
+                  </form>
+               </div>
+               <div class="column" style="width: 50%;">
+                  <form id="form1" style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+                     <table id="t21" style="color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                        <tr>
+                           <th >
+                              Output Produced Weight:
+                           </th>
+                        </tr>
+                        <tr>
+                           <td>
+                              <input type="hidden" name="TagName1" value="kg_h1">
+                              <input class="pop_input"   oninput="restrict(this);"autocomplete="off" id="qty1" placeholder="Enter output Weight" name="TagValue1" size="20" value="" required>
+                           </td>
+                        </tr>
+                     </table>
+                     <input type="hidden" name="TagName2" value="wd1_inp_qty">
+                     <input style="visibility:hidden;width:1px;height:1px;" name="TagValue2" size="20" value="0" >
+					  <input type="hidden" name="TagName3" value="prev_coil1">
+ <input style="visibility:hidden;width:1px;height:1px;" id="prev_kg1" name="TagValue3" size="20" value="" >
+                     <input type="hidden" name="ResultPageOk" id="qtr1"  value="">
+                  </form>
+                  <button class="pop_but_sub" onclick="subform();" style="float: right;"id="but_sub1" >Submit</button>
+                  <br><br><br><br><br>
+                  <div style="border: 2px groove black;padding: 10px;">
+                     <center> <label style="font-size: 25px;color: navy;">Incoming Material Details</label></center>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Supplier Name: <%#TagSSI,sup1%></label>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Input Product Code: <%#TagSSI,in_pr_co1%></label>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Input Ref. Id. : <%#TagSSI,op_coil1%></label>
+                  </div>
+               </div>
+            </div>
+            <div id="kgsubmit">
+               <p class="blink">!! Please Submit Weight !!</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- The Modal -->
+   <div id="myModal1" class="modal" style="padding-top: 10px; background: whitesmoke;">
+      <!-- Modal content -->
+      <div class="modal-content"  style="margin: auto;padding: 20px;border: 0px solid lightseagreen;width: 95%;background: whitesmoke;position: initial;">
+         <div id="pop_main2" class="row" style="overflow: visible;height: 100%; width: 100%; ">
+            <button style="width: 135px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px;float: right;"onclick="open_link();">Chat</button>    
+            <center style="height: 40px;margin-left: 20%;color: red;background: yellow;padding-top: 5px;width: 60%;"><label style="font-size: 25px;">|| MACHINE DOWN ||</label>
+            <label style="font-size: 25px;" id="waiting"></label> 
+            </center>
+            <br>
+            <center style="height: 40px;margin-left: 20%;color: red;background: yellow;padding-top: 5px;width: 60%;"><label style="font-size: 25px;">Select Operator Name</label></center>
+            <center>
+               <table style="width: 60%;">
+                  <tr>
+                     <td >
+                        <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="oper_but1" type="button" style="margin-top: 0px;border-radius: 4px;height: 60px;width: 100%;white-space: nowrap;    transition: all .2s ease-out, color .2s ease-out;cursor: pointer;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: navy;line-height: 0px;padding: .6em 1.4em .5em .8em;box-sizing: border-box;margin: 0;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);appearance: none;background-color: #fff;background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);    background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;border: 2px solid;font-size: 25px;" data-toggle="dropdown">Operator Name  <span class="caret"></span></button>
+                           <ul id="ult2" class="dropdown-menu dropdown-menu-right"style="overflow: scroll;height: 300px;width: 100%;font-size: 22px">
+                              <input class="form-control" id="myInput1" style="position: sticky;top: 0px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                     </td>
+                     <td >
+                        <button style="text-align: center;font-variant: initial;margin-top: 0px;border-radius: 4px;height: 60px;width: 100%;white-space: nowrap;transition: all .2s ease-out, color .2s ease-out;cursor: pointer;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: navy;line-height: 0px;padding: .6em 1.4em .5em .8em;box-sizing: border-box;    margin: 0;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%); appearance: none;background-color: #fff;background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;    background-size: .65em auto, 100%;border: 2px solid;font-size: 25px;" onclick="operator_sub2();" class="button" >Save</button>
+                     </td>
+                  </tr>
+               </table>
+               <form style="height: auto;margin: 0px;padding: 0px;" id="operator_sub2"     method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+                  <input type="hidden" name="TagName1" value="operator1">
+                  <input id="op122" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue1" size="20" value="<%#TagSSI,operator1%>" required>
+                  <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+               </form>
+            </center>
+            <center>
+               <hr style="width: 59.5%;margin-top: 5px;margin-bottom: 5px;border: 2px solid black;">
+               <button class="pop_but1" onclick="pop_sub3();">Incoming Material Details</button>
+               <br>
+               <button class="pop_but1" onclick="pop_sub4();">Outgoing Material Details</button>
+               <br>
+               <button class="pop_but1" onclick="pop_sub5();">Downtime Reason</button>
+               <br>
+               <center style="height: 40px;color: red;background: yellow;padding-top: 5px;width: 60%;"><label style="font-size: 25px;">|| Chat Box ||</label></center>
+               <br>
+               <textarea readonly class="pop_but1" id="chat1" style="background: transparent;border: 2px solid black;color: maroon;font-size: 20px;text-align: left;padding: 10px;font-family: none;font-weight: bolder;    white-space: initial;"rows="1"></textarea>
+            </center>
+         </div>
+         <div id="pop_sub3" class="row" style="width: 100%;">
+            <center>
+               <label class="pop_label">Incoming Material Details</label>
+               <button onclick="pop_main2();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+            </center>
+            <center>
+               <table id="t21" style=" color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                  <tr>
+                      <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Supplier Name:
+                     </th>
+                  </tr>
+                  <tr>
+                       <td colspan="2" >
+                       	<div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="supplier_dropdown2" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,sup1%></button>
+                           <ul id="supplier_drop2" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="supplier_inp2" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                    <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Input Product Code:
+                     </th>
+                  </tr>
+                  <tr>
+                      <td colspan="2" >
+                      	<div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="inputproductcode_dropdown2" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,in_pr_co1%></button>
+                           <ul id="inputproductcode_drop2" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="inputproductcode_inp2" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <th  style="font-size: 25px; height: auto;display:table-cell;" colspan="2">
+                        Input Ref. id:
+                     </th>
+                  </tr>
+                  <tr>
+                       <td colspan="2" >
+                        <input class="pop_input" id="coil_run1"  onkeyup="alphaMobile_New(event);"  autocomplete="off" value="<%#TagSSI,op_coil1%>">
+                     </td>
+                  </tr>
+                       <tr>
+                     <th style="font-size: 25px; height: auto;">
+                        Input Quantity:
+                     </th>
+                      <td>
+                        <input class="pop_input"  oninput="restrict(this);" id="inp_qty2"    size="50" value="<%#TagSSI,wd1_inp_qty%>"  required style="font-size: 25px; height: auto;">
+                     </td>
+                  </tr>
+               </table>
+                           
+            </center>
+            <button class="pop_but_sub" onclick="input_sub2();" style="float: right;margin-top: 10px;margin-right: 13px;">Submit</button>
+         </div>
+         <div id="pop_sub4" class="row" style="width: 100%;">
+            <center>
+               <label class="pop_label">Outgoing Material Details</label>
+               <button onclick="pop_main2();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+               <button  style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;margin-right: 10px;"onclick="reset1();"   >Reset</button>
+            </center>
+            <div class="row" style="height: auto;" >
+               <div class="column" style="width: 50%;border-right: 3px solid darkmagenta;">
+                  <table id="t21" style="color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                     <tr>
+                        <th >
+                           <label>Output Product code:</label>
+                        </th>
+                     </tr>
+                     <tr>
+                        <td>
+                        	<div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" id="outputproductcode_dropdown2" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;    line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;    background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);background-repeat: no-repeat, repeat;background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align: left;" data-toggle="dropdown" ><%#TagSSI,in_pr_co1%></button>
+                           <ul id="outputproductcode_drop2" class="dropdown-menu dropdown-menu-right" style="width: min-content;overflow: scroll;height: 300px; font-size: initial;left: 0;min-width: 100%;">
+                              <input class="form-control" id="outputproductcode_inp2" style="position: sticky;top: 0px;font-size: 25px;height: 40px;"  autocomplete="off" type="text" placeholder="Search..">
+                           </ul>
+                        </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th >
+                           Output Ref. Id:
+                        </th>
+                     </tr>
+                     <tr>
+                        <td>
+                           <input class="pop_input"  autocomplete="off" id="out_value1"  oninput="out_product_check1();"  onkeyup="alphaMobile_New(event);"  autocomplete="off" value="<%#TagSSI,reel1%>">
+                        </td>
+                     </tr>
+                  </table>
+				  <label id="prev_ref_lb2" style="color:black;font-size: 20px;"></label>
+                  <button class="pop_but_sub" onclick="prd_sub1()"id="but_save2" style="margin-top: 10px; float: right;" >Start</button>
+                  <label id="status1"></label>
+                  <form  id ="form_start2"style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+                     <input type="hidden" name="TagName1" value="reel1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="out_input2" name="TagValue1" size="50" value=""  required>
+                     <input type="hidden" name="TagName2" value="dia1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="dia1" name="TagValue2" size="50" value="<%#TagSSI,dia1%>"  required>
+                     <input type="hidden" name="TagName3" value="grade1">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="out_pro_co1" name="TagValue3" size="50" value="<%#TagSSI,grade1%>"  required>
+                     <input type="hidden" name="TagName4" value="set_speed1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="spd1" name="TagValue4" size="50" value="<%#TagSSI,set_speed1%>"  required>
+                     <input type="hidden" name="TagName5" value="wd1_speed_usl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_usl1" name="TagValue5" size="50" value="<%#TagSSI,wd1_speed_usl%>"  required>
+                     <input type="hidden" name="TagName6" value="wd1_speed_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_lsl1" name="TagValue6" size="50" value="<%#TagSSI,wd1_speed_lsl%>"  required>
+                     <input type="hidden" name="TagName7" value="targetkg_1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_kg1" name="TagValue7" size="50" value="<%#TagSSI,targetkg_1%>"  required>    
+                     <input type="hidden" name="TagName8" value="wd1_kg_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="tg_lsl1" name="TagValue8" size="50" value="<%#TagSSI,wd1_kg_lsl%>"  required>
+                     <input type="hidden" name="TagName9" value="wd1_kg_usl">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_usl1" name="TagValue9" size="50" value="<%#TagSSI,wd1_kg_usl%>"  required>
+                     <input type="hidden" name="TagName10" value="wd_target_up1">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_t1" name="TagValue10" size="50" value="<%#TagSSI,wd_target_up1%>"  required>
+                     <input type="hidden" name="TagName11" value="wd1_up_lsl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;"id="up_lsl1" name="TagValue11" size="50" value="<%#TagSSI,wd1_up_lsl%>"  required>
+                     <input type="hidden" name="TagName12" value="wd1_up_usl">
+                     <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_usl1" name="TagValue12" size="50" value="<%#TagSSI,wd1_up_usl%>"  required>
+                     <input type="hidden" name="TagName13" value="in_pr_co1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="in_pro_co1" name="TagValue13" size="50" value="<%#TagSSI,in_pr_co1%>"  required>
+                     <input type="hidden" name="TagName14" value="sup1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="sup_inp1" name="TagValue14" size="50" value="<%#TagSSI,sup1%>"  required>
+                     <input type="hidden" name="TagName15" value="button1">
+                     <input style="width: 1px; height: 1px;visibility: hidden;" id="sub_but1" name="TagValue15" size="50" value="<%#TagSSI,button1%>"  required>
+                     <input type="hidden" name="ResultPageOk" id="start2" value="/usr/Factory/machines/machine1/table2.shtm">
+                  </form>
+               </div>
+               <div class="column" style="width: 50%;">
+                  <form id="form2" style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+                     <table id="t21" style="color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;">
+                        <tr>
+                           <th >
+                              <label>Output Produced Weight:</label>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td>
+                              <input type="hidden" name="TagName1" value="kg_h1">
+                              <input class="pop_input" oninput="restrict(this);" autocomplete="off" id="qty2" placeholder="Enter output Weight" name="TagValue1" size="20" value="" required>
+                           </td>
+                        </tr>
+                     </table>
+                     <input type="hidden" name="TagName2" value="wd1_inp_qty">
+                     <input style="visibility:hidden;width:1px;height:1px;" name="TagValue2" size="20" value="0" >
+					  <input type="hidden" name="TagName3" value="prev_coil1">
+ <input style="visibility:hidden;width:1px;height:1px;" id="prev_kg2" name="TagValue3" size="20" value="" >
+                     <input type="hidden" name="ResultPageOk" id="qtr2"  value="">
+                  </form>
+                  <button class="pop_but_sub" onclick="subform1();" id="but_sub2" >Submit</button>
+                  <br><br><br><br><br>
+                  <div style="border: 2px groove black;padding: 10px;">
+                     <center> <label style="font-size: 25px;color: navy;">Incoming Material Details</label></center>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Supplier Name: <%#TagSSI,sup1%></label>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Input Product Code: <%#TagSSI,in_pr_co1%></label>
+                     <br>
+                     <label style="font-size: 22px;color: navy;">Input Ref. Id. : <%#TagSSI,op_coil1%></label>
+                  </div>
+               </div>
+            </div>
+            <div id="kgsubmit1">
+               <p class="blink">!! Please Submit Weight !!</p>
+            </div>
+         </div>
+         <div id="pop_sub5" class="row" style="width: 100%;">
+            <center style="margin-bottom: 30px;">  
+               <label class="pop_label">Downtime Reason</label>   
+               <button onclick="pop_main2();" style="width: 120px;height: 45px;font-size: 22px;text-align: center;padding: 0px;float: right;white-space: nowrap;border-radius: 0.5px;transition: all .2s ease-out, color .2s ease-out;cursor: pointer;color: whitesmoke;background: #7b2020;    font-variant: initial; font-weight: inherit;">Back</button> 
+               <button  style="padding: 8px;margin-right: 10px;height: 45px;font-size: 22px;text-align: center;float: right;white-space: nowrap;    border-radius: 0.5px;transition: all .2s ease-out, color .2s ease-out;cursor: pointer;color: whitesmoke;background: #7b2020;    font-variant: initial;font-weight: inherit;"onclick="window.open('down_pro.shtm?1', '_blank');"   >Downtime and Production Data</button>  
+               <button style="margin-right: 9px;height: 45px;font-size: 22px;text-align: center;float: right;white-space: nowrap;border-radius: 0.5px;    transition: all .2s ease-out, color .2s ease-out;cursor: pointer;color: whitesmoke;background: #7b2020;font-variant: initial;    font-weight: inherit;" onclick="quick_reason1();" >Quick Reason</button>     
+       </center>    
+            <table style="width: 100%; text-align: center;    font-size: 18px;    font-weight: bold;     margin-bottom: 30px;">
+               <tr style="background: yellow;color: black;">
+                  <td style="width: 1%;font-size: 30px;font-weight: bold">Slide For Breakdown: </td>
+                  <td style="width: 1%;"><label class="switch"  > 
+                     <input type="checkbox" id="br_in">
+                     <span class="slider round"  id ="bd"onclick="bd()"> </span>
+                     </label>
+                  </td>
+               </tr>
+            </table>
+            <table id="t21" style="color: maroon;white-space: nowrap;font-size: 25px;font-weight: inherit;font-variant: petite-caps;width: 100%;" >
+               <tr>
+                  <th >
+                     <label style="font-size: 30px;font-weight: bold"> Major: </label>
+                  </th>
+                  <td >
+                     <div class="dropdown" style="" >
+                        <button class="btn btn-secondary dropdown-toggle" id="down_major" type="button" style="display: block;font-family: Bookman, URW Bookman L, serif;font-weight: 700;color: #444;line-height: 1.3;padding: .6em 1.4em .5em .8em;width: 100%;max-width: 100%;box-sizing: border-box;margin: 0;border: 1px solid #aaa;box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);-moz-appearance: none;-webkit-appearance: none;appearance: none;background-color: #fff;background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);    background-repeat: no-repeat, repeat; background-position: right .7em top 50%, 0 0;background-size: .65em auto, 100%;height: 70px;font-size: 30px;text-align:left;" data-toggle="dropdown" >Major Reason  <span class="caret"></span></button>
+                        <ul id="major_1" class="dropdown-menu dropdown-menu-right"style="width:100%;    overflow: scroll;    height: 300px; font-size:25;font-weight: bold">
+                           <input class="form-control" id="myInput2" style="position: sticky;top: 0px;"  autocomplete="off" type="text" placeholder="Search..">
+                        </ul>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th >
+                     <label style="font-size: 30px;font-weight: bold"> Minor: </label>
+                  </th>
+                  <td>
+                     <select class="select-css" onchange="val1(); ss2();" name="child" id="id_child" class='dependent-selects__child' style="text-align: center;">
+                        <option value="<%#TagSSI,sub_major1%>"><%#TagSSI,sub_major1%> </option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <th >
+                     <label style="font-size: 30px;font-weight: bold"> Sub Minor: </label>
+                  </th>
+                  <td >
+                     <select class="select-css" onchange="val2(); ss3();" name="parent2" id="id_parent2" data-child-id='id_child2' class='dependent-selects__parent' style="text-align: center;">
+                        <option value="<%#TagSSI,minor1%>"><%#TagSSI,minor1%></option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <th >
+                     <label style="font-size: 30px;font-weight: bold"> Sub Sub Minor: </label>
+                  </th>
+                  <td >
+                     <select class="select-css" onchange="ss4()" name="child2" id="id_child2" class='dependent-selects__child' data-text-if-parent-empty="Select Parent 2" style="text-align: center;">
+                        <option value="<%#TagSSI,sub_minor1%>"><%#TagSSI,sub_minor1%></option>
+                     </select>
+                  </td>
+               </tr>
+            </table>
+            <button class="pop_but_sub" style="float: left;margin-top: 10px; margin-left: 10px;" onclick="reason_sub();" >Save</button>
+            <button class="pop_but_sub" style="float: left;margin-top: 10px; margin-left: 50px" onclick="reason_sub1();" >Submit</button>
+            <div id="reasonsubmit" style="float: right;">
+               <p class="blink">!! Reason Saved But not Submitted !!</p>
+            </div>
+            <form id="reason_form"  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+               <input type="hidden" name="TagName1" value="major1">
+               <input id="error1" name="TagValue1" size="20" value="<%#TagSSI,major1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName2" value="sub_major1">
+               <input id="error2" name="TagValue2" size="20" value="<%#TagSSI,sub_major1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName3" value="minor1">
+               <input id="error3" name="TagValue3" size="20" value="<%#TagSSI,minor1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName4" value="sub_minor1">
+               <input id="error4" name="TagValue4" size="20" value="<%#TagSSI,sub_minor1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName5" value="save_reason_pop1">
+               <input style="visibility: hidden;"  id="reason_alt" name="TagValue5" size="20" value="<%#TagSSI,save_reason_pop1%>" />
+               <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+            </form>
+            <form id="reason_form2"  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" >
+               <input type="hidden" name="TagName1" value="major1">
+               <input id="error11" name="TagValue1" size="20" value="<%#TagSSI,major1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName2" value="sub_major1">
+               <input id="error21" name="TagValue2" size="20" value="<%#TagSSI,sub_major1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName3" value="minor1">
+               <input id="error31" name="TagValue3" size="20" value="<%#TagSSI,minor1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName4" value="sub_minor1">
+               <input id="error41" name="TagValue4" size="20" value="<%#TagSSI,sub_minor1%>" style="visibility: hidden;" required>
+               <input type="hidden" name="TagName5" value="submit1">
+               <input style="visibility: hidden;"  id="major_rd111" name="TagValue5" size="20" value="<%#TagSSI,submit1%>" />
+               <input type="hidden" name="TagName6" value="save_reason_pop1">
+               <input style="visibility: hidden;"  id="reason_alt1" name="TagValue6" size="20" value="<%#TagSSI,save_reason_pop1%>" />
+               <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+            </form>
+         </div>
+      </div>
+   </div>
+   <center>
+      <button style="min-width: 30%;
+         height: 58px;
+         white-space: nowrap;
+         border-radius: .5px;
+         transition: all .2s ease-out, color .2s ease-out;
+         cursor: pointer;
+         font-family: 'Poppins', sans-serif;
+         color: whitesmoke;
+         text-align: center;
+         font-size: 28px;
+         background: #7b2020;
+         font-variant: initial;
+         font-weight: inherit;" id="myBtn">Submit Production Detail</button>
+      <button align="center" ; style="min-width: 30%;
+         height: 58px;
+         white-space: nowrap;
+         border-radius: .5px;
+         transition: all .2s ease-out, color .2s ease-out;
+         cursor: pointer;
+         font-family: 'Poppins', sans-serif;
+         color: whitesmoke;
+         text-align: center;
+         font-size: 28px;
+         background: #7b2020;
+         font-variant: initial;
+         font-weight: inherit;margin-left: 10%;" id="myBtn2">Shift Production/Downtime Record</button>
+   </center>
+   <center>
+      <div id="kgsubmit2">
+         <p class="blink">!! Please Submit Weight !!</p>
+      </div>
+   </center>
+   <div id="myModal2" class="modal" style="padding-top: 10px;background: whitesmoke;">
+      <!-- Modal content -->
+      <div class="modal-content1" style="margin: auto;padding: 20px;border: 0px solid lightseagreen;width: 95%;background: whitesmoke;position: initial;">
+         <div id="pop_prod_main1"  class="row" style="overflow: visible;height: 100%; width: 100%; ">
+            <button id="clo3"   style="width: 45px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px;float: right;">X</button>
+			 <button onclick="quick_reason1()" style="width: 170px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px;float: right;margin-right: 12px;">Quick reason</button>																																																	 
+            <br><br><br><br><br>
+            <center><button class="pop_but" onclick="prod_pop_sub1();">Shift Production Record</button>
+               <br>
+               <button class="pop_but" onclick="prod_pop_sub2();">Shift Downtime Record</button>
+            </center>
+         </div>
+         <div id="prod_pop_sub1" class="row" style="width: 100%;" style="display: none;">
+            <center>
+               <label class="pop_label">Shift Production Record</label>
+               <button onclick="prod_pop_main1();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+            </center>
+            <iframe id="pop_prod_ifr" data-src="http://www.w3schools.com" src="about:blank"  style="width: 100%;height: 90%;border: none;background: transparent;"></iframe>
+         </div>
+         <div id="prod_pop_sub2" class="row" style="width: 100%;" style="display: none;">
+            <center>
+               <label class="pop_label">Shift Downtime Record</label>
+               <button onclick="prod_pop_main1();" style="width: 120px;height: 45px;font-size: 22px;font-weight: bold;color: red;text-align: center;padding: 0px; float: right;">Back</button>
+            </center>
+            <iframe id="pop_down_ifr" data-src="http://www.w3schools.com" src="about:blank"  style="width: 100%;height: 90%;border: none;background: transparent;"></iframe>
+         </div>
+         <script type="text/javascript">
+            function prod_pop_main1()
+            {
+            	$("#pop_prod_main1").show();
+            	$("#prod_pop_sub1").hide();
+            	$("#prod_pop_sub2").hide();
+            
+            } 
+            function prod_pop_sub1()
+            {
+            	$("#pop_prod_main1").hide();
+            	$("#prod_pop_sub1").show();
+            	$("#prod_pop_sub2").hide();
+            	document.getElementById("pop_prod_ifr").src="product.shtm";
+            } 
+            function prod_pop_sub2()
+            {
+            	$("#pop_prod_main1").hide();
+            	$("#prod_pop_sub1").hide();
+            	$("#prod_pop_sub2").show();
+            	document.getElementById("pop_down_ifr").src="down.shtm";
+            	
+            
+            }
+            
+         </script>
+      </div>
+   </div>
+   </div>
+   <div id="myModal3" class="modal" style="border: none;">
+      <div class="modal-content" style="width: 868px; border: none;">
+         <header style="white-space: nowrap;
+            border-radius: .5px;
+            transition: all .2s ease-out, color .2s ease-out;
+            font-family: 'Poppins', sans-serif;
+            color:
+            whitesmoke;
+            background-color:
+            #8c9cbf;
+            background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+            font-variant: initial;
+            font-weight: inherit;
+            padding: 5px;
+            font-size: 9px;
+            width: -moz-available;">
+            <label class="lab1" style="font-size: 11px;
+               font-weight: bold;
+               color:
+               white;
+               white-space: nowrap;
+               font-family: 'Poppins',sans-serif;">Hii : <%#SessionAst,UserFullName%></label>
+            <button id="clo1"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;">X</button>
+         </header>
+         <div style="height:460px; background: white;padding-top: 4px;padding-bottom: 4px;">
+            <iframe style="width: 100%;height: inherit;" src="/usr/sdext/Management_report/main/chat_opr1.shtm"></iframe>
+         </div>
+         <footer style="height:20;background:#930707;padding-top: 4px;padding-bottom: 4px;">
+            <table style="width: 100%">
+               <tr>
+                  <td style="width: 25%"></td>
+                  <td style="width: 25%"></td>
+                  <td style="width: 25%"></td>
+               </tr>
+            </table>
+         </footer>
+      </div>
+   </div>
+   <div id="myModal7" class="modal" style="border: none;">
+      <div class="modal-content" style="width: 868px; border: none;">
+         <form id="reset_form" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm">
+            <input type="hidden" name="TagName1" value="trig_but1">
+            <input id="ret_tg" name="TagValue1" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+         </form>
+         <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" id="break1">
+            <input type="hidden" name="TagName1" value="break_tg1">
+            <input style="width: 0px;height: 0px;visibility: hidden;" id="br23" name="TagValue1" size="20" value="<%#TagSSI,break_tg1%>" />
+            <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+         </form>
+      </div>
+   </div>
+   
+    <div id="quick_reason_modal" class="modal" style="background: transparent;padding-top: 20px;">      
+      <!-- Modal content -->  
+      <div class="modal-content" style="width: 90%;padding:0px;height:auto;"> 
+         <header style="white-space: nowrap;    
+            border-radius: .5px;    
+            transition: all .2s ease-out, color .2s ease-out;     
+            font-family: 'Poppins', sans-serif; 
+            color:      
+            whitesmoke; 
+            background-color: 
+            #8c9cbf;    
+            background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);   
+            font-variant: initial;  
+            font-weight: inherit;   
+            padding: 5px;     
+            font-size: 9px;   
+            width: -webkit-available;height:35px;">   
+            <label class="lab1" style="font-size: 18px;     
+               font-weight: bold;   
+               color:   
+               white;   
+               white-space: nowrap; 
+               font-family: 'Poppins',sans-serif;">Downtime Quick Reason</label>    
+            <button id="clo_reason"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;">X</button>    
+             <label style="font-size: 18px;font-weight: bold;color:white;white-space: nowrap;font-family: 'Poppins',sans-serif;float: right;width: 200px;    margin-right: 50px;">Total Downtime: <span id="quik_downtime"></span></label>      
+         </header>      
+         <div style="height:460px; background: white;padding-top: 4px;padding-bottom: 4px;">    
+                  <table style="width: 98%;border: 1px solid;border-collapse: collapse;margin-left: 1%;">   
+                        <tr>  
+                              <th style="width: 1%;background: maroon;padding: 5px;font-size: 20px;font-weight: normal;color: white;white-space: nowrap;font-family: 'Poppins',sans-serif;">Action</th>     
+                              <th style="background: maroon;padding: 5px;font-size: 20px;font-weight: normal;color: white;white-space: nowrap;font-family: 'Poppins',sans-serif;">Reason</th>   
+                              <th style="background: maroon;padding: 5px;font-size: 20px;font-weight: normal;color: white;white-space: nowrap;font-family: 'Poppins',sans-serif;"> Downtime Min</th>  
+                        </tr> 
+                        <tr id="quick_tr0">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox 1"  id="quick_reason_check_box1" name="quick_reason_check_box1" ></td>  
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name1%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="1" name="quick_reason_downtime1" id="quick_reason_downtime1"  style="height: 33px;"></td>   
+</tr> 
+<tr id="quick_tr1">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox 2"  id="quick_reason_check_box2" name="quick_reason_check_box2" ></td>  
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name2%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="2" name="quick_reason_downtime2" id="quick_reason_downtime2" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr2">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box3" name="quick_reason_check_box3" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name3%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="3" name="quick_reason_downtime3" id="quick_reason_downtime3" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr3">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box4" name="quick_reason_check_box4" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name4%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="4" name="quick_reason_downtime4" id="quick_reason_downtime4" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr4">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box5" name="quick_reason_check_box5" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name5%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="5" name="quick_reason_downtime5" id="quick_reason_downtime5" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr5">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box6" name="quick_reason_check_box6" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name6%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="6" name="quick_reason_downtime6" id="quick_reason_downtime6" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr6">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box7" name="quick_reason_check_box7" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name7%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="7" name="quick_reason_downtime7" id="quick_reason_downtime7" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr7">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box8" name="quick_reason_check_box8" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name8%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="8" name="quick_reason_downtime8" id="quick_reason_downtime8" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr8">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box9" name="quick_reason_check_box9" ></td>    
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name9%></label></td>   
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="9" name="quick_reason_downtime9" id="quick_reason_downtime9" style="height: 33px;"></td>    
+</tr> 
+<tr id="quick_tr9">     
+      <td style="width: 1%;border: 1px solid;"><input type="checkbox" style="width: 45px;height: 30px;margin-left: 10px;" class="largerCheckbox"  id="quick_reason_check_box10" name="quick_reason_check_box10" ></td>  
+    <td style="border: 1px solid;"><label style="color: maroon;font-variant: normal;margin: 0px;font-size: 20px;padding-left: 5px;"> <%#TagSSI,reason_button_name10%></label></td>  
+    <td style="width: 20%;border: 1px solid;"><input type="number" min="0" value="0" class="quick_input" data-reason="10" name="quick_reason_downtime10" id="quick_reason_downtime10" style="height: 33px;"></td> 
+</tr> 
+                              
+                  </table>
+                  <div id="error_log_quick1">
+               <p class="blink">!! Incorrect entry Enter correct Downtime !!</p>
+            </div>
+                  
+<button onclick="quick_time_assign()" style="width: 150px;height: 40px;white-space: nowrap;border-radius: 0.5px;transition: all .2s ease-out, color .2s ease-out;cursor: pointer;color: whitesmoke;font-size: 25px;background: #7b2020;font-variant: initial;font-weight: inherit;margin-top: 15px;    margin-left: 20px;float: right;margin-right: 20px;">Submit</button>    
+         </div>   
+         <footer style="height:20;background:#930707;padding-top: 4px;padding-bottom: 4px;">    
+            <table style="width: 100%">   
+               <tr>     
+                  <td style="width: 25%"></td>  
+                  <td style="width: 25%"></td>  
+                  <td style="width: 25%"></td>  
+              </tr>
+          </table>
+      </footer>
+  </div>
+</div>
+<div id="quick_reason_form" class="modal" style="border: none;">
+      <div class="modal-content" style="width: 868px; border: none;">
+         <form id="quick_form_submit" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm">  
+            <input type="hidden" name="TagName1" value="master_quick_reason1">
+            <input id="master_0" name="TagValue1" size="20" value="" style="visibility: hidden;" >
+                  <input type="hidden" name="TagName2" value="master_quick_reason2">
+            <input id="master_1" name="TagValue2" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName3" value="master_quick_reason3">
+            <input id="master_2" name="TagValue3" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName4" value="master_quick_reason4">
+            <input id="master_3" name="TagValue4" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName5" value="master_quick_reason5">
+            <input id="master_4" name="TagValue5" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName6" value="master_quick_reason6">
+            <input id="master_5" name="TagValue6" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName7" value="master_quick_reason7">
+            <input id="master_6" name="TagValue7" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName8" value="master_quick_reason8">
+            <input id="master_7" name="TagValue8" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName9" value="master_quick_reason9">
+            <input id="master_8" name="TagValue9" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName10" value="master_quick_reason10">
+            <input id="master_9" name="TagValue10" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName11" value="machine_quick_reason1">
+            <input id="machine_0" name="TagValue11" size="20" value="" style="visibility: hidden;" >
+                  <input type="hidden" name="TagName12" value="machine_quick_reason2">
+            <input id="machine_1" name="TagValue12" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName13" value="machine_quick_reason3">
+            <input id="machine_2" name="TagValue13" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName14" value="machine_quick_reason4">
+            <input id="machine_3" name="TagValue14" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName15" value="machine_quick_reason5">
+            <input id="machine_4" name="TagValue15" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName16" value="machine_quick_reason6">
+            <input id="machine_5" name="TagValue16" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName17" value="machine_quick_reason7">
+            <input id="machine_6" name="TagValue17" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName18" value="machine_quick_reason8">
+            <input id="machine_7" name="TagValue18" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName19" value="machine_quick_reason9">
+            <input id="machine_8" name="TagValue19" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName20" value="machine_quick_reason10">
+            <input id="machine_9" name="TagValue20" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName21" value="live_quick_reason1">
+            <input id="live_quick_0" name="TagValue21" size="20" value="" style="visibility: hidden;" >
+                  <input type="hidden" name="TagName22" value="live_quick_reason2">
+            <input id="live_quick_1" name="TagValue22" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName23" value="live_quick_reason3">
+            <input id="live_quick_2" name="TagValue23" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName24" value="live_quick_reason4">
+            <input id="live_quick_3" name="TagValue24" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName25" value="live_quick_reason5">
+            <input id="live_quick_4" name="TagValue25" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName26" value="live_quick_reason6">
+            <input id="live_quick_5" name="TagValue26" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName27" value="live_quick_reason7">
+            <input id="live_quick_6" name="TagValue27" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName28" value="live_quick_reason8">
+            <input id="live_quick_7" name="TagValue28" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName29" value="live_quick_reason9">
+            <input id="live_quick_8" name="TagValue29" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName30" value="live_quick_reason10">
+            <input id="live_quick_9" name="TagValue30" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName31" value="quick_url_machine">
+            <input id="quick_url" name="TagValue31" size="20" value="1" style="visibility: hidden;" >
+            <input type="hidden" name="TagName32" value="d_time1">
+            <input id="d_time_val" name="TagValue32" size="20" value="0" style="visibility: hidden;" >
+            <input type="hidden" name="TagName33" value="re_down1">
+            <input  name="TagValue33" size="20" value="0" style="visibility: hidden;" >
+            <input type="hidden" name="TagName34" value="re_stop1">
+            <input  name="TagValue34" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName35" value="re_start1">
+            <input  name="TagValue35" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName36" value="sstop1">
+            <input  name="TagValue36" id="quick_start_id" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName37" value="start1">
+            <input  name="TagValue37" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName38" value="t1">
+            <input  name="TagValue38" size="20" value="0" style="visibility: hidden;" >
+            <input type="hidden" name="TagName39" value="d_run1">
+            <input  name="TagValue39" size="20" value="0" style="visibility: hidden;" >
+                  <input type="hidden" name="TagName40" value="major1">
+            <input  name="TagValue40" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName41" value="minor1">
+            <input  name="TagValue41" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName42" value="sub_major1">
+            <input  name="TagValue42" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName43" value="sub_minor1">
+            <input  name="TagValue43" size="20" value="" style="visibility: hidden;" >
+            <input type="hidden" name="TagName44" value="save_reason_pop1">
+            <input  name="TagValue44" size="20" value="0" style="visibility: hidden;" > 
+			<input type="hidden" name="TagName45" value="downtime_reason_submit_alert_mc1">
+            <input  name="TagValue45" size="20" id="show_last_reason" value="" style="visibility: hidden;" > 			
+           <input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/machine1/table2.shtm">
+         </form>
+         
+      </div>
+   </div>
+       <div id="realtime_modal" class="modal" style="padding-top: 10px; background: whitesmoke;z-index:10000000;">
+      <!-- Modal content -->
+      <div class="modal-content"  style="margin: auto;padding: 20px;border: 0px solid lightseagreen;width: 95%;background: whitesmoke;position: initial;">
+        <header style="white-space: nowrap;
+          border-radius: .5px;
+          transition: all .2s ease-out, color .2s ease-out;
+          font-family: 'Poppins', sans-serif;
+          color:
+          whitesmoke;
+          background-color:
+          #8c9cbf;
+          background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+          font-variant: initial;
+          font-weight: inherit;
+          padding: 5px;
+          font-size: 9px;
+          width: -webkit-available;height:35px;">
+          <label class="lab1" style="font-size: 13px;
+            font-weight: bold;
+            color:
+            white;
+            white-space: nowrap;
+            font-family: 'Poppins',sans-serif;">Hi: <%#TagSSI,operator1%></label>
+          <button id="clo1"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;" onclick="document.getElementById('realtime_modal').style.display='none'">X</button>
+        </header>
+        <div id="realtime_iframe"></div>
+      </div>
+    </div>
+     <div id="q_a_modal" class="modal" style="padding-top: 10px; background: transparent;z-index:10000000;">
+      <!-- Modal content -->
+      <div class="modal-content"  style="margin: auto;padding: 20px;border: 0px solid lightseagreen;width: 95%;background: whitesmoke;position: initial;">
+        <header style="white-space: nowrap;
+          border-radius: .5px;
+          transition: all .2s ease-out, color .2s ease-out;
+          font-family: 'Poppins', sans-serif;
+    
+          font-variant: initial;
+          font-weight: inherit;
+          padding: 5px;
+          font-size: 9px;
+          width: -webkit-available;height:35px;">
+          <button id="clo1"  style="width: 30px;height: 30px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;" onclick="document.getElementById('q_a_modal').style.display='none'">X</button>
+        </header>
+        <div id="qa_iframe"></div>
+      </div>
+    </div>
+       <div id="no_comm" class="modal" style="padding-top: 0px;background:rgb(22 20 20 / 83%);z-index: 10000000;display: none;">
+   <!-- Modal content -->
+   <button onclick="update_count();" style="float: right;margin-right: 4%;margin-top: 2%;width: 120px;height: 40px;color: whitesmoke;background: maroon;border: solid;font-weight: bold;font-size: 21px;">CLOSE</button>
+   <div id="mc_error"  style="    margin-left: 35%;position: fixed;top: 22%;display:none;">
+      <svg style="width: 250;height: 250;color: yellow;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-3" viewBox="0 0 16 16">
+         <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+      </svg>
+      <label style="font-weight: bolder;
+         font-variant: initial !important;
+         margin-right: 0px;
+         color: yellow;
+         width: 100%;
+         font-family: math;
+         font-size: 34px;
+         display: block; margin-left: -5%;">!! Network Error !! </label>
+   </div>
+   <div id="wifi_error" style="margin-left:45% ; display:none;">
+      <div class="wifi-symbol" >
+         <div class="wifi-circle first"></div>
+         <div class="wifi-circle second"></div>
+         <div class="wifi-circle third"></div>
+         <div class="wifi-circle fourth"></div>
+      </div>
+      <label style="font-weight: bolder;
+         font-variant: initial !important;
+         margin-right: 15px;
+         color: yellow;
+         width: 100%;
+         font-family: math;
+         font-size: 34px;
+         top: 65%;
+         position: fixed;margin-left: -10%;">WiFi Disconnected!! </label>
+   </div>
+</body>
+</html>

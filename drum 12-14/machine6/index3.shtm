@@ -1,0 +1,29 @@
+<body onload="myform()">
+
+<form id="myForm1" style="margin-top: 22px;" method="POST" action="http://<%#TagSSI,qa_ip%>/rcgi.binrcgi.bin/UpdateTagForm">
+
+        <input type="hidden" name="TagName1" value="mc6_pro_sp">
+    <input type="text"   name="TagValue1" id="va1"   value=""/>
+    
+    
+                        
+ <input  type="hidden" name="ResultPageOk" value="http://<%#TagSSI,pro_ip%>/usr/sdext/Factory/machines/machine6/table2.shtm">
+ </form>
+ </body>
+ <script type="text/javascript">
+    function myform(){
+     var shift="<%#TagSSI,shift%>"
+     var time="<%#TagSSI,times%>"
+
+var str = window.location.href;
+        var res = str.split("?");
+            decodeURI(res[1]);
+            
+         document.getElementById("va1").value=shift+','+time+','+res[1]+',0,'+res[1]+',0';
+
+          document.getElementById("myForm1").submit();
+    
+    }
+
+    
+ </script>

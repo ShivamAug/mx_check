@@ -1,0 +1,78 @@
+
+
+
+<body onload="myform()">
+
+<form id="myForm1" style="margin-top: 22px;" method="POST" action="">
+
+        <input type="hidden" name="TagName1" value="central_msg">
+    <input type="text"   name="TagValue1" id="va1"   value=""/>
+    <input type="hidden" name="TagName2" value="st1_bt">
+    <input type="text"   name="TagValue2" id="va2"   value=""/>
+    
+                        
+ <input  type="hidden" name="ResultPageOk" id="formid" value="">
+ </form>
+ </body>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+ <script type="text/javascript">
+var basepath;
+  $(document).ready(function(){
+
+let ipv4Url = RegExp([
+        '^https?:\/\/([a-z0-9\\.\\-_%]+:([a-z0-9\\.\\-_%])+?@)?',
+        '((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}(25[0-5]|2[0-4',
+        '][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])?',
+        '(:[0-9]+)?(\/[^\\s]*)?$'
+    ].join(''), 'i');
+
+    if(!ipv4Url.test(window.location.href)){
+      var url = window.location.href;
+      // var url = 'http://www.mymainsite.com/somepath/path2/path3/path4';
+      var hostname = new URL(url).hostname;
+      var pathname = new URL(url).pathname;
+      var splitUrl = pathname.split('/');
+      console.log(splitUrl[0]+'/'+splitUrl[1]+'/'+splitUrl[2]);
+      var link12=splitUrl[0]+'/'+splitUrl[1]+'/'+splitUrl[2];
+      link12=link12.split(":");
+      //console.log(pathname);
+     // console.log(hostname);
+
+      // var basepath = 'https://'+hostname+'/'+splitUrl[1]+'/'+splitUrl[2]+"/proxy/@adm:IoT4.0";
+      basepath = 'https://'+hostname+'/'+splitUrl[1]+'/'+splitUrl[2]+"/proxy/";
+       $("#myForm1").attr('action',link12[0]+'/rcgi.binrcgi.bin/UpdateTagForm');
+       document.getElementById("formid").value='proxy/172.20.12.33/usr/Factory/machines/machine8/chat3.shtm';
+          
+    
+    } else {
+      // var basepath = "http://@adm:IoT4.0";
+      basepath = "http://";
+	  $("#myForm1").attr('action','http://172.20.12.26/rcgi.binrcgi.bin/UpdateTagForm');
+       document.getElementById("formid").value='http://172.20.12.33/usr/Factory/machines/machine8/chat3.shtm';
+    }
+      
+var str = window.location.href;
+        var res = str.split("?");
+            decodeURI(res[1]);
+            
+         document.getElementById("va1").value= decodeURI(res[1]);
+         document.getElementById("va2").value=Math.random();
+            if(document.getElementById("va1").value>"")
+		 {
+          document.getElementById("myForm1").submit();
+		  document.getElementById("va1").value="";
+		}
+     
+
+})
+    function myform(){
+
+
+
+   //  document.getElementById("myForm1").submit();
+    
+    }
+
+    
+ </script>

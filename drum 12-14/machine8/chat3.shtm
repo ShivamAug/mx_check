@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<script type="text/javascript">
+  var temp;
+  var temp2;
+</script>
+   <script type="text/javascript" src="../js/papaparse.min.js"></script>
+       <script src="../js/jquery.js"></script>
+       <script type="text/javascript">
+   $(document).ready(function () {
+    $('html, body').animate({
+        scrollTop: $('#msg').offset().top
+    }, 'fast');
+});
+</script>
+
+</head>
+
+<script type="text/javascript">
+function alphaMobileNew(e) {
+  var inpval = e.target.value;
+  var inp_length = inpval.length - 1;
+  var res = inpval.substring(0, inp_length);
+  var regex =/^[^*|\":<>[\]{}`\\()';@&$]+$/;
+  if (!regex.test(res)) {
+  }
+  e.target.value = e.target.value.replace(/[^-a-z0-9._/ [\]]/gi,"");
+  return false;
+}
+
+$(document).ready(function() {
+
+$("textarea").keydown(function(e){
+    // Enter pressed
+    if (e.keyCode == 13)
+    {
+        //method to prevent from default behaviour
+        e.preventDefault();
+    }
+});
+});
+  function RestrictCommaSemicolon(e) {
+        var theEvent = e || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        var regex = /[^,'";]+$/;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) {
+                theEvent.preventDefault();
+            }
+        }
+    }
+
+
+var basepath;
+  $(document).ready(function(){
+
+let ipv4Url = RegExp([
+        '^https?:\/\/([a-z0-9\\.\\-_%]+:([a-z0-9\\.\\-_%])+?@)?',
+        '((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}(25[0-5]|2[0-4',
+        '][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])?',
+        '(:[0-9]+)?(\/[^\\s]*)?$'
+    ].join(''), 'i');
+
+    if(!ipv4Url.test(window.location.href)){
+      var url = window.location.href;
+      var hostname = new URL(url).hostname;
+      var pathname = new URL(url).pathname;
+      var splitUrl = pathname.split('/');
+      basepath = 'https://'+hostname+'/'+splitUrl[1]+'/'+splitUrl[2]+"/proxy/";
+
+    } else {
+      basepath = "http://";
+    }
+      $("#formid").val(basepath+'172.20.12.29/usr/sdext/Factory/machines/machine8/chat3.shtm');
+
+})
+
+
+
+
+
+ function GetTagValues()
+         {
+         // Send the request
+         jQuery.ajax ( { url:"tags5.json.shtm", dataType:"json", success:TagValuesReceived, error:TagValuesError, timeout:3000 });
+         }
+         function TagValuesReceived(json)
+         {   
+            
+            
+            if(temp !=parseFloat(json.value1))
+            {
+              console.log("change");
+              data();
+
+            }
+            
+            
+            temp=parseFloat(json.value1);
+            
+
+
+          
+
+            setTimeout("GetTagValues()", 1000);
+         }
+         function TagValuesError()
+         {
+         GetTagValues();
+         }
+         GetTagValues();
+
+     
+   
+</script>
+
+
+
+<script type="text/javascript">
+  
+
+function data()
+{
+
+var data_a=[];
+ var a=Math.random()*120;
+  Papa.parse("../../../Management_report/data/sh2_chat8.csv?"+a, {
+          download: true,
+          skipEmptyLines: true,
+          complete: function(parsed){
+   $("#inp3").remove();
+    var table = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+        table.id = "inp3";
+        table.setAttribute("class", "tab2");
+        var body = document.getElementById("msg");
+        for(var i=-1;i<parsed.data.length;i++)
+        {
+           var tr = document.createElement("tr");
+          for(var j=0;j<5;j++)
+
+          {
+            if(i==-1)
+            {
+                if (j==0)
+              {
+               var th = document.createElement("TH");
+                        var cellText = document.createTextNode("Date : time");
+                        th.appendChild(cellText);
+            th.setAttribute("style","position:sticky;top:0;");
+                        tr.appendChild(th); 
+              }
+              if (j==1)
+              {
+               var th = document.createElement("TH");
+                        var cellText = document.createTextNode("Machine");
+                        th.appendChild(cellText);
+            th.setAttribute("style","position:sticky;top:0;");
+                        tr.appendChild(th); 
+              }
+              
+              if(j==2)
+              {
+                 var th = document.createElement("TH");
+                        var cellText = document.createTextNode("Thread");
+                        th.appendChild(cellText);
+            th.setAttribute("style","position:sticky;top:0;");
+                        tr.appendChild(th); 
+              }
+              if(j==3)
+              {
+               var th = document.createElement("TH");
+                        var cellText = document.createTextNode("Emp : Name");
+                        th.appendChild(cellText);
+            th.setAttribute("style","position:sticky;top:0;");
+                        tr.appendChild(th); 
+              }
+             if(j==4)
+              {
+               var th = document.createElement("TH");
+                        var cellText = document.createTextNode("Message");
+                        th.appendChild(cellText);
+            th.setAttribute("style","position:sticky;top:0;");
+                        tr.appendChild(th); 
+              }
+            }
+            else
+            {
+                  
+      if((parsed.data[i][0]!="")&&(parsed.data[i][1]!="")&&(parsed.data[i][2]!="")&&(parsed.data[i][3]!=""))
+      {
+
+                if(j==2)
+                {
+                                 var topic=parsed.data[i][4];
+                  if (typeof parsed.data[i][4] === "undefined") {
+    topic="No Thread";
+  } else {
+topic=parsed.data[i][4];
+  }
+                  
+                  var th = document.createElement("td");
+                        var cellText = document.createTextNode(topic);
+                        th.appendChild(cellText);
+                        th.setAttribute("id",'thread'+i)
+                        th.setAttribute("style","cursor: pointer;color:blue;");
+                        th.setAttribute("onclick",'thread_select('+i+');');
+                        tr.appendChild(th); 
+                        
+            
+                  
+                }
+                else if(j==3)
+                {
+                   var th = document.createElement("td");
+                        var cellText = document.createTextNode(parsed.data[i][2]);
+                        th.appendChild(cellText);
+            
+                        tr.appendChild(th); 
+                }
+                else if (j==4)
+                {
+
+                  var th = document.createElement("td");
+                        var cellText = document.createTextNode(parsed.data[i][3]);
+                        th.appendChild(cellText);
+            
+                        tr.appendChild(th);
+                }
+                else
+                {
+                 var th = document.createElement("td");
+                        var cellText = document.createTextNode(parsed.data[i][j]);
+                        th.appendChild(cellText);
+            
+                        tr.appendChild(th); 
+                }
+                }
+            }
+          }
+          tblBody.appendChild(tr);
+                table.appendChild(tblBody);
+      
+      
+      
+      
+                body.appendChild(table);
+      
+        }
+          
+
+
+          f3();
+
+          }
+
+
+
+
+          }); 
+
+
+}
+
+
+var value1="";
+function thread_select (x)
+{
+if (value1!="")
+{
+document.getElementById('thread'+value1).style.background="white";
+}
+
+value1=x;
+document.getElementById("Thread_topic").value=document.getElementById('thread'+x).innerHTML;
+document.getElementById('thread'+x).style.background="lightgrey";
+document.getElementById("Thread_topic").style.background="lightgrey";
+}
+
+
+function change_color()
+{
+  if(value1!="")
+  {
+
+  document.getElementById('thread'+value1).style.background="white"; 
+  }
+  document.getElementById("Thread_topic").style.background="white";
+
+}
+function reset1()
+{
+if(value1!="")
+{
+
+ document.getElementById('thread'+value1).style.background="white";
+}
+  document.getElementById("Thread_topic").style.background="white";
+  document.getElementById("Thread_topic").value="";
+}
+
+function f3()
+{
+  document.getElementById('msg').scrollTop = 9999999;
+ 
+}
+</script>
+
+
+<style type="text/css">
+  #msg table {
+    width: 100%;
+     border-collapse: collapse;
+border-style: outset;
+    }
+    
+    #msg td {
+     border: 2px solid
+#c7c7c7;
+color:
+black;
+font-size: 11px;
+padding: 7px;
+word-wrap: anywhere;
+
+    }
+     #msg th {
+border: 2px solid
+black;
+border-collapse: collapse;
+background:
+lightyellow;
+color:
+#801212;
+text-align: center;
+font-size: 12px;
+padding: 6px;
+font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body style="height: 400px;" onload="data();f3();">
+<div id="msg" style="width: 100%;
+height: 306px;
+overflow: auto;
+border: 2px solid
+black;
+margin-top: 4px;
+margin-bottom: 3px; ">
+ </div>
+ <div id="drop" style="border: 2px solid black;
+border-collapse: collapse;
+white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+font-family: 'Poppins', sans-serif;
+background: lightyellow;
+font-size: 15px;
+font-weight: normal;">
+  <table style="width: 100%;">
+<tr>
+   <td style="width:20%">Thread: </td>
+   <td><input style="width: 75%;height: 30px;" oninput="change_color();" id="Thread_topic" type="text" name=""  onkeyup="alphaMobileNew(event);"><button style="white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+cursor: pointer;
+font-family: 'Poppins', sans-serif;
+color:
+whitesmoke;
+text-align: center;
+font-size: 13px;
+background-color:
+#8c9cbf;
+background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+font-variant: initial;
+width: 92px;
+height: 35px;
+font-weight: bold;
+border-radius: 4px;" onclick="reset1();">Reset</button></td>
+</tr>
+
+
+   </table>
+</div>
+
+
+<div id="Reply_msg" style="width: 100%; height: 50px;"> 
+
+
+
+<table style="width: 100%;">
+  <tr>
+    <td>
+      <textarea id="msg_rec" style="width: 99%;" rows="3" cols="50" maxlength="200" placeholder="say Hello !!"  onkeyup="alphaMobileNew(event);"
+    ondrop="return false;" onpaste="return false;"></textarea>
+
+</td>
+<td ><button style="white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+cursor: pointer;
+font-family: 'Poppins', sans-serif;
+color:
+whitesmoke;
+text-align: center;
+font-size: 13px;
+background-color:
+#8c9cbf;
+background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+font-variant: initial;
+width: 92px;
+height: 35px;
+font-weight: bold;
+border-radius: 4px;" onclick="sub_form();">Send</button> </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+
+var f="";
+  function sub_form()
+  {
+  var machine_name="<%#TagSSI,st3_mc8%>";
+  var b="<%#TagSSI,operator8%>";
+  var c=document.getElementById("msg_rec").value;
+  var gh=document.getElementById("Thread_topic").value;
+  if(gh=="")
+{
+  gh="No Thread"
+}
+  var d=machine_name+","+b+","+c+","+gh;    
+  var e=Math.random()*100;
+  console.log(e);
+   document.getElementById("op").value=d;
+  document.getElementById("rd1").value=e;
+ document.getElementById("data_id").value='usr/sdext/Factory/machines/machine8/chat_change.shtm?'+"<%#TagSSI,Station1%>"+"-"+machine_name+","+b+","+c+","+gh;
+
+  
+if(c>"")
+  {
+    if(f!=c){
+	 f=c;
+    document.getElementById("myForm").submit();
+  
+}
+  }
+else
+{
+  alert("Please type msg");
+}
+
+}
+  
+</script>
+ <form id="myForm" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm">
+ <input type="hidden" name="TagName1" value="chat_op8">
+    <input id="op" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue1" size="20" value="" required>
+    <input type="hidden" name="TagName2" value="new_bt8">
+    <input id="rd1" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue2" size="20" value="" required>
+<input  type="hidden" name="ResultPageOk" id="data_id"  value="/usr/sdext/Factory/machines/machine8/chat3.shtm">
+</form>
+</div>
+
+</body>
+</html>

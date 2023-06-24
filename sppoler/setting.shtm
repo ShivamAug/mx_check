@@ -1,0 +1,4065 @@
+  <html>
+  <head>
+    <title>
+      LE Sm@rt Factory
+    </title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/drop.css">
+    <script src='../js/dependent-selects.js'></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script>
+        function s()
+  {
+ var a1=<%#TagSSI,plan1%>
+ var a2=<%#TagSSI,plan2%>
+  var a3=<%#TagSSI,plan3%>
+   var a4=<%#TagSSI,plan4%>
+    var a5=<%#TagSSI,plan5%>
+     var a6=<%#TagSSI,plan6%>
+      var a8=<%#TagSSI,plan8%>
+       var a9=<%#TagSSI,plan9%>
+        var a10=<%#TagSSI,plan10%>
+         var a11=<%#TagSSI,plan11%>
+          var a12=<%#TagSSI,plan12%>
+
+if (a1==1){
+  document.getElementById("plan1").checked=true;
+}
+if(a2==1){
+  document.getElementById("plan2").checked=true;
+}
+if(a3==1){
+  document.getElementById("plan3").checked=true;
+}
+if(a4==1){
+  document.getElementById("plan4").checked=true;
+}
+if(a5==1){
+  document.getElementById("plan5").checked=true;
+}
+if(a6==1){
+  document.getElementById("plan6").checked=true;
+}
+if(a8==1){
+  document.getElementById("plan8").checked=true;
+}
+if(a9==1){
+  document.getElementById("plan9").checked=true;
+}
+if(a10==1){
+  document.getElementById("plan10").checked=true;
+}
+if(a11==1){
+  document.getElementById("plan11").checked=true;
+}
+if(a12==1){
+  document.getElementById("plan12").checked=true;
+}
+document.getElementById("mySelect").value=3;
+  document.getElementById("prod11").value="";
+  var a= document.getElementById("mySelect").value;
+  var b = document.getElementById("common");
+  var c = document.getElementById("speed");
+  var d = document.getElementById("production");
+  var e = document.getElementById("quality");
+   c.style.display="none";
+   d.style.display="block";
+   e.style.display="none";
+   b.style.display="none";
+   var pqr=Math.random()*1000;
+   console.log(pqr);
+   document.getElementById("butt1").value=pqr;
+}
+function check1() {
+ 
+  if ( document.getElementById("plan1").checked==true)
+    { 
+      document.getElementById("on1").submit();
+   }
+   else{
+    document.getElementById("off1").submit();
+   }
+}
+function check2() {
+   if ( document.getElementById("plan2").checked==true)
+    { 
+      document.getElementById("on2").submit();
+   }
+   else{
+    document.getElementById("off2").submit();
+   }
+   }
+function check3() {
+   if ( document.getElementById("plan3").checked==true)
+    { 
+      document.getElementById("on3").submit();
+   }
+   else{
+    document.getElementById("off3").submit();
+   }
+   }
+function check4() {
+   if ( document.getElementById("plan4").checked==true)
+    { 
+      document.getElementById("on4").submit();
+   }
+   else{
+    document.getElementById("off4").submit();
+   }
+   }
+function check5() {
+   if ( document.getElementById("plan5").checked==true)
+    { 
+      document.getElementById("on5").submit();
+   }
+   else{
+    document.getElementById("off5").submit();
+   }
+   }
+function check6() {
+   if ( document.getElementById("plan6").checked==true)
+    { 
+      document.getElementById("on6").submit();
+   }
+   else{
+    document.getElementById("off6").submit();
+   }
+   }
+function check8() {
+   if ( document.getElementById("plan8").checked==true)
+    { 
+      document.getElementById("on8").submit();
+   }
+   else{
+    document.getElementById("off8").submit();
+   }
+   }
+function check9() {
+   if ( document.getElementById("plan9").checked==true)
+    { 
+      document.getElementById("on9").submit();
+   }
+   else{
+    document.getElementById("off9").submit();
+   }
+   }
+function check10() {
+   if ( document.getElementById("plan10").checked==true)
+    { 
+      document.getElementById("on10").submit();
+   }
+   else{
+    document.getElementById("off10").submit();
+   }
+   }
+function check11() {
+   if ( document.getElementById("plan11").checked==true)
+    { 
+      document.getElementById("on11").submit();
+   }
+   else{
+    document.getElementById("off11").submit();
+   }
+   }
+function check12() {
+   if ( document.getElementById("plan12").checked==true)
+    { 
+      document.getElementById("on12").submit();
+   }
+   else{
+    document.getElementById("off12").submit();
+   }
+}
+</script>
+  </head>
+<script type="text/javascript">
+function fire()
+{
+  document.getElementById("mySelect").value=3;
+  document.getElementById("prod11").value="";
+  var a= document.getElementById("mySelect").value;
+  var b = document.getElementById("common");
+  var c = document.getElementById("speed");
+  var d = document.getElementById("production");
+  var e = document.getElementById("quality");
+   c.style.display="none";
+   d.style.display="none";
+   e.style.display="none";
+   b.style.display="block";
+   var pqr=Math.random()*1000;
+   console.log(pqr);
+   document.getElementById("butt1").value=pqr;
+}
+ function form_change() {
+  var a= document.getElementById("mySelect").value;
+  var b = document.getElementById("common");
+  var c = document.getElementById("speed");
+  var d = document.getElementById("production");
+  var e = document.getElementById("quality");
+
+if (a==1) {
+
+   c.style.display="none";
+   d.style.display="none";
+   e.style.display="none";
+   b.style.display="block";
+
+
+
+}
+if (a==2) {
+
+  b.style.display="none";
+   d.style.display="none";
+   e.style.display="none";
+   c.style.display="block";
+
+
+}
+if (a==3) {
+
+  c.style.display="none";
+   b.style.display="none";
+   e.style.display="none";
+   d.style.display="block";
+
+
+}
+if (a==4) {
+
+ c.style.display="none";
+   d.style.display="none";
+   b.style.display="none";
+    e.style.display="block";
+
+}
+}
+
+
+</script>
+
+  <style type="text/css">
+fieldset
+{
+ width: 100%;
+
+margin-left: 10%;
+
+border-radius: 4px;
+
+border: none;
+}
+th,#m
+{
+border: 1px solid #FFF;
+background-color: #167F92;
+color: #FFF;
+margin: .5em 1em;
+box-sizing: border-box;
+font-family: sans-serif;
+display: table-cell;
+padding:5px;
+width: 20%;
+}
+#m2{
+	border: 1px solid #FFF;
+background-color: #167F92;
+color: #FFF;
+margin: .5em 1em;
+box-sizing: border-box;
+font-family: sans-serif;
+display: table-cell;
+padding:5px;
+width: 0%;
+}
+
+input,#op
+{
+ border: none;
+
+width: 100%;
+
+height: 25px;
+
+font-size: 14px;
+
+font-family: initial;
+
+font-weight: bold;
+
+color: #8b0e1a;
+
+margin: 0.5px;
+text-align: center;
+border-radius: 15px;
+}
+#btn
+{
+
+ border-radius: 4px;
+    width: 135px;
+    height: 35px;
+    margin-bottom: 10px;
+    background-color: #4a77d4;
+    background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4);
+    background-repeat: repeat-x;
+    color: #ffffff;
+    margin-left: 84%;
+    margin-top: 1%;
+
+}
+.button
+{
+  border-radius: 4px;
+width: 135px;
+height: 35px;
+margin-bottom: 10px;
+background-color: #4a77d4;
+background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4);
+background-repeat: repeat-x;
+color: #ffffff;
+margin-left: 50%;
+margin-top: 1%;
+}
+
+
+#table1 td
+{
+border: none;
+height: 25px;
+font-size: 14px;
+font-family: initial;
+font-weight: bold;
+color: #8b0e1a;
+margin: 0.5px;
+text-align: center;
+background-color: whitesmoke;
+}
+#s{
+        font-size: 15px;
+        padding-top: 1%;
+       padding-left: 2%;
+       color: white;
+       font-weight: bolder;
+       font-variant: all-petite-caps;
+}
+.switch {
+  position:relative;
+  display: inline-block;
+  width: 42px;
+  height: 26px;
+  margin-left:20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.responstable {
+    width: 95%;
+    overflow: hidden;
+    background: #FFF;
+    color: #024457;
+    font-size: 14px;
+
+    border: 1px solid #167F92;
+  }
+  .responstable tr {
+    border: 1px solid #D9E4E6;
+  }
+  .responstable tr:nth-child(odd) {
+    background-color: #EAF3F3;
+  }
+  .responstable th {
+    display: none;
+    border: 1px solid #FFF;
+    background-color: #167F92;
+    color: #FFF;
+    padding: 1em;
+    width: 10%;
+  }
+  .responstable th:first-child {
+    display: table-cell;
+    text-align: center;
+  }
+  .responstable th:nth-child(2) {
+    display: table-cell;
+  }
+  .responstable th:nth-child(2) span {
+    display: none;
+  }
+  .responstable th:nth-child(2):after {
+    content: attr(data-th);
+  }
+  @media (min-width: 480px) {
+    .responstable th:nth-child(2) span {
+      display: block;
+    }
+    .responstable th:nth-child(2):after {
+      display: none;
+      text-align: center;
+    }
+  }
+  .responstable td {
+    display: block;
+    word-wrap: break-word;
+    max-width: 7em;
+    text-align: center;
+  }
+  .responstable td:first-child {
+    display: table-cell;
+    text-align: center;
+    border-right: 1px solid #D9E4E6;
+  }
+  @media (min-width: 480px) {
+    .responstable td {
+      border: 1px solid #D9E4E6;
+    }
+  }
+  .responstable th, .responstable td {
+
+
+    margin: .5em 1em;
+  }
+  @media (min-width: 480px) {
+    .responstable th, .responstable td {
+      display: table-cell;
+      padding: 0.5%;
+    }
+  }
+  h1 {
+    font-family: Verdana;
+    font-weight: normal;
+    color: #024457;
+  }
+  h1 span {
+    color: #167F92;+
+  }
+  #menu {
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Times New Roman";
+  }
+  .parent:hover > ul {
+  display:block;
+  position:absolute;
+  background-color: #444;
+  }
+  .child {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left:-1px;
+  margin-top: 12px;
+  }
+  .child li {
+  background-color: #444;
+  line-height: 30px;
+  border-bottom:#CCC 1px solid;
+  border-right:#CCC 1px solid;
+  width:100%;
+  }
+  .child li a{
+  color:whitesmoke;
+  }
+  ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  font-weight: bold;
+  }
+  li {
+  float: left;
+  }
+  .parent{
+  text-decoration: none;
+  background-color: #444;
+  padding:0;
+  position: relative;
+  border-bottom: 4px solid #999;
+  margin: 0 0.1em;
+  transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+  cursor: pointer;
+  min-width: 6em;
+  text-align: center;
+  font-size: 16px;
+  }
+  .parent:hover{
+  background-color: red;
+  }
+  ul ul ul
+  {
+  left: 100%;
+  top: 0;
+  list-style-type: none;
+  padding: 0px;
+  font-weight: bold;
+  font-family: "Times New Roman";
+  }
+  li:hover {
+  background-color: #444;
+  }
+  .parent li:hover {
+  background-color: #444;
+  padding:0;
+  }
+  .expand{
+  font-size:16px;
+  float:right;
+  margin-right:15px;
+  }
+    li.parent{
+    display:inline-block;
+  }
+  .child a {
+  color: whitesmoke;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  }
+
+  #t{
+    padding:8px 6px;
+  }
+
+  .child a:hover{
+    background-color: #8b0e1ade;
+  }
+</style>
+    <body onload="s()">
+
+        <div class="container" >
+          <div class="header">
+
+                         <table style="width: 100%;margin-bottom: -2%; ">
+                <tr>
+                  <td ><img src="../css/factory.JPG" style="margin-left: 2%;
+
+height: 100px;">
+                   <td style="font-size: 18px;
+
+ font-weight: bolder;
+
+ padding-left: 13%;
+
+ text-align: center;
+
+ color: ivory;
+  font-variant: petite-caps;" > Setting</td>
+ </td>
+</td>
+  <td style="width: 15%;" ><img src="../css/PikPng.com_lincoln-png_897101.png" style="margin-left: 2%;
+height: 62px;"></td>
+                </tr>
+            </table>
+            <br>
+
+<ul id="menu" style="margin-left: 3%; width: 65%;">
+<li class="parent" id="t"><a href="http://192.168.1.103/usr/index.shtm">Home</a>
+</li>
+<li class="parent" id="t" ><a href="/usr/Factory/machines/wetdraw.shtm">Overview</a>
+</li>
+<li class="parent" id="t"><a href="#">WET DRAW [1-5]</a>
+<ul class="child">
+  <li class="parent"><a href="#">WD1</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine1/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine1/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine1/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine1/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine1/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine1/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD2</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine2/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine2/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine2/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine2/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine2/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine2/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD3</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine3/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine3/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine3/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine3/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine3/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine3/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD4</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine4/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine4/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine4/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine4/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine4/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine4/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD5</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine5/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine5/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine5/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine5/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine5/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine5/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+</ul>
+</li>
+<li class="parent" id="t"><a href="#">WET DRAW [6-12]</a>
+<ul class="child">
+  <li class="parent"><a href="#">WD6</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine6/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine6/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine6/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine6/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine6/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine6/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD8</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine8/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine8/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine8/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine8/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine8/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine8/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD9</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine9/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine9/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine9/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine9/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine9/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine9/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD10</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine10/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine10/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine10/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine10/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine10/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine10/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD11</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine11/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine11/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine11/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine11/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine11/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine11/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD12</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine12/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine12/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine12/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine12/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine12/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine12/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+</ul>
+</li>
+<li class="parent" id="t" style="background-color: red;"><a href="/usr/Factory/machines/setting.shtm">Setting</a>
+</li>
+</ul>
+</div>
+
+
+    <div class="content" style="height:auto;">
+
+<select id="mySelect" style="text-decoration: none;
+background: #444;
+padding: 8px 15px;
+position: relative;
+border-bottom: 4px solid #999;
+margin: 0 0.1em;
+margin-left: 0.1em;
+margin-left: 0.1em;
+transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+cursor: pointer;
+min-width: 8em;
+text-align: center;
+font-size: 16px;
+color: white;
+font-weight: bold;
+margin-left: 3%;
+margin-top: 1.5%;
+margin-bottom: 1.5%;" onchange="form_change();" style="">	
+
+  <option value="1" >Common</option>
+  <option value="2" >Speed Parameter Entry</option>
+<option value="3" >Production</option>
+  <option value="4" >Quality</option>
+
+</select>
+
+  <div id="common">
+    <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+    <table style="width: 50%; background-color: gray;">
+    <tr>
+        <th>Shift Type</th>
+        <th>From HH</th>
+        <th>To  HH</th>
+      </tr>
+      <tr>
+        <th>Shift - A</th>
+          <td><input  type="hidden"name="TagName1"value="from_a"><input name="TagValue1" value="<%#TagSSI,from_a%>" ></td>
+          <td><input type="hidden"name="TagName2"value="to_a"><input name="TagValue2" value="<%#TagSSI,to_a%>" ></td>
+      </tr>
+      <tr>
+        <th>Shift - B</th>
+          <td><input type="hidden"name="TagName3"value="from_b"><input name="TagValue3" value="<%#TagSSI,from_b%>" ></td>
+          <td><input type="hidden"name="TagName4"value="to_b"><input name="TagValue4"  value="<%#TagSSI,to_b%>" ></td>
+      </tr>
+      <tr>
+        <th>Shift - C</th>
+          <td><input type="hidden"name="TagName5"value="from_c"><input name="TagValue5"value="<%#TagSSI,from_c%>"></td>
+          <td><input type="hidden"name="TagName6"value="to_c"><input name="TagValue6" value="<%#TagSSI,to_c%>" ></td>
+      </tr>
+      </table>
+      <input  class="button"  id="1" type="submit" value="Submit">
+      <input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+      </fieldset>
+      </form>
+      </div>
+
+      <div id="speed">
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+     <fieldset>
+           <table style="width: 58%;
+background-color: gray;">
+      <tr>
+      <th rowspan="3">WET DRAW 1</th>
+      <th colspan="3">Speed</th></tr>
+        
+<tr>
+  <th>LCL</th>
+<th>UCL</th>
+
+</tr>
+<tr>
+   <td><input  type="hidden"name="TagName1"value="lcl_sp"><input name="TagValue1" value="<%#TagSSI,lcl_sp%>" ></td>
+  <td><input  type="hidden"name="TagName2"value="ucl_sp"><input name="TagValue2" value="<%#TagSSI,ucl_sp%>" ></td>
+</tr>
+  <tr>
+    <th rowspan="2">WET DRAW 2</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName3"value="lcl_sp2"><input name="TagValue3" value="<%#TagSSI,lcl_sp2%>" ></td>
+<td><input  type="hidden"name="TagName4"value="ucl_sp2"><input name="TagValue4" value="<%#TagSSI,ucl_sp2%>" ></td>
+   </tr>
+      <tr>
+        <th rowspan="2">WET DRAW 3</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+   <td><input  type="hidden"name="TagName5"value="lcl_sp3"><input name="TagValue5" value="<%#TagSSI,lcl_sp3%>" ></td>
+  <td><input  type="hidden"name="TagName6"value="ucl_sp3"><input name="TagValue6" value="<%#TagSSI,ucl_sp3%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 4</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName7"value="lcl_sp4"><input name="TagValue7" value="<%#TagSSI,lcl_sp4%>" ></td>
+  <td><input  type="hidden"name="TagName8"value="ucl_sp4"><input name="TagValue8" value="<%#TagSSI,ucl_sp4%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 5</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName9"value="lcl_sp5"><input name="TagValue9" value="<%#TagSSI,lcl_sp5%>" ></td>
+  <td><input  type="hidden"name="TagName10"value="ucl_sp5"><input name="TagValue10" value="<%#TagSSI,ucl_sp5%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 6</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName11"value="lcl_sp6"><input name="TagValue11" value="<%#TagSSI,lcl_sp6%>" ></td>
+  <td><input  type="hidden"name="TagName12"value="ucl_sp6"><input name="TagValue12" value="<%#TagSSI,ucl_sp6%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 8</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName13"value="lcl_sp8"><input name="TagValue13" value="<%#TagSSI,lcl_sp8%>" ></td>
+  <td><input  type="hidden"name="TagName14"value="ucl_sp8"><input name="TagValue14" value="<%#TagSSI,ucl_sp8%>" ></td>
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 9</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+   <td><input  type="hidden"name="TagName15"value="lcl_sp9"><input name="TagValue15" value="<%#TagSSI,lcl_sp9%>" ></td>
+  <td><input  type="hidden"name="TagName16"value="ucl_sp9"><input name="TagValue16" value="<%#TagSSI,ucl_sp9%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 10</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+       <td><input  type="hidden"name="TagName17"value="lcl_sp10"><input name="TagValue17" value="<%#TagSSI,lcl_sp10%>" ></td>
+  <td><input  type="hidden"name="TagName18"value="ucl_sp10"><input name="TagValue18" value="<%#TagSSI,ucl_sp10%>" ></td>
+
+</tr>
+<tr>
+  <th rowspan="2">WET DRAW 11</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+  <td><input  type="hidden"name="TagName19"value="lcl_sp11"><input name="TagValue19" value="<%#TagSSI,lcl_sp11%>" ></td>
+<td><input  type="hidden"name="TagName20"value="ucl_sp11"><input name="TagValue20" value="<%#TagSSI,ucl_sp11%>" ></td>
+
+</tr>
+      <tr>
+        <th rowspan="2">WET DRAW 12</th>
+<th>LCL</th>
+<th>UCL</th>
+</tr>
+<tr>
+   <td><input  type="hidden"name="TagName21"value="lcl_sp12"><input name="TagValue21" value="<%#TagSSI,lcl_sp12%>" ></td>
+  <td><input  type="hidden"name="TagName22"value="ucl_sp12"><input name="TagValue22" value="<%#TagSSI,ucl_sp12%>" ></td>
+</tr>
+
+</table>
+    <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</fieldset>
+</form>
+<br>
+</div>
+
+      <div id="production">
+        <form method="POST" id="on1" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan1">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off1" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan1">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+  <form method="POST" id="on2" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan2">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off2" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan2">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+  <form method="POST" id="on3" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan3">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off3" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan3">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on4" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan4">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off4" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan4">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on5" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan5">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off5" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan5">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on6" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan6">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off6" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan6">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on8" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan8">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off8" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan8">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on9" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan9">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off9" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan9">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on10" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan10">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off10" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan10">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on11" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan11">
+<input  type="hidden" name="TagValue1"  value="1">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off11" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan11">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="on12" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan12">
+<input  type="hidden" name="TagValue1"  value="1">  
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+<form method="POST" id="off12" action="/rcgi.binrcgi.bin/UpdateTagForm">
+<input type="hidden"name="TagName1" value="plan12">
+<input  type="hidden" name="TagValue1"  value="0">
+<input type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+</form>
+       <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+     <fieldset>
+           <table style="width: 80%; background-color: gray;">
+           <tr>
+
+        <th rowspan=2 >S.No</th>
+        <th colspan=3 >Shift Operator</th>
+        <th colspan=3 >Production Plan</th>
+         </tr>
+        <tr>
+        <th>A</th><th>B</th><th>C</th>
+        <th style="width:0%;">A</th><th style="width:0%;">B</th><th style="width:0%;">C</th>
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 1</b>
+                 <label class="switch"  >
+          <input type="checkbox"id="plan1" onclick="check1()" >
+  <span class="slider round"></span></lable></td></tr>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName1"value="opr_a1">
+          <select name="TagValue1" value="<%#TagSSI,opr_a1%>"  id="op">
+            <option value="<%#TagSSI,opr_a1%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+            <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName2"value="opr_b1">
+         	<select name="TagValue2" value="<%#TagSSI,opr_b1%>"  id="op">
+         	  <option value="<%#TagSSI,opr_b1%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+            <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName3"value="opr_c1">
+          <select name="TagValue3" value="<%#TagSSI,opr_c1%>"  id="op">
+          	<option value="<%#TagSSI,opr_c1%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+        </td>
+          <td>
+            <input type="hidden" name="TagName4" value="target_a1">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue4" value="<%#TagSSI,target_a1%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName5" value="target_b1">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue5" value="<%#TagSSI,target_b1%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName6" value="target_c1">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue6" value="<%#TagSSI,target_c1%>"/>
+        </td>
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 2</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan2" onclick="check2()" >
+  <span class="slider round"></span></lable></td></tr>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName7"value="opr_a2">
+          <select name="TagValue7" value="<%#TagSSI,opr_a2%>"  id="op">
+            <option value="<%#TagSSI,opr_a2%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName8"value="opr_b2">
+          <select name="TagValue8" value="<%#TagSSI,opr_b2%>"  id="op">
+          <option value="<%#TagSSI,opr_b2%>"></option>	
+          <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName9"value="opr_c2">
+          <select name="TagValue9" value="<%#TagSSI,opr_c2%>"  id="op">
+          	<option value="<%#TagSSI,opr_c2%>"></option>
+            <option value="">None</option>
+            <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+            <td>         
+                    <input type="hidden" name="TagName10" value="target_a2">
+                    <input style="border-radius: 20px;width:125px;" type="text" name="TagValue10" value="<%#TagSSI,target_a2%>">
+                </td>
+                <td>
+                    <input type="hidden" name="TagName11" value="target_b2">
+                    <input style="border-radius: 20px;width:125px;" type="text" name="TagValue11" value="<%#TagSSI,target_b2%>"/>
+                </td>
+                <td>
+                    <input type="hidden" name="TagName12" value="target_c2">
+                    <input style="border-radius: 20px;width:125px;" type="text" name="TagValue12" value="<%#TagSSI,target_c2%>"/>
+                </td>
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 3</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan3" onclick="check3()" >
+  <span class="slider round"></span></lable></td></tr>
+
+        </td>
+        <td>
+          <input  type="hidden"name="TagName13"value="opr_a3">
+          <select name="TagValue13" value="<%#TagSSI,opr_a3%>"  id="op">
+          	<option value="<%#TagSSI,opr_a3%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName14"value="opr_b3">
+          <select name="TagValue14" value="<%#TagSSI,opr_b3%>"  id="op">
+          	<option value="<%#TagSSI,opr_b3%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName15"value="opr_c3">
+          <select name="TagValue15" value="<%#TagSSI,opr_c3%>"  id="op">
+          	<option value="<%#TagSSI,opr_c3%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+<td>
+            <input type="hidden" name="TagName16" value="target_a3">
+            <input style="border-radius: 20px;width:125px;"type="text" name="TagValue16" size="20" value="<%#TagSSI,target_a3%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName17" value="target_b3">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue17" size="20" value="<%#TagSSI,target_b3%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName18" value="target_c3">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue18" size="20" value="<%#TagSSI,target_c3%>"/>
+        </td>
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 4</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan4" onclick="check4()" >
+  <span class="slider round"></span></lable></td></tr>
+  
+        </td>
+        <td>
+          <input  type="hidden"name="TagName19"value="opr_a4">
+          <select name="TagValue19" value="<%#TagSSI,opr_a4%>"  id="op">
+          	<option value="<%#TagSSI,opr_a4%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName20"value="opr_b4">
+          <select name="TagValue20" value="<%#TagSSI,opr_b4%>"  id="op">
+          	<option value="<%#TagSSI,opr_b4%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName21"value="opr_c4">
+          <select name="TagValue21" value="<%#TagSSI,opr_c4%>"  id="op">
+          	<option value="<%#TagSSI,opr_c4%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+    <td>
+            <input type="hidden" name="TagName22" value="target_a4">
+            <input style="border-radius: 20px;width:125px;"type="text" name="TagValue22" size="20" value="<%#TagSSI,target_a4%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName23" value="target_b4">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue23" size="20" value="<%#TagSSI,target_b4%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName24" value="target_c5">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue24" size="20" value="<%#TagSSI,target_c5%>"/>
+        </td>
+
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 5</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan5" onclick="check5()" >
+  <span class="slider round"></span></lable></td></tr>
+  
+        </td>
+        <td>
+          <input  type="hidden"name="TagName25"value="opr_a5">
+          <select name="TagValue25" value="<%#TagSSI,opr_a5%>"  id="op">
+            <option value="<%#TagSSI,opr_a5%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+            	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName26"value="opr_b5">
+          <select name="TagValue26" value="<%#TagSSI,opr_b5%>"  id="op">
+          	<option value="<%#TagSSI,opr_b5%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName27"value="opr_c5">
+          <select name="TagValue27" value="<%#TagSSI,opr_c5%>"  id="op">
+          	<option value="<%#TagSSI,opr_c5%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+            <input type="hidden" name="TagName28" value="target_a5">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue28" size="20" value="<%#TagSSI,target_a5%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName29" value="target_b5">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue29" size="20" value="<%#TagSSI,target_b5%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName30" value="target_c5">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue30" size="20" value="<%#TagSSI,target_c5%>"/>
+        </td>        
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 6</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan6" onclick="check6()" >
+  <span class="slider round"></span></lable></td></tr>
+          </td>
+        <td>
+          <input  type="hidden"name="TagName31"value="opr_a6">
+          <select name="TagValue31" value="<%#TagSSI,opr_a6%>"  id="op">
+          	<option value="<%#TagSSI,opr_a6%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName32"value="opr_b6">
+          <select name="TagValue32" value="<%#TagSSI,opr_b6%>"  id="op">
+          	<option value="<%#TagSSI,opr_b6%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName33"value="opr_c6">
+          <select name="TagValue33" value="<%#TagSSI,opr_c6%>"  id="op">
+          	<option value="<%#TagSSI,opr_c6%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+      <td>
+            <input type="hidden" name="TagName34" value="target_a6">
+            <input style="border-radius: 20px;width:125px;"type="text" name="TagValue34" size="20" value="<%#TagSSI,target_a6%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName35" value="target_b6">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue35" size="20" value="<%#TagSSI,target_b6%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName36" value="target_c6">
+            <input style="border-radius: 20px;width:125px;" type="text" name="TagValue36" size="20" value="<%#TagSSI,target_c6%>"/>
+        </td>  
+        </tr>
+        <tr>
+
+        <td id="m" rowspan="2">
+          <b>WET DRAW 8</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan8" onclick="check8()" >
+  <span class="slider round"></span></lable></td></tr>
+         </td>
+        <td>
+          <input  type="hidden"name="TagName37"value="opr_a8">
+          <select name="TagValue37" value="<%#TagSSI,opr_a8%>"  id="op">
+          	<option value="<%#TagSSI,opr_a8%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName38"value="opr_b8">
+          <select name="TagValue38" value="<%#TagSSI,opr_b8%>"  id="op">
+          	<option value="<%#TagSSI,opr_b8%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName39"value="opr_c8">
+          <select name="TagValue39" value="<%#TagSSI,opr_c8%>"  id="op">
+          	<option value="<%#TagSSI,opr_c8%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+            <input type="hidden" name="TagName40" value="target_a8">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue40" size="20" value="<%#TagSSI,target_a8%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName41" value="target_b8">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue41" size="20" value="<%#TagSSI,target_b8%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName42" value="target_c8">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue42" size="20" value="<%#TagSSI,target_c8%>"/>
+        </td>
+
+    
+        
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW 9</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan9" onclick="check9()" >
+  <span class="slider round"></span></lable></td></tr>
+          </td>
+        <td>
+          <input  type="hidden"name="TagName43"value="opr_a9">
+          <select name="TagValue43" value="<%#TagSSI,opr_a9%>"  id="op">
+          	<option value="<%#TagSSI,opr_a9%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName44"value="opr_b9">
+          <select name="TagValue44" value="<%#TagSSI,opr_b9%>"  id="op">
+          	<option value="<%#TagSSI,opr_b9%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName45"value="opr_c9">
+          <select name="TagValue45" value="<%#TagSSI,opr_c9%>"  id="op">
+          	<option value="<%#TagSSI,opr_c9%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+          <td>
+            <input type="hidden" name="TagName46" value="target_a9">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue46" size="20" value="<%#TagSSI,target_a9%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName47" value="target_b9">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue47" size="20" value="<%#TagSSI,target_b9%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName48" value="target_c9">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue48" size="20" value="<%#TagSSI,target_c9%>"/>
+        </td>  
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW10</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan10" onclick="check10()" >
+  <span class="slider round"></span></lable></td></tr>
+  
+        </td>
+        <td>
+          <input  type="hidden"name="TagName49"value="opr_a10">
+          <select name="TagValue49" value="<%#TagSSI,opr_a10%>"  id="op">
+          	<option value="<%#TagSSI,opr_a10%>"></option>
+            <option value="">None</option>
+          <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName50"value="opr_b10">
+          <select name="TagValue50" value="<%#TagSSI,opr_b10%>"  id="op">
+          	<option value="<%#TagSSI,opr_b10%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName51"value="opr_c10">
+          <select name="TagValue51" value="<%#TagSSI,opr_c10%>"  id="op">
+          	<option value="<%#TagSSI,opr_c10%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+       <td>
+            <input type="hidden" name="TagName52" value="target_a10">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue52" size="20" value="<%#TagSSI,target_a10%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName53" value="target_b10">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue53" size="20" value="<%#TagSSI,target_b10%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName54" value="target_c10">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue54" size="20" value="<%#TagSSI,target_c10%>"/>
+        </td>
+
+        
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW11</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan11" onclick="check11()" >
+  <span class="slider round"></span></lable></td></tr>
+  
+        </td>
+        <td>
+          <input  type="hidden"name="TagName55"value="opr_a11">
+          <select name="TagValue55" value="<%#TagSSI,opr_a11%>"  id="op">
+          	<option value="<%#TagSSI,opr_a11%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName56"value="opr_b11">
+          <select name="TagValue56" value="<%#TagSSI,opr_a11%>"  id="op">
+          	<option value="<%#TagSSI,opr_b11%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName57"value="opr_c11">
+          <select name="TagValue57" value="<%#TagSSI,opr_c11%>"  id="op">
+          	<option value="<%#TagSSI,opr_c11%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+                <td>
+            <input type="hidden" name="TagName58" value="target_a11">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue58" size="20" value="<%#TagSSI,target_a11%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName59" value="target_b11">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue59" size="20" value="<%#TagSSI,target_b11%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName60" value="target_c11">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue60" size="20" value="<%#TagSSI,target_c11%>"/>
+        </td>
+        </tr>
+        <tr>
+        <td id="m" rowspan="2">
+          <b>WET DRAW12</b>
+          <label class="switch"  >
+    <input type="checkbox"id="plan12" onclick="check12()" >
+  <span class="slider round"></span></lable></td></tr>
+          </td>
+        <td>
+          <input  type="hidden"name="TagName61"value="opr_a12">
+          <select name="TagValue61" value="<%#TagSSI,opr_a12%>"  id="op">
+          	<option value="<%#TagSSI,opr_a12%>"></option>
+            <option value="">None</option>
+            <option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName62"value="opr_b12">
+          <select name="TagValue62" value="<%#TagSSI,opr_b12%>"  id="op">
+          	<option value="<%#TagSSI,opr_b12%>"></option>
+            <option value="">None</option>
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            
+          </select>
+        </td>
+        <td>
+          <input  type="hidden"name="TagName63" value="opr_c12">
+          <select name="TagValue63" value="<%#TagSSI,opr_c12%>"  id="op">
+          	<option value="<%#TagSSI,opr_c12%>"></option>
+            <option value="">None</option>          	
+          	<option value="P Kumarasamy">P Kumarasamy</option>
+          	<option value="Pradeep M">Pradeep M</option>
+          	<option value="Manikandan D">Manikandan D</option>
+          	<option value="Vignesh R">Vignesh R</option>
+          	<option value="Roopan Ismavel">Roopan Ismavel</option>
+          	<option value="Rajesh A">Rajesh A</option>
+          	<option value="Yuvaraj K">Yuvaraj K</option>
+          	<option value="Amalraj">Amalraj</option>
+          	<option value="Dinesh M">Dinesh M</option>
+          	<option value="Jayaprakash M">Jayaprakash M</option>
+          	<option value="Saravanan V">Saravanan V</option>
+          	<option value="Dinesh Ravishankar">Dinesh Ravishankar</option>          	
+              <option value="Dinesh S">Dinesh S</option>            
+            <option value="Essakimuthu">Essakimuthu</option>            
+            <option value="Bakkiyaraj">Bakkiyaraj</option>            `
+          </select>
+        </td>
+                <td>
+            <input type="hidden" name="TagName64" value="target_a12">
+            <input style="border-radius: 20px;width:125px;: 0px;"type="text" name="TagValue64" size="20" value="<%#TagSSI,target_a12%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName65" value="target_b12">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue65" size="20" value="<%#TagSSI,target_b12%>"/>
+        </td>
+        <td>
+            <input type="hidden" name="TagName66" value="target_c12">
+            <input style="border-radius: 20px;width:125px;: 0px;" type="text" name="TagValue66" size="20" value="<%#TagSSI,target_c12%>"/>
+        </td>
+        </tr>
+      <BR>
+        </table>
+            <input  class="button" style="margin-left: 40%;"  id="1" type="submit" value="Submit">
+        <input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+        </fieldset>
+        </form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+<fieldset>
+        <table style="width: 50%; background-color: gray;">
+        <tr>
+        <th colspan=3>Production Control Limit</th></tr>
+             <tr>
+        <th>% target Availability </th>
+        <th>Minimum % of slow speed</th>
+        <th>Maximum % of slow speed</th>
+        </tr>
+        <tr>
+        <td>
+          <input  type="hidden"name="TagName1"value="min_oee">
+          <input name="TagValue1" value="<%#TagSSI,min_oee%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName2"value="min_sloee">
+          <input name="TagValue2" value="<%#TagSSI,min_sloee%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName3"value="max_dtime">
+          <input name="TagValue3" value="<%#TagSSI,max_dtime%>" >
+        </td>
+</tr>
+</table>
+<input  class="button" style="margin-left: 40%;"  id="1" type="submit" value="Submit">
+        <input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+        </fieldset>
+        </form>
+
+        <form method="POST" id="on1" action="/rcgi.binrcgi.bin/UpdateTagForm">
+          <fieldset>
+           <table style="width: 80%; background-color: gray;">
+           <tr>
+        <th colspan="6">Speed for Diameter</th>
+        </tr>
+        <tr>
+        	<th id="m2">S.No</th>
+        <th id="m2">1.6 mm</th id="m2"><th id="m2">1.2 mm</th id="m2"><th>1 mm</th id="m2"><th id="m2">0.9 mm</th><th id="m2">0.8 mm</th>
+        </tr>
+        <tr>
+        <td id="m2">
+          <b>WET DRAW 1</b>
+          <td>
+          <input  type="hidden"name="TagName1"value="m1_di1_6">
+          <input name="TagValue1" value="<%#TagSSI,m1_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName2"value="m1_di1_2">
+          <input name="TagValue2" value="<%#TagSSI,m1_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName3"value="m1_di1_0">
+          <input name="TagValue3" value="<%#TagSSI,m1_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName4" value="m1_di0_9">
+            <input name="TagValue4" value="<%#TagSSI,m1_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName5" value="m1_di0_8">
+            <input name="TagValue5" value="<%#TagSSI,m1_di0_8%>" >
+        </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 2</b>
+          <td>
+          <input  type="hidden"name="TagName6"value="m2_di1_6">
+          <input name="TagValue6" value="<%#TagSSI,m2_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName7"value="m2_di1_2">
+          <input name="TagValue7" value="<%#TagSSI,m2_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName8"value="m2_di1_0">
+          <input name="TagValue8" value="<%#TagSSI,m2_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName9" value="m2_di0_9">
+            <input name="TagValue9" value="<%#TagSSI,m2_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName10" value="m2_di0_8">
+            <input name="TagValue10" value="<%#TagSSI,m2_di0_8%>" >
+        </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 3</b>
+          </td>
+        <td><input  type="hidden"name="TagName11"value="m3_di1_6">
+          <input name="TagValue11" value="<%#TagSSI,m3_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName12"value="m3_di1_2">
+          <input name="TagValue12" value="<%#TagSSI,m3_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName13"value="m3_di1_0">
+          <input name="TagValue13" value="<%#TagSSI,m3_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName14" value="m3_di0_9">
+            <input name="TagValue14" value="<%#TagSSI,m3_di0_9%>" >
+            </td>
+        <td>
+            <input type="hidden" name="TagName15" value="m3_di0_8">
+            <input name="TagValue15" value="<%#TagSSI,m3_di0_8%>" ></td>         
+        <tr>
+        <td id="m">
+          <b>WET DRAW 4</b>
+          </td><td>
+                  <input  type="hidden"name="TagName16"value="m4_di1_6">
+          <input name="TagValue16" value="<%#TagSSI,m4_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName17"value="m4_di1_2">
+          <input name="TagValue17" value="<%#TagSSI,m4_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName18"value="m4_di1_0">
+          <input name="TagValue18" value="<%#TagSSI,m4_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName19" value="m4_di0_9">
+            <input name="TagValue19" value="<%#TagSSI,m4_di0_9%>" >
+        <td>
+            <input type="hidden" name="TagName20" value="m4_di0_8">
+            <input name="TagValue20" value="<%#TagSSI,m4_di0_8%>" ></td>
+
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 5</b>
+          </td>
+                      <td><input  type="hidden"name="TagName21"value="m5_di1_6">
+          <input name="TagValue21" value="<%#TagSSI,m5_di1_6%>" type="number">
+        <td >
+          <input  type="hidden"name="TagName22"value="m5_di1_2">
+          <input name="TagValue22" value="<%#TagSSI,m5_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName23"value="m5_di1_0">
+          <input name="TagValue23" value="<%#TagSSI,m5_di1_0%>" ></td>
+        <td> <input type="hidden" name="TagName24" value="m5_di0_9">
+            <input name="TagValue24" value="<%#TagSSI,m5_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName25" value="m5_di0_8">
+            <input name="TagValue25" value="<%#TagSSI,m5_di0_8%>" >
+        </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 6 </td>
+          <td><input  type="hidden"name="TagName26"value="m6_di1_6">
+          <input name="TagValue26" value="<%#TagSSI,m6_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName27"value="m6_di1_2">
+          <input name="TagValue27" value="<%#TagSSI,m6_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName28"value="m6_di1_0">
+          <input name="TagValue28" value="<%#TagSSI,m6_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName29" value="m6_di0_9">
+            <input name="TagValue29" value="<%#TagSSI,m6_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName30" value="m6_di0_8">
+            <input name="TagValue30" value="<%#TagSSI,m6_di0_8%>" ></td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 8</b>
+          </td><td>
+          <input  type="hidden"name="TagName31"value="m8_di1_6">
+          <input name="TagValue31" value="<%#TagSSI,m8_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName32"value="m8_di1_2">
+          <input name="TagValue32" value="<%#TagSSI,m8_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName33"value="m8_di1_0">
+          <input name="TagValue33" value="<%#TagSSI,m8_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName34" value="m8_di0_9">
+            <input name="TagValue34" value="<%#TagSSI,m8_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName35" value="m8_di0_8">
+            <input name="TagValue35" value="<%#TagSSI,m8_di0_8%>" >
+          </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 9</b>
+          </td>
+                  <td><input  type="hidden"name="TagName36"value="m9_di1_6">
+          <input name="TagValue36" value="<%#TagSSI,m9_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName37"value="m9_di1_2">
+          <input name="TagValue37" value="<%#TagSSI,m9_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName38"value="m9_di1_0">
+          <input name="TagValue38" value="<%#TagSSI,m9_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName39" value="m9_di0_9">
+            <input name="TagValue39" value="<%#TagSSI,m9_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName40" value="m9_di0_8">
+            <input name="TagValue40" value="<%#TagSSI,m9_di0_8%>" >
+          </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 10</b>
+          </td>
+          <td>
+            <input  type="hidden"name="TagName41"value="m10_di1_6">
+          <input name="TagValue41" value="<%#TagSSI,m10_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName42"value="m10_di1_2">
+          <input name="TagValue42" value="<%#TagSSI,m10_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName43"value="m10_di1_0">
+          <input name="TagValue43" value="<%#TagSSI,m10_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName44" value="m10_di0_9">
+            <input name="TagValue44" value="<%#TagSSI,m10_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName45" value="m10_di0_8">
+            <input name="TagValue45" value="<%#TagSSI,m10_di0_8%>" >
+          </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 11</b>
+          </td>
+          <td><input  type="hidden"name="TagName46"value="m11_di1_6">
+          <input name="TagValue46" value="<%#TagSSI,m11_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName47"value="m11_di1_2">
+          <input name="TagValue47" value="<%#TagSSI,m11_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName48"value="m11_di1_0">
+          <input name="TagValue48" value="<%#TagSSI,m11_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName49" value="m11_di0_9">
+            <input name="TagValue49" value="<%#TagSSI,m11_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName50" value="m11_di0_8">
+            <input name="TagValue50" value="<%#TagSSI,m11_di0_8%>" >
+          </td>
+        </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 12</b>
+          </td>
+        <td>            <input  type="hidden"name="TagName51"value="m12_di1_6">
+          <input name="TagValue51" value="<%#TagSSI,m12_di1_6%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName52"value="m12_di1_2">
+          <input name="TagValue52" value="<%#TagSSI,m12_di1_2%>" >
+        </td>
+        <td>
+          <input  type="hidden"name="TagName53"value="m12_di1_0">
+          <input name="TagValue53" value="<%#TagSSI,m12_di1_0%>" >
+        </td>
+          <td>
+            <input type="hidden" name="TagName54" value="m12_di0_9">
+            <input name="TagValue54" value="<%#TagSSI,m12_di0_9%>" >
+        </td>
+        <td>
+            <input type="hidden" name="TagName55" value="m12_di0_8">
+            <input name="TagValue55" value="<%#TagSSI,m12_di0_8%>" >
+            </td>  
+        </tr>
+</table>
+<input  class="button" style="margin-left: 40%;"  id="1" type="submit" value="Submit">
+        <input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+        </fieldset>
+        </form>    
+
+        <form method="POST" id="on1" action="/rcgi.binrcgi.bin/UpdateTagForm">
+          <fieldset>
+           <table style="width: 30%; background-color: gray;">
+           <tr>
+        <th>S.No</th>    
+        <th>Availablity Speed Estimation</th>    
+      </tr>
+        <tr>
+        <td id="m">
+          <b>WET DRAW 1</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName1"value="zero_sp1">
+          <input name="TagValue1" value="<%#TagSSI,zero_sp1%>" >
+        </td>
+        </tr>
+        <tr>
+          <td id="m">
+          <b>WET DRAW 2</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName2"value="zero_sp2">
+          <input name="TagValue2" value="<%#TagSSI,zero_sp2%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 3</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName3"value="zero_sp3">
+          <input name="TagValue3" value="<%#TagSSI,zero_sp3%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 4</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName4"value="zero_sp4">
+          <input name="TagValue4" value="<%#TagSSI,zero_sp4%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 5</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName5"value="zero_sp5">
+          <input name="TagValue5" value="<%#TagSSI,zero_sp5%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 6</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName6"value="zero_sp6">
+          <input name="TagValue6" value="<%#TagSSI,zero_sp6%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 8</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName7"value="zero_sp8">
+          <input name="TagValue7" value="<%#TagSSI,zero_sp8%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 9</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName8"value="zero_sp9">
+          <input name="TagValue8" value="<%#TagSSI,zero_sp9%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 10</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName10"value="zero_sp10">
+          <input name="TagValue10" value="<%#TagSSI,zero_sp10%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 11</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName11"value="zero_sp11">
+          <input name="TagValue11" value="<%#TagSSI,zero_sp11%>" >
+        </td>
+          </tr>
+          <tr>
+          <td id="m">
+          <b>WET DRAW 12</b>
+          </td>
+        <td>            
+          <input  type="hidden"name="TagName9"value="zero_sp12">
+          <input name="TagValue9" value="<%#TagSSI,zero_sp12%>" >
+        </td>
+          </tr>
+</table>
+<input  class="button" style="margin-left: 40%;"  id="1" type="submit" value="Submit">
+        <input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+        </fieldset>
+        </form>    
+
+</div>
+
+      <div id="quality">
+   <center  >     <p id="s">---QUALITY  CONTROL LIMIT ---<br>
+            </p></center>
+<br>
+ <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+     <fieldset>
+
+
+    <table style="width: 80%;background-color: gray;">
+      <tr>
+        <th style="width: 5%"></th>
+        <th style="width: 10%">AREA</th>
+        <th style="width: 10%">Mean</th>
+        <th style="width: 10%">SD</th>
+        <th style="width: 10%">CP</th>
+        <th style="width: 10%">% Out of CL</th>
+        <th style="width: 10%">% Out of SL</th>
+        </tr>
+      <tr>
+        <th rowspan=6>WET DRAW 1</th>
+        <th>Wire Diameter</th>
+          <td>
+          <input type="hidden" name="TagName1" value="lsl_speed">
+            <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+        </td>
+        <td>
+          <input type="hidden" name="TagName2" value="usl_speed">
+            <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+        </td>
+        <td>
+          <input type="hidden" name="TagName3" value="lcl_speed">
+            <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+        </td>
+            <td>
+            <input type="hidden" name="TagName1" value="lsl_speed">
+              <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+          </td>
+          <td>
+            <input type="hidden" name="TagName2" value="usl_speed">
+              <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+          </td>
+          </tr>
+              <tr>
+              <th>pH</th>
+                <td>
+                <input type="hidden" name="TagName1" value="lsl_speed">
+                  <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+              </td>
+              <td>
+                <input type="hidden" name="TagName2" value="usl_speed">
+                  <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+              </td>
+              <td>
+                <input type="hidden" name="TagName3" value="lcl_speed">
+                  <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+              </td>
+              <td>
+                <input type="hidden" name="TagName4" value="ucl_speed">
+                  <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+              </td>
+              <td>
+                <input type="hidden" name="TagName4" value="ucl_speed">
+                  <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+              </td>
+            </tr>
+  <tr>
+  <th>Emulsion Temperature</th>
+    <td>
+    <input type="hidden" name="TagName1" value="lsl_speed">
+      <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName2" value="usl_speed">
+      <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName3" value="lcl_speed">
+      <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName4" value="ucl_speed">
+      <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName4" value="ucl_speed">
+      <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+  </td>
+  </tr>
+<tr>
+<th>Copper Temperature</th>
+    <td>
+    <input type="hidden" name="TagName1" value="lsl_speed">
+      <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName2" value="usl_speed">
+      <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName3" value="lcl_speed">
+      <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName4" value="ucl_speed">
+      <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+  </td>
+  <td>
+    <input type="hidden" name="TagName4" value="ucl_speed">
+      <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+  </td>
+</tr>
+<tr>
+  <th>Speed</th>
+      <td>
+      <input type="hidden" name="TagName1" value="lsl_speed">
+        <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+    </td>
+    <td>
+      <input type="hidden" name="TagName2" value="usl_speed">
+        <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+    </td>
+    <td>
+      <input type="hidden" name="TagName3" value="lcl_speed">
+        <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+    </td>
+    <td>
+      <input type="hidden" name="TagName4" value="ucl_speed">
+        <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+    </td>
+    <td>
+      <input type="hidden" name="TagName4" value="ucl_speed">
+        <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+    </td>
+    </tr>
+
+        </table>
+    <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 2</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 3</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 4</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 5</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 6</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 8</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 9</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 10</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 11</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+<form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+    <fieldset>
+
+
+   <table style="width: 80%;background-color: gray;">
+     <tr>
+       <th style="width: 5%"></th>
+       <th style="width: 10%">AREA</th>
+       <th style="width: 10%">Mean</th>
+       <th style="width: 10%">SD</th>
+       <th style="width: 10%">CP</th>
+       <th style="width: 10%">% Out of CL</th>
+       <th style="width: 10%">% Out of SL</th>
+       </tr>
+     <tr>
+       <th rowspan=6>WET DRAW 12</th>
+       <th>Wire Diameter</th>
+         <td>
+         <input type="hidden" name="TagName1" value="lsl_speed">
+           <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName2" value="usl_speed">
+           <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+       </td>
+       <td>
+         <input type="hidden" name="TagName3" value="lcl_speed">
+           <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+       </td>
+           <td>
+           <input type="hidden" name="TagName1" value="lsl_speed">
+             <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+         </td>
+         <td>
+           <input type="hidden" name="TagName2" value="usl_speed">
+             <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+         </td>
+         </tr>
+             <tr>
+             <th>pH</th>
+               <td>
+               <input type="hidden" name="TagName1" value="lsl_speed">
+                 <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName2" value="usl_speed">
+                 <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName3" value="lcl_speed">
+                 <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+             <td>
+               <input type="hidden" name="TagName4" value="ucl_speed">
+                 <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+             </td>
+           </tr>
+ <tr>
+ <th>Emulsion Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ </tr>
+<tr>
+<th>Copper Temperature</th>
+   <td>
+   <input type="hidden" name="TagName1" value="lsl_speed">
+     <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName2" value="usl_speed">
+     <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName3" value="lcl_speed">
+     <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+ <td>
+   <input type="hidden" name="TagName4" value="ucl_speed">
+     <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+ </td>
+</tr>
+<tr>
+ <th>Speed</th>
+     <td>
+     <input type="hidden" name="TagName1" value="lsl_speed">
+       <input type="text" name="TagValue1" size="20" value="<%#TagSSI,lsl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName2" value="usl_speed">
+       <input type="text" name="TagValue2" size="20" value="<%#TagSSI,usl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName3" value="lcl_speed">
+       <input type="text" name="TagValue3" size="20" value="<%#TagSSI,lcl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   <td>
+     <input type="hidden" name="TagName4" value="ucl_speed">
+       <input type="text" name="TagValue4" size="20" value="<%#TagSSI,ucl_speed%>"/>
+   </td>
+   </tr>
+
+       </table>
+   <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+
+</fieldset>
+</form>
+
+
+      </div>
+      <div style="display:none;">
+
+ <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm"onsubmit="alert('Data Submitted successfully');">
+     <fieldset>
+
+
+    <table style="width: 58%;
+background-color: gray;
+margin-left: 20%;">
+
+<tr>
+  <th>Product Type</th>
+  <td><input  type="hidden"name="TagName1"value="p_type"><input id="prod11" name="TagValue1" value="<%#TagSSI,p_type%>" ></td>
+</tr>
+
+    </table>
+    <input  class="button"  id="1" type="submit" value="Submit">
+<input  type="hidden" name="ResultPageOk" value="/usr/Factory/machines/setting.shtm">
+
+<input  type="hidden" name="TagName2"value="prod_button"><input style="visibility: hidden;"  id="butt1" name="TagValue2" value="<%#TagSSI,prod_button%>" >
+
+
+</fieldset>
+</form>
+
+
+
+
+
+<table id="table1" style="width: 58%;
+background-color: gray;
+margin-left: 20%;">
+
+<tr>
+  <th>Sr. no.</th>
+  <th>Product Type</th>
+</tr>
+<tr>
+  <th>1.</th>
+  <td id="product1"></td>
+</tr>
+<tr>
+  <th>2.</th>
+  <td id="product2"></td>
+</tr>
+<tr>
+  <th>3.</th>
+  <td id="product3"></td>
+</tr>
+<tr>
+  <th>4.</th>
+  <td id="product4"></td>
+</tr>+
+<tr>
+  <th>5.</th>
+  <td id="product5"></td>
+</tr>
+<tr>
+  <th>6.</th>
+  <td id="product6"></td>
+</tr>
+<tr>
+  <th>7.</th>
+  <td id="product7"></td>
+</tr>
+<tr>
+  <th>8.</th>
+  <td id="product8"></td>
+</tr>
+<tr>
+  <th>9.</th>
+  <td id="product9"></td>
+</tr>
+<tr>
+  <th>10.</th>
+  <td id="product10"></td>
+</tr>
+</table>
+
+
+      </div>
+      </div>
+      <div class="footer" style="height: 15%;">
+
+    <label style="float: right;
+    color: white;
+    font-size: 14px;
+    margin-right: 3%;
+    margin-top: 2%;font-weight: bolder;
+    font-variant: all-small-caps;">LINCOLN ELECTRIC INDIA LTD.</label>
+    </div>
+  </body>
+  </html>
+

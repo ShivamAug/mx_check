@@ -1,0 +1,4177 @@
+<!DOCTYPE html>
+  <head>
+    <title>
+      LE Sm@rt Factory
+    </title>
+                  <link rel="stylesheet" href="../css/mystyle.css">
+       <link rel="stylesheet" href="../css/form.css">
+         <link rel="stylesheet" href="../css/drop.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link href="js/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jqueryc.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  </head>
+  <script type="text/javascript">
+function fire() {
+      console.log("fire");
+  var x = document.getElementById("mydiv");
+
+  x.style.display = "block";
+}
+  </script>
+  <style type="text/css">
+    .responstable {
+   width: 60%;
+overflow: hidden;
+background: #FFF;
+    color: #024457;
+    font-size: 14px;
+
+    border: 1px solid #167F92;
+    }
+    .responstable tr {
+    border: 1px solid #D9E4E6;
+    }
+    .responstable tr:nth-child(odd) {
+    background-color: #EAF3F3;
+    }
+    .responstable th {
+width:10%;
+background-color: #e6e5e5ed;
+padding: 6em;
+color: #8b0e1a;
+    }
+    .responstable th:first-child {
+    display: table-cell;
+    text-align: center;
+    }
+    .responstable th:nth-child(2) {
+    display: table-cell;
+    }
+    .responstable th:nth-child(2) span {
+    display: none;
+    }
+    .responstable th:nth-child(2):after {
+    content: attr(data-th);
+    }
+    @media (min-width: 480px) {
+    .responstable th:nth-child(2) span {
+    display: block;
+    }
+    .responstable th:nth-child(2):after {
+    display: none;
+    }
+    }
+    .responstable td {
+    display: block;
+    word-wrap: break-word;
+    max-width: 7em;
+    background-color: white;
+    text-align: center;
+
+font-weight: bold;
+    }
+    .responstable td:first-child {
+    display: table-cell;
+    text-align: center;
+    border: 2px solid #D9E4E6;
+    }
+    @media (min-width: 480px) {
+    .responstable td {
+
+    }
+    }
+    .responstable th, .responstable td {
+    margin: .5em 1em;
+    }
+    @media (min-width: 480px) {
+    .responstable th, .responstable td {
+    display: table-cell;
+    padding: 0.5%;
+    }
+    }
+      h1 {
+    font-family: Verdana;
+    font-weight: normal;
+    color: #024457;
+    }
+    h1 span {
+    color: #167F92;
+    }
+    input
+    {
+    border: none;
+    width: 100%;
+    height: 34px;
+    font-size: 20px;
+    font-family: initial;
+    font-weight: bold;
+    color: #8b0e1a;
+    }
+    select
+    {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-family: Open Sans, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    }
+    #b1
+    {
+  border-radius: 4px;
+
+width: 135px;
+
+height: 35px;
+
+
+
+margin-bottom: 10px;
+
+background-color: #4a77d4;
+
+background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4);
+
+background-repeat: repeat-x;
+
+color: #ffffff;
+
+margin-left: 53%;
+
+margin-top: -5.12%;
+    }
+  .button
+    {
+  border-radius: 4px;
+
+width: 135px;
+
+height: 35px;
+
+
+
+margin-bottom: 10px;
+
+
+
+
+
+
+margin-left: 53%;
+
+
+    }
+
+    table input
+    {
+    border: none;
+width: 100%;
+height: 20%;
+font-size: 11px;
+font-family: initial;
+color: black;
+font-weight: initial;
+    }
+  
+  #menu {
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Times New Roman";
+  }
+  .parent:hover > ul {
+  display:block;
+  position:absolute;
+  background-color: #444;
+  }
+  .child {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left:-1px;
+  margin-top: 12px;
+  }
+  .child li {
+  background-color: #444;
+  line-height: 30px;
+  border-bottom:#CCC 1px solid;
+  border-right:#CCC 1px solid;
+  width:100%;
+  }
+  .child li a{
+  color:whitesmoke;
+  }
+  ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  font-weight: bold;
+  }
+  li {
+  float: left;
+  }
+  .parent{
+  text-decoration: none;
+  background-color: #444;
+  padding:0;
+  position: relative;
+  border-bottom: 4px solid #999;
+  margin: 0 0.1em;
+  transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+  cursor: pointer;
+  min-width: 6em;
+  text-align: center;
+  font-size: 16px;
+  }
+  .parent:hover{
+  background-color: red;
+  }
+  ul ul ul
+  {
+  left: 100%;
+  top: 0;
+  list-style-type: none;
+  padding: 0px;
+  font-weight: bold;
+  font-family: "Times New Roman";
+  }
+  li:hover {
+  background-color: #444;
+  }
+  .parent li:hover {
+  background-color: #444;
+  padding:0;
+  }
+  .expand{
+  font-size:16px;
+  float:right;
+  margin-right:15px;
+  }
+    li.parent{
+    display:inline-block;
+  }
+  .child a {
+  color: whitesmoke;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  }
+
+  #t{
+    padding:8px 6px;
+  }
+
+  .child a:hover{
+    background-color: #8b0e1ade;
+  }
+</style>
+  <body id="print11" onload="fire();">
+        <div class="container" >
+          <div class="header">
+
+                         <table style="width: 100%;margin-bottom: -2%; ">
+                <tr>
+                  <td ><img src="../css/factory.JPG" style="margin-left: 2%;
+
+height: 100px;">
+                  <td style="font-size: 18px;
+
+font-weight: bolder;
+
+padding-left: 13%;
+
+text-align: center;
+
+color: white;
+
+font-variant: petite-caps;" > Management Report </td>
+</td>
+  <td style="width: 15%;" ><img src="../css/PikPng.com_lincoln-png_897101.png" style="margin-left: 2%;
+height: 62px;"></td>
+                </tr>
+            </table>
+            <br>
+
+<ul id="menu" style="margin-left: 3%; width: 65%;">
+<li class="parent" id="t"><a href="http://192.168.1.103/usr/index.shtm">Home</a>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/wetdraw.shtm">Overview</a>
+</li>
+<li class="parent" id="t"><a href="#">WET DRAW [1-5]</a>
+<ul class="child">
+  <li class="parent"><a href="#">WD1</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine1/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine1/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine1/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine1/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine1/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine1/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD2</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine2/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine2/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine2/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine2/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine2/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine2/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD3</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine3/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine3/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine3/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine3/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine3/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine3/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD4</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine4/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine4/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine4/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine4/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine4/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine4/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD5</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine5/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine5/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine5/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine5/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine5/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine5/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+</ul>
+</li>
+<li class="parent" id="t"><a href="#">WET DRAW [6-12]</a>
+<ul class="child">
+  <li class="parent"><a href="#">WD6</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine6/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine6/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine6/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine6/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine6/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine6/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD8</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine8/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine8/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine8/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine8/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine8/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine8/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD9</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine9/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine9/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine9/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine9/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine9/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine9/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD10</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine10/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine10/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine10/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine10/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine10/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine10/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD11</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine11/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine11/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine11/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine11/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine11/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine11/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+  <li class="parent"><a href="#">WD12</a>
+    <ul class="child">
+    <li><a href="/usr/Factory/machines/machine12/index.shtm" nowrap>Live Chart</a></li>
+    <li><a href="/usr/Factory/machines/machine12/operator.shtm" style="display:none;" nowrap>REALTIME PRODUCTION</a></li>
+    <li><a href="/usr/Factory/machines/machine12/product.shtm" nowrap>Production DATA</a></li>
+          <li><a href="/usr/Factory/machines/machine12/machine_performance.shtm" nowrap>DOWNTIME PARETO</a></li>
+       <li><a href="/usr/Factory/machines/machine12/record.shtm" style="display:none;" nowrap>PRODUCT DATA</a></li>
+      <li><a href="/usr/Factory/machines/machine12/Scrap.shtm" style="display:none;" nowrap>SCRAP</a></li>
+    </ul>
+  </li>
+</ul>
+</li>
+<li class="parent" id="t"><a href="/usr/Factory/machines/login.shtm">Setting</a>
+</li>
+<li class="parent" id="t" style="background-color: red;"><a href="/usr/Factory/machines/report.shtm">Report</a>
+</li>
+</ul>
+</div>
+    <div class="content" style="height: auto;
+
+padding-bottom: 1%;
+
+padding-top: 1%;">
+<br>
+
+<table>
+  <tr>
+    <td> <input style=" background-color: #8b0e1a;
+
+width: 136px;
+
+height: 37px;
+
+color: whitesmoke;
+
+text-align: center;
+
+font-size: 15px;
+
+font-weight: bold;
+
+font-variant: all-small-caps;
+
+border-radius: 6px;
+
+margin-left: 0.5%;border: 2px solid;" type="text" name="Start" id="Start" value="<%#TagSSI,date%>" readonly > </td>
+    <td><input style="background-color: #8b0e1a;
+
+width: 136px;
+
+height: 37px;
+
+color: whitesmoke;
+
+text-align: center;
+
+font-size: 15px;
+
+font-weight: bold;
+
+font-variant: all-small-caps;
+
+border-radius: 6px;
+
+margin-left: 0.5%;border: 2px solid;" type="text" name="End" id="End" value="<%#TagSSI,date%>" readonly></td>
+    <td>
+</td>
+    <td>
+<button id="demo" style="background-color: #8b0e1a;
+
+width: 136px;
+
+height: 37px;
+
+color: whitesmoke;
+
+text-align: center;
+
+font-size: 15px;
+
+font-weight: bold;
+
+font-variant: all-small-caps;
+
+border-radius: 6px;
+
+margin-left: 0.5%;"type="button" onclick="mean();mean2();mean3();mean4();mean5();mean6();mean8();mean9();mean10();mean11();mean12();" >Search</button></td>
+  </tr>
+</table>
+<p style="font-size: 15px;
+        padding-top: 1%;
+        padding-left: 2%;
+        color: white;
+        font-weight: bolder;
+        font-variant: all-petite-caps;text-align: center;">Management Report</p>
+  <div id="mydiv">
+<div>
+  <table style="font-variant: all-petite-caps;
+font-size: 12px;
+width: 100%;
+padding-right:-100px;
+background: black;" class="responstable">
+ <tbody><tr>
+<th style="width:10%">Machine No:</th>
+<th style="width:6%">WET DRAW1</th>
+<th style="width:6%">WET DRAW2</th>
+<th style="width:6%">WET DRAW3</th>
+<th style="width:6%">WET DRAW4</th>
+<th style="width:6%">WET DRAW5</th>
+<th style="width:6%">WET DRAW6</th>
+<th style="width:6%">WET DRAW8</th>
+<th style="width:6%">WET DRAW9</th>
+<th style="width:6%">WET DRAW10</th>
+<th style="width:6%">WET DRAW11</th>
+<th style="width:6%">WET DRAW12</th>
+<th >remark</th>
+  </tr>
+<tr>
+  <th colspan="25">Production</th></tr>
+<tr>
+  <th>% availability</th>
+  <td id="ava_mean1"></td>
+  <td id="ava_mean2"></td>
+   <td id="ava_mean3"></td>
+  <td id="ava_mean4"></td>
+   <td id="ava_mean5"></td>
+  <td id="ava_mean6"></td>
+   <td id="ava_mean8"></td>
+  <td id="ava_mean9"></td>
+   <td id="ava_mean10"></td>
+  <td id="ava_mean11"></td>
+   <td id="ava_mean12"></td>
+   <td></td>
+  </tr>
+<tr><th>% slow speed</th>
+<td id="slow_mean1"></td>
+<td id="slow_mean2"></td>
+<td id="slow_mean3"></td>
+<td id="slow_mean4"></td>
+<td id="slow_mean5"></td>
+<td id="slow_mean6"></td>
+<td id="slow_mean8"></td>
+<td id="slow_mean9"></td>
+<td id="slow_mean10"></td>
+<td id="slow_mean11"></td>
+<td id="slow_mean12"></td>
+<td></td>
+</tr>
+<tr>
+    <th>output (kg)</th>
+    <td id="kg_mean1"></td>
+    <td id="kg_mean2"></td>
+    <td id="kg_mean3"></td>
+    <td id="kg_mean4"></td>
+    <td id="kg_mean5"></td>
+    <td id="kg_mean6"></td>
+    <td id="kg_mean8"></td>
+    <td id="kg_mean9"></td>
+    <td id="kg_mean10"></td>
+    <td id="kg_mean11"></td>
+  <td id="kg_mean12"></td>
+  <td></td>
+</tr>
+<tr>
+    <th>% to Target</th>
+    <td id="targetkg_mean1"></td>
+    <td id="targetkg_mean2"></td>
+    <td id="targetkg_mean3"></td>
+    <td id="targetkg_mean4"></td>
+    <td id="targetkg_mean5"></td>
+    <td id="targetkg_mean6"></td>
+    <td id="targetkg_mean8"></td>
+    <td id="targetkg_mean9"></td>
+    <td id="targetkg_mean10"></td>
+    <td id="targetkg_mean11"></td>
+    <td id="targetkg_mean12"></td>
+  <td></td>  
+</tr>
+<tr>
+  <th colspan="25">Energy</th></tr>
+<tr>
+    <th>KWH/Mt.</th>
+    <td id="kwh_mean1"></td>
+    <td id="kwh_mean2"></td>
+    <td id="kwh_mean3"></td>
+    <td id="kwh_mean4"></td>
+    <td id="kwh_mean5"></td>
+    <td id="kwh_mean6"></td>
+    <td id="kwh_mean8"></td>
+    <td id="kwh_mean9"></td>
+    <td id="kwh_mean10"></td>
+    <td id="kwh_mean11"></td>
+    <td id="kwh_mean12"></td>
+  <td></td>    
+</tr>
+</tbody></table>
+   </div>
+  </div>
+  </div>
+    <div class="footer" style="height: 20%;">
+      <label style="float: right;
+color: white;
+font-size: 16px;
+margin-right: 3%;
+margin-top: 2%;font-weight: bolder;
+font-variant: all-small-caps;">LINCOLN ELECTRIC INDIA LTD.</label>
+    </div>
+  </body>
+      <script>
+    $(document).ready(function () {
+          $('input[id$=Start]').datepicker({
+    dateFormat: 'dd/mm/yy'
+});
+                    $('input[id$=End]').datepicker({
+    dateFormat: 'dd/mm/yy'
+});
+
+     });
+       
+function mean() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean = 0.0;
+  var cast_mean = 0.0;
+  var kg_mean = 0.0;
+  
+  var targetkg_mean=0.0;
+  var kwh_mean=0.0;
+  var kg_rej_mean=0.0;
+  var per_rej_mean=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine1/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean for cast and Helix  
+    ava_mean = ava_sum / a;
+    slow_mean = slow_sum / b;
+    kg_mean = kg_sum/c;
+    targetkg_mean=targetkg_sum/d;
+    kwh_mean=kwh_sum/e;
+    kg_rej_mean=kg_rej_sum/f;
+    document.getElementById("ava_mean1").innerHTML = ava_mean.toFixed(2);
+      document.getElementById("slow_mean1").innerHTML = slow_mean.toFixed(2);
+       document.getElementById("kg_mean1").innerHTML = kg_mean.toFixed(2);
+        document.getElementById("targetkg_mean1").innerHTML =targetkg_mean.toFixed(2);
+         document.getElementById("kwh_mean1").innerHTML =  kwh_mean.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean2() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean2 = 0.0;
+  var cast_mean2 = 0.0;
+  var kg_mean2 = 0.0;
+  
+  var targetkg_mean2=0.0;
+  var kwh_mean2=0.0;
+  var kg_rej_mean2=0.0;
+  var per_rej_mean2=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine2/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean2 for cast and Helix  
+    ava_mean2 = ava_sum / a;
+    slow_mean2 = slow_sum / b;
+    kg_mean2 = kg_sum/c;
+    targetkg_mean2=targetkg_sum/d;
+    kwh_mean2=kwh_sum/e;
+    kg_rej_mean2=kg_rej_sum/f;
+    document.getElementById("ava_mean2").innerHTML = ava_mean2.toFixed(2);
+      document.getElementById("slow_mean2").innerHTML = slow_mean2.toFixed(2);
+       document.getElementById("kg_mean2").innerHTML = kg_mean2.toFixed(2);
+        document.getElementById("targetkg_mean2").innerHTML =targetkg_mean2.toFixed(2);
+         document.getElementById("kwh_mean2").innerHTML =  kwh_mean2.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean3() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean3 = 0.0;
+  var cast_mean3 = 0.0;
+  var kg_mean3 = 0.0;
+  
+  var targetkg_mean3=0.0;
+  var kwh_mean3=0.0;
+  var kg_rej_mean3=0.0;
+  var per_rej_mean3=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine3/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean3 for cast and Helix  
+    ava_mean3 = ava_sum / a;
+    slow_mean3 = slow_sum / b;
+    kg_mean3 = kg_sum/c;
+    targetkg_mean3=targetkg_sum/d;
+    kwh_mean3=kwh_sum/e;
+    kg_rej_mean3=kg_rej_sum/f;
+    document.getElementById("ava_mean3").innerHTML = ava_mean3.toFixed(2);
+      document.getElementById("slow_mean3").innerHTML = slow_mean3.toFixed(2);
+       document.getElementById("kg_mean3").innerHTML = kg_mean3.toFixed(2);
+        document.getElementById("targetkg_mean3").innerHTML =targetkg_mean3.toFixed(2);
+         document.getElementById("kwh_mean3").innerHTML =  kwh_mean3.toFixed(2);
+      
+      
+
+
+});
+}
+
+
+
+function mean4() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean4 = 0.0;
+  var cast_mean4 = 0.0;
+  var kg_mean4 = 0.0;
+  
+  var targetkg_mean4=0.0;
+  var kwh_mean4=0.0;
+  var kg_rej_mean4=0.0;
+  var per_rej_mean4=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine4/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean4 for cast and Helix  
+    ava_mean4 = ava_sum / a;
+    slow_mean4 = slow_sum / b;
+    kg_mean4 = kg_sum/c;
+    targetkg_mean4=targetkg_sum/d;
+    kwh_mean4=kwh_sum/e;
+    kg_rej_mean4=kg_rej_sum/f;
+    document.getElementById("ava_mean4").innerHTML = ava_mean4.toFixed(2);
+      document.getElementById("slow_mean4").innerHTML = slow_mean4.toFixed(2);
+       document.getElementById("kg_mean4").innerHTML = kg_mean4.toFixed(2);
+        document.getElementById("targetkg_mean4").innerHTML =targetkg_mean4.toFixed(2);
+         document.getElementById("kwh_mean4").innerHTML =  kwh_mean4.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean5() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean5 = 0.0;
+  var cast_mean5 = 0.0;
+  var kg_mean5 = 0.0;
+  
+  var targetkg_mean5=0.0;
+  var kwh_mean5=0.0;
+  var kg_rej_mean5=0.0;
+  var per_rej_mean5=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine5/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean5 for cast and Helix  
+    ava_mean5 = ava_sum / a;
+    slow_mean5 = slow_sum / b;
+    kg_mean5 = kg_sum/c;
+    targetkg_mean5=targetkg_sum/d;
+    kwh_mean5=kwh_sum/e;
+    kg_rej_mean5=kg_rej_sum/f;
+    document.getElementById("ava_mean5").innerHTML = ava_mean5.toFixed(2);
+      document.getElementById("slow_mean5").innerHTML = slow_mean5.toFixed(2);
+       document.getElementById("kg_mean5").innerHTML = kg_mean5.toFixed(2);
+        document.getElementById("targetkg_mean5").innerHTML =targetkg_mean5.toFixed(2);
+         document.getElementById("kwh_mean5").innerHTML =  kwh_mean5.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean6() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean6 = 0.0;
+  var cast_mean6 = 0.0;
+  var kg_mean6 = 0.0;
+  
+  var targetkg_mean6=0.0;
+  var kwh_mean6=0.0;
+  var kg_rej_mean6=0.0;
+  var per_rej_mean6=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine6/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean6 for cast and Helix  
+    ava_mean6 = ava_sum / a;
+    slow_mean6 = slow_sum / b;
+    kg_mean6 = kg_sum/c;
+    targetkg_mean6=targetkg_sum/d;
+    kwh_mean6=kwh_sum/e;
+    kg_rej_mean6=kg_rej_sum/f;
+    document.getElementById("ava_mean6").innerHTML = ava_mean6.toFixed(2);
+      document.getElementById("slow_mean6").innerHTML = slow_mean6.toFixed(2);
+       document.getElementById("kg_mean6").innerHTML = kg_mean6.toFixed(2);
+        document.getElementById("targetkg_mean6").innerHTML =targetkg_mean6.toFixed(2);
+         document.getElementById("kwh_mean6").innerHTML =  kwh_mean6.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean8() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean8 = 0.0;
+  var cast_mean8 = 0.0;
+  var kg_mean8 = 0.0;
+  
+  var targetkg_mean8=0.0;
+  var kwh_mean8=0.0;
+  var kg_rej_mean8=0.0;
+  var per_rej_mean8=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine8/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean8 for cast and Helix  
+    ava_mean8 = ava_sum / a;
+    slow_mean8 = slow_sum / b;
+    kg_mean8 = kg_sum/c;
+    targetkg_mean8=targetkg_sum/d;
+    kwh_mean8=kwh_sum/e;
+    kg_rej_mean8=kg_rej_sum/f;
+    document.getElementById("ava_mean8").innerHTML = ava_mean8.toFixed(2);
+      document.getElementById("slow_mean8").innerHTML = slow_mean8.toFixed(2);
+       document.getElementById("kg_mean8").innerHTML = kg_mean8.toFixed(2);
+        document.getElementById("targetkg_mean8").innerHTML =targetkg_mean8.toFixed(2);
+         document.getElementById("kwh_mean8").innerHTML =  kwh_mean8.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean9() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean9 = 0.0;
+  var cast_mean9 = 0.0;
+  var kg_mean9 = 0.0;
+  
+  var targetkg_mean9=0.0;
+  var kwh_mean9=0.0;
+  var kg_rej_mean9=0.0;
+  var per_rej_mean9=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine9/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean9 for cast and Helix  
+    ava_mean9 = ava_sum / a;
+    slow_mean9 = slow_sum / b;
+    kg_mean9 = kg_sum/c;
+    targetkg_mean9=targetkg_sum/d;
+    kwh_mean9=kwh_sum/e;
+    kg_rej_mean9=kg_rej_sum/f;
+    document.getElementById("ava_mean9").innerHTML = ava_mean9.toFixed(2);
+      document.getElementById("slow_mean9").innerHTML = slow_mean9.toFixed(2);
+       document.getElementById("kg_mean9").innerHTML = kg_mean9.toFixed(2);
+        document.getElementById("targetkg_mean9").innerHTML =targetkg_mean9.toFixed(2);
+         document.getElementById("kwh_mean9").innerHTML =  kwh_mean9.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean10() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean10 = 0.0;
+  var cast_mean10 = 0.0;
+  var kg_mean10 = 0.0;
+  
+  var targetkg_mean10=0.0;
+  var kwh_mean10=0.0;
+  var kg_rej_mean10=0.0;
+  var per_rej_mean10=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine10/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean10 for cast and Helix  
+    ava_mean10 = ava_sum / a;
+    slow_mean10 = slow_sum / b;
+    kg_mean10 = kg_sum/c;
+    targetkg_mean10=targetkg_sum/d;
+    kwh_mean10=kwh_sum/e;
+    kg_rej_mean10=kg_rej_sum/f;
+    document.getElementById("ava_mean10").innerHTML = ava_mean10.toFixed(2);
+      document.getElementById("slow_mean10").innerHTML = slow_mean10.toFixed(2);
+       document.getElementById("kg_mean10").innerHTML = kg_mean10.toFixed(2);
+        document.getElementById("targetkg_mean10").innerHTML =targetkg_mean10.toFixed(2);
+         document.getElementById("kwh_mean10").innerHTML =  kwh_mean10.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean11() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean11 = 0.0;
+  var cast_mean11 = 0.0;
+  var kg_mean11 = 0.0;
+  
+  var targetkg_mean11=0.0;
+  var kwh_mean11=0.0;
+  var kg_rej_mean11=0.0;
+  var per_rej_mean11=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine11/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            if((value1!=0)||(value2!=0)||(value3!=0)||(value4!=0)||(value5!=0)||(value6!=0)||(value7!=0))
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            if((value1!=0)||(value2!=0)||(value3!=0)||(value4!=0)||(value5!=0)||(value6!=0)||(value7!=0))
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            if((value1!=0)||(value2!=0)||(value3!=0)||(value4!=0)||(value5!=0)||(value6!=0)||(value7!=0))
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            if((value1!=0)||(value2!=0)||(value3!=0)||(value4!=0)||(value5!=0)||(value6!=0)||(value7!=0))
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            if((value1!=0)||(value2!=0)||(value3!=0)||(value4!=0)||(value5!=0)||(value6!=0)||(value7!=0))
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean11 for cast and Helix  
+    ava_mean11 = ava_sum / a;
+    slow_mean11 = slow_sum / b;
+    kg_mean11 = kg_sum/c;
+    targetkg_mean11=targetkg_sum/d;
+    kwh_mean11=kwh_sum/e;
+    kg_rej_mean11=kg_rej_sum/f;
+    document.getElementById("ava_mean11").innerHTML = ava_mean11.toFixed(2);
+      document.getElementById("slow_mean11").innerHTML = slow_mean11.toFixed(2);
+       document.getElementById("kg_mean11").innerHTML = kg_mean11.toFixed(2);
+        document.getElementById("targetkg_mean11").innerHTML =targetkg_mean11.toFixed(2);
+         document.getElementById("kwh_mean11").innerHTML =  kwh_mean11.toFixed(2);
+      
+      
+
+
+});
+}
+
+function mean12() {
+  // CTQ VARIABLES......
+    var a = 0,
+    b = 0,
+    c = 0;
+  var d = 0.0;
+  var e = 0.0;
+  var f = 0.0;
+  var g = 0.0;
+  var ava_sum = 0.0;
+  var slow_sum = 0.0;
+  var kg_sum = 0.0;
+   var targetkg_sum = 0.0;
+  var kwh_sum = 0.0;
+  var kg_rej_sum = 0.0;
+  var per_rej_sum = 0.0;
+
+  var cu_mean12 = 0.0;
+  var cast_mean12 = 0.0;
+  var kg_mean12 = 0.0;
+  
+  var targetkg_mean12=0.0;
+  var kwh_mean12=0.0;
+  var kg_rej_mean12=0.0;
+  var per_rej_mean12=0.0;
+
+  
+
+  $.get('/usr/Factory/machines/machine12/data/oee.csv', function (data) {
+    // Split the lines
+    var lines = data.split('\n');
+
+    var x = document.getElementById("Start").value;
+    var y = document.getElementById("End").value;
+
+    // Push column data into data list
+
+    for (var i = 1; i < lines.length - 1; i++) {
+
+      var cat = lines[i].split(",")[0];
+   
+
+      for (var j = 1; j <= 1; j++) {
+
+        var fd;
+        var fm;
+        var td;
+        var tm;
+        var cd;
+        var cm;
+        var str = x;
+        var str1 = y;
+        var str2 = cat;
+
+     var arrayf = str.split("/", 1);
+        var arrayf1 = str.split("/", 2);
+        var arrayt = str1.split("/", 1);
+        var arrayt1 = str1.split("/", 2);
+        var arrayc = str2.split("/", 1);
+        var arrayc1 = str2.split("/", 2);
+
+        fd = arrayf[0];
+        fm = arrayf1[1];
+        td = arrayt[0];
+        tm = arrayt1[1];
+        cd = arrayc[0];
+
+        cm = arrayc1[1];
+
+
+        if (fm == tm) {
+          if ((td == cd) && (fd == cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+             
+          }
+
+
+
+          }
+
+          if ((td > fd) && ((fd <= cd) && (td >= cd)) && (tm == cm))
+          {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              
+          }
+
+          }
+
+        } else {
+          if ((fd <= cd) && (fm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+          } else {
+            if ((cm <= tm) && (fm < cm)) {
+               if ((td >= cd) && (tm == cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+              if (value7 > 0) {
+              per_rej_sum = per_rej_sum + parseFloat(value7);
+              g = g + 1;
+            }
+          }
+              } else {
+                if ((cm < tm) && (fm < cm)) {
+            var value1 = lines[i].split(",")[3];
+            var value2 = lines[i].split(",")[5];
+            var value3 = lines[i].split(",")[10];
+            var value4 = lines[i].split(",")[11];
+            var value5 = lines[i].split(",")[13];
+            var value6 = lines[i].split(",")[11];
+            var value7 = lines[i].split(",")[12];
+
+            value3= parseFloat(value3);
+            
+            if(value1 > 0 )
+            {
+            if (value1 > 0) {
+              ava_sum = ava_sum + parseFloat(value1);
+              a = a + 1;
+            }
+            if (value2 > 0) {
+              slow_sum = slow_sum + parseFloat(value2);
+
+              b = b + 1;
+            }
+            if (value3 > 0) {
+              kg_sum = kg_sum + parseFloat(value3);
+              c = c + 1;
+            }
+                          if (value4 > 0) {
+              targetkg_sum = targetkg_sum + parseFloat(value4);
+              d= d + 1;
+            }
+            if (value5 > 0) {
+              kwh_sum = kwh_sum + parseFloat(value5);
+
+              e = e + 1;
+            }
+            if (value6 > 0) {
+              kg_rej_sum = kg_rej_sum + parseFloat(value6);
+              f = f + 1;
+            }
+          }
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //mean12 for cast and Helix  
+    ava_mean12 = ava_sum / a;
+    slow_mean12 = slow_sum / b;
+    kg_mean12 = kg_sum/c;
+    targetkg_mean12=targetkg_sum/d;
+    kwh_mean12=kwh_sum/e;
+    kg_rej_mean12=kg_rej_sum/f;
+    document.getElementById("ava_mean12").innerHTML = ava_mean12.toFixed(2);
+      document.getElementById("slow_mean12").innerHTML = slow_mean12.toFixed(2);
+       document.getElementById("kg_mean12").innerHTML = kg_mean12.toFixed(2);
+        document.getElementById("targetkg_mean12").innerHTML =targetkg_mean12.toFixed(2);
+         document.getElementById("kwh_mean12").innerHTML =  kwh_mean12.toFixed(2);
+      
+      
+
+
+});
+}
+
+</script>
+
+</html>
+

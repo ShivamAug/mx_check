@@ -1,0 +1,1931 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%#TagSSI,st3_mc8%> </title>
+    <!-- jQuery -->   <script src='../js/dependent-selects.js'></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/papaparse.min.js"></script>
+    <script src="../js/jquery.modal.min.js"></script>
+    <script type="text/javascript">
+		 var output_product=[];
+		 var input_product=[];
+		 var operator=[];
+		 var supplier=[];
+		 var quality_master=[];
+		 var random_number=Math.random() * 1000;
+		 var product_list=[];
+		 var downtime_reason=[];
+		 var inp_name = "";
+			function drop() 
+			{			
+						$.get('../../../Management_report/data/operator.csv?' +random_number, function (data) 
+						{
+									var lines = data.split('\n');
+									var pcars = [];
+									var pcars1 = [];
+									for (var i = 1; i < lines.length - 1; i++) 
+										{
+											pcars[i] = lines[i].split(",")[0];
+											pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+										}
+									for (var i = 0; i < pcars1.length; i++) 
+										{
+											var option = document.createElement("OPTION"),
+											txt = document.createTextNode(pcars1[i]);
+												option.appendChild(txt);
+												option.setAttribute("value", pcars1[i]);
+												oper.insertBefore(option, oper.lastChild);
+										}
+
+
+						});	
+						$.get('../../../Management_report/data/shop1inp_pro.csv?' +random_number, function (data) 
+						{
+									var lines = data.split('\n');
+									var pcars = [];
+									var pcars1 = [];
+									var count = 0;
+									for (var i = 1; i < lines.length - 1; i++) 
+									{
+											var shop_name = lines[i].split(",")[6];
+											var shop_split = shop_name.split("-");
+											var valuepp = parseFloat(shop_split[0]);
+												if ((valuepp == 0) || (valuepp == 1)) 
+												{
+														input_product[count]=lines[i].split(",");
+														pcars[count] = lines[i].split(",")[5];
+														count++;
+												}
+													pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+									}
+									for (var i = 0; i < pcars1.length; i++) 
+									{
+											var option = document.createElement("OPTION"),
+											txt = document.createTextNode(pcars1[i]);
+												option.appendChild(txt);
+												option.setAttribute("value", pcars1[i]);
+										    inp_pro_code.insertBefore(option, inp_pro_code.lastChild);
+                 }
+                  for (var i = 0; i < pcars1.length; i++) {
+                     var option = document.createElement("OPTION"),
+                         txt = document.createTextNode(pcars1[i]);
+                     option.appendChild(txt);
+                     option.setAttribute("value", pcars1[i]);
+                     inp_pro_code1.insertBefore(option, inp_pro_code1.lastChild);
+                 }
+						});
+	
+						$.get('../../../Management_report/data/shop1sup.csv?' + random_number, function (data) 
+						{
+											var lines = data.split('\n');
+											var pcars = [];
+											var pcars1 = [];
+											var count = 0;
+											for (var i = 1; i < lines.length - 1; i++) 
+											{
+													supplier[i]=lines[i].split(",")[0];
+													pcars[i] = lines[i].split(",")[0];
+													pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+											}
+
+											for (var i = 0; i < pcars1.length; i++) 
+											{
+													var option = document.createElement("OPTION"),
+														txt = document.createTextNode(pcars1[i]);
+														option.appendChild(txt);
+														option.setAttribute("value", pcars1[i]);
+														supplier_id.insertBefore(option, supplier_id.lastChild);
+											  supplier_id.insertBefore(option, supplier_id.lastChild);
+                 }
+                 
+                 for (var i = 0; i < pcars1.length; i++) {
+                     var option = document.createElement("OPTION"),
+                         txt = document.createTextNode(pcars1[i]);
+                     option.appendChild(txt);
+                     option.setAttribute("value", pcars1[i]);
+                    supplier_id1.insertBefore(option, supplier_id1.lastChild);
+                 }
+						});
+						$.get('../../../Management_report/data/shop1out_pro.csv?' + random_number, function (data) 
+						{
+											var lines = data.split('\n');
+											var pcars = [];
+											var pshift = [];
+											var poperator = [];
+											var pcars1 = [];
+											var count = 0;
+											for (var i = 1; i < lines.length - 1; i++) 
+											{
+												var shop_name = lines[i].split(",")[18];
+												var shop_split = shop_name.split("-");
+												var valuepp = parseFloat(shop_split[0]);
+												if ((valuepp == 0) || (valuepp == 2)) 
+												{
+														output_product[count]=lines[i].split(",");
+														pcars[count] = lines[i].split(",")[5];
+														count++;
+												}
+												pcars1 = pcars.filter((x, i, a) => a.indexOf(x) == i)
+											}
+											for (var i = 0; i < pcars1.length; i++) 
+											{
+												var option = document.createElement("OPTION"),
+												txt = document.createTextNode(pcars1[i]);
+												option.appendChild(txt);
+												option.setAttribute("value", pcars1[i]);
+												out_pro_code.insertBefore(option, out_pro_code.lastChild);
+												   out_pro_code.insertBefore(option, out_pro_code.lastChild);
+                 }
+                
+                 for (var i = 0; i < pcars1.length; i++) {
+                     var option = document.createElement("OPTION"),
+                         txt = document.createTextNode(pcars1[i]);
+                     option.appendChild(txt);
+                     option.setAttribute("value", pcars1[i]);
+                     out_pro_code1.insertBefore(option, out_pro_code1.lastChild);
+                 }
+
+						});
+						
+						
+						
+						
+						$.get("../../../Management_report/data/wd_master_product.csv?" + random_number, function (data) 
+						{
+										var lines = data.split('\n');
+									var counto=0;
+									for (var i = 0; i < lines.length - 1; i++) 
+									{
+									if(lines[i].split(",")[8]!="")
+									{
+									product_list[counto]=lines[i].split(",")[8];
+									counto++;
+									}
+									}
+									
+						});
+						
+						
+        $.get('../../../Management_report/data/shop1.csv', function(data) {
+                // Split the lines
+                var lines = data.split('\n');
+                var cars = [];
+                var shift = [];
+                var operator = [];
+                var cars1 = [];
+				
+				$('#id_parent')
+				.find('option')
+				.remove()
+				.end()
+				.append('<option value="<%#TagSSI,major8%>"><%#TagSSI,major8%></option>')
+				.val('<%#TagSSI,major8%>');
+				
+				
+                // Push column data into data list
+                for (var i = 1; i < lines.length - 1; i++) {
+					downtime_reason[i]=lines[i].split(",");
+                    cars[i] = lines[i].split(",")[3];
+                    cars1 = cars.filter((x, i, a) => a.indexOf(x) == i)
+                }
+
+                for (var i = 0; i < cars1.length; i++) {
+                    var option = document.createElement("OPTION"),
+                        txt = document.createTextNode(cars1[i]);
+                    option.appendChild(txt);
+                    option.setAttribute("value", cars1[i]);
+                    id_parent.insertBefore(option, id_parent.lastChild);
+                }
+
+            });
+						
+						
+						
+						$.get('../../../Management_report/data/shop1/Master_product.csv?' + random_number, function (data) 
+						{
+										var lines = data.split('\n');
+									for (var i = 0; i < lines.length - 1; i++) 
+									{
+									quality_master[i]=lines[i].split(",");
+									}
+									output();output1();
+						});
+						
+			
+			
+			}
+
+			function output() 
+			{
+					var inp = document.getElementById("out_pro_code").value;
+				for(var i=0;i<output_product.length;i++)
+				{
+					if(output_product[i][5].match(inp))				
+						{
+							document.getElementById('dia').value =output_product[i][1];
+							document.getElementById('out_pro_co').value =output_product[i][5];
+							document.getElementById('spd').value =output_product[i][6];
+							document.getElementById('spd_lsl').value =output_product[i][8];
+							document.getElementById('spd_usl').value =output_product[i][9];
+							document.getElementById('tg_kg').value =output_product[i][10];
+							document.getElementById('tg_lsl').value =output_product[i][12];
+							document.getElementById('tg_usl').value =output_product[i][13];
+							document.getElementById('up_t').value =output_product[i][14];
+							document.getElementById('up_lsl').value =output_product[i][16];
+							document.getElementById('up_usl').value =output_product[i][17];
+						
+							for(var j=0;j<quality_master.length;j++)
+							{
+								if(output_product[i][5].match(quality_master[j][2]))
+									{
+										document.getElementById("ctpdata").value=quality_master[j];
+									}
+							}
+						
+						
+						}
+						
+				
+				}
+				document.getElementById('in_pro_co').value = document.getElementById('inp_pro_code').value;
+				document.getElementById('sup_inp').value = document.getElementById('supplier_id').value;
+				document.getElementById('sub_but').value = Math.random() * 1000;
+			}
+
+function output1() 
+{
+	var inp = document.getElementById("out_pro_code1").value;
+		for(var i=0;i<output_product.length;i++)
+				{
+			
+					if(output_product[i][5].match(inp))				
+						{
+						
+							document.getElementById('dia1').value =output_product[i][1];
+							document.getElementById('out_pro_co1').value =output_product[i][5];
+							document.getElementById('spd1').value =output_product[i][6];
+							document.getElementById('spd_lsl1').value =output_product[i][8];
+							document.getElementById('spd_usl1').value =output_product[i][9];
+							document.getElementById('tg_kg1').value =output_product[i][10];
+							document.getElementById('tg_lsl1').value =output_product[i][12];
+							document.getElementById('tg_usl1').value =output_product[i][13];
+							document.getElementById('up_t1').value =output_product[i][14];
+							document.getElementById('up_lsl1').value =output_product[i][16];
+							document.getElementById('up_usl1').value =output_product[i][17];
+						
+							for(var j=0;j<quality_master.length;j++)
+							{
+								if(output_product[i][5].match(quality_master[j][2]))
+									{
+										document.getElementById("ctpdata").value=quality_master[j];
+									}
+							}
+						}
+				}	
+		document.getElementById('in_pro_co1').value = document.getElementById('inp_pro_code1').value;
+		document.getElementById('sup_inp1').value = document.getElementById('supplier_id1').value;
+		document.getElementById('sub_but1').value = Math.random() * 1000;
+}
+function out_product_check() {
+	var input1 = document.getElementById("out_value").value;
+			for (var i = 0; i < product_list.length; i++) {
+				if (input1 === product_list[i]) {
+					document.getElementById("status").innerHTML = "Output ref. id exist please enter correct Output ref. id";
+					document.getElementById("status").style.color = "Red";
+					$("#but_save1").hide();
+					break;
+				} else {
+					document.getElementById("status").innerHTML = "Success !! ok";
+					document.getElementById("status").style.color = "Green";
+					$("#but_save1").show();
+				}
+			}
+}
+function out_product_check1() {
+	var input1 = document.getElementById("out_value1").value;
+			for (var i = 0; i < product_list.length; i++) {
+				if (input1 === product_list[i]) {
+					document.getElementById("status1").innerHTML = "Output ref. id exist please enter correct Output ref. id";
+					document.getElementById("status1").style.color = "Red";
+					$("#but_save2").hide();
+					break;
+				} 
+				else {
+					document.getElementById("status1").innerHTML = "Success !! ok";
+					document.getElementById("status1").style.color = "Green";
+					$("#but_save2").show();
+				}
+			}
+		}
+function prd_sub() {
+	var ddt1 = document.getElementById("dtd1").innerHTML;
+	var Stage = "1";
+	var Shop = "<%#TagSSI,station1%>";
+	var Machine = "<%#TagSSI,st3_mc8%>";
+	var Operator = "<%#TagSSI,operator8%>"
+	var out_ref_id = document.getElementById('out_value').value;
+	var output_product = document.getElementById('out_pro_co').value;
+	var inp_ref_id = document.getElementById('coil_run').value;
+	var work_order = "1";
+	var Qty = document.getElementById('inp_qty1').value;
+	document.getElementById("inp_qty_id1").value=Qty;
+	var Start_shift = document.getElementById("shf1").innerHTML;
+	var ctp = document.getElementById("ctpdata").value;
+	var data1 = ddt1 + "," + Stage + "," + Shop + "," + Machine + "," + Operator + "," + out_ref_id + "," + output_product + "," + inp_ref_id + "," + work_order + "," + Qty + "," + Start_shift;
+	if (output_product == "Nil") {
+		document.getElementById('start1').value = "/usr/sdext/Factory/machines/machine8/table2.shtm";
+	} else {
+		document.getElementById('start1').value = "/usr/sdext/Factory/machines/machine8/index2.shtm?" + data1 + "#" + ctp;
+	}
+	$('#form_start1').submit();
+}
+
+function prd_sub1() {
+	var ddt1 = document.getElementById("dtd1").innerHTML;
+	var Stage = "1";
+	var Shop = "<%#TagSSI,station1%>";
+	var Machine = "<%#TagSSI,st3_mc8%>";
+	var Operator = "<%#TagSSI,operator8%>"
+	var out_ref_id = document.getElementById('out_value1').value;
+	var output_product = document.getElementById('out_pro_co1').value;
+	var inp_ref_id = document.getElementById('coil_run1').value;
+	var work_order = "1";
+	var Qty = document.getElementById('inp_qty2').value;
+	document.getElementById("inp_qty_id2").value=Qty;
+	var Start_shift = document.getElementById("shf1").innerHTML;
+	var ctp = document.getElementById("ctpdata").value;
+	var data1 = ddt1 + "," + Stage + "," + Shop + "," + Machine + "," + Operator + "," + out_ref_id + "," + output_product + "," + inp_ref_id + "," + work_order + "," + Qty + "," + Start_shift;
+
+	if (output_product == "Nil") {
+		document.getElementById('start2').value = "/usr/sdext/Factory/machines/machine8/table2.shtm";
+	} else {
+		document.getElementById('start2').value = "/usr/sdext/Factory/machines/machine8/index2.shtm?" + data1 + "#" + ctp;
+	}
+	$('#form_start2').submit();
+
+}
+
+function reset1() {
+
+	document.getElementById("ret_tg").value = 0;
+	$('#reset_form').submit();
+}
+
+function subform() {
+	var kg = document.getElementById("qty1").value;
+
+	if (kg > 2) {
+		document.getElementById('qtr1').value = "/usr/sdext/Factory/machines/machine8/index3.shtm?" + kg;
+
+	} else {
+		document.getElementById('qtr1').value = "/usr/sdext/Factory/machines/machine8/table2.shtm";
+	}
+	$('#form1').submit();
+
+}
+
+function subform1() {
+	var kg = document.getElementById("qty2").value;
+	if (kg > 2) {
+		document.getElementById('qtr2').value = "/usr/sdext/Factory/machines/machine8/index3.shtm?" + kg;
+
+	} else {
+		document.getElementById('qtr2').value = "/usr/sdext/Factory/machines/machine8/table2.shtm";
+	}
+	$('#form2').submit();
+}
+
+
+</script>
+
+<script type = "text/javascript" >
+
+	var view = ""
+var real_kg12;
+
+function GetTagValues()
+         {
+         jQuery.ajax ( { url:"tags.json.shtm", dataType:"json", success:TagValuesReceived, error:TagValuesError, timeout:4000 });
+         }
+
+function TagValuesReceived(json) {
+	// Update value in webpage
+	if (json.trig == 1) {
+		$("#but_save1").hide();
+		$("#but_sub1").show();
+		$("#but_save2").hide();
+		$("#but_sub2").show();
+		$("#kgsubmit").show();
+		$("#kgsubmit1").show();
+		$("#kgsubmit12").show();
+	} else {
+		$("#but_sub1").hide();
+		$("#but_sub2").hide();
+		$("#kgsubmit").hide();
+		$("#kgsubmit1").hide();
+		$("#kgsubmit12").hide();
+	}
+
+	var grade = json.grade;
+	view = json.view;
+	var a = json.o4;
+	var sp = json.o2;
+	sp = sp.toFixed(3);
+	document.getElementById("s2").innerHTML = sp + "M/S";
+	var a = json.o3;
+	var value = a.toFixed(2);
+	document.getElementById("s3").innerHTML = value + "%";
+	var a = json.o4;
+	var value = a.toFixed(2);
+	document.getElementById("s4").innerHTML = value + "%";
+	var a = json.o5;
+	var value = a.toFixed(2);
+	document.getElementById("s5").innerHTML = value + "%";
+	document.getElementById("s6").innerHTML = json.o7 + "MIN";
+	document.getElementById("s7").innerHTML = json.o6 + "MIN";
+	document.getElementById("s8").innerHTML = json.o8 + "MIN";
+	document.getElementById("kg11").innerHTML = json.kg + "Total";
+	document.getElementById("inp_code").innerHTML = json.inp;
+	document.getElementById("dtd1").innerHTML = 'Date:-' + json.date;
+	document.getElementById("shf1").innerHTML = 'Shift:-' + json.shift;
+	var speed = json.speed;
+	var set_speed = json.set_speed;
+	var zero_speed = json.zero_speed;
+	var d_time = json.d_time;
+	var run = json.run;
+	var modal1 = document.getElementById("myModal1");
+	if (grade != "Nil") {
+		real_kg1 = json.o9;
+		if (run == 1) {
+			if (((speed <= zero_speed) && (speed < set_speed)) || (d_time > 0)) {
+				modal1.style.display = "block";
+			}
+			if ((speed >= set_speed)) {
+				modal1.style.display = "none";
+			}
+		}
+
+	} else {
+
+	}
+
+	var chat1 = ""
+	var chat = []
+	if (view > "") {
+		chat = view.split(',');
+		chat1 = "New Message:-" +chat1 + "" + chat[0] + "-" + "Sender:-" + chat[2] + " - " + "msg:-" + chat[3];
+	}
+	$('#chat').val(chat1);
+	$('#chat1').val(chat1)
+	         
+             setTimeout("GetTagValues()", 1000);
+
+        }
+
+       function TagValuesError()
+         {
+            console.log("error");
+          GetTagValues();
+    
+         }
+         GetTagValues();
+
+
+
+function RestrictCommaSemicolon(e) {
+	var theEvent = e || window.event;
+	var k = e ? e.which : window.event.keyCode;
+	if (k == 32) return false;
+	var key = theEvent.keyCode || theEvent.which;
+	key = String.fromCharCode(key);
+	var regex = /[^,;"'@#*,&.$:]+$/;
+	if (!regex.test(key)) {
+		theEvent.returnValue = false;
+		if (theEvent.preventDefault) {
+			theEvent.preventDefault();
+		}
+	}
+}
+
+function isNumberKey(txt, evt) {
+	var charCode = (evt.which) ? evt.which : evt.keyCode;
+	if (charCode == 46) {
+		//Check if the text already contains the . character
+		if (txt.value.indexOf('.') === -1) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		if (charCode > 31 &&
+			(charCode < 48 || charCode > 57))
+			return false;
+	}
+
+	return true;
+}
+    </script>
+    
+</head>
+<style>
+/* The Modal (background) */
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: whitesmoke;
+    }
+
+    label {
+        font-size: 18px;
+        font-weight: bolder;
+        font-variant: petite-caps;
+        margin-right: 15px;
+        color: unset;
+        width: 100%;
+    }
+
+    select {
+       width: 100%;
+font-size: 20px;
+color: maroon;
+margin-bottom: 0px;
+font-weight: bold;
+height: 30px;
+    }
+
+    input {
+       width: 100%;
+
+font-size: 15px;
+
+color: maroon;
+
+margin-bottom: 0px;
+
+font-weight: bold;
+    }
+
+    #t21 tr {
+        background-color: lightgrey;
+    }
+
+    #t21 th {
+        text-align: inherit;
+        width: 40%;
+    }
+    /* Modal Content */
+
+    .modal-content {
+        background-repeat: no-repeat;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid lightseagreen;
+        width: 70%;
+        height: 70%;
+        border-block-width: thick;
+    }
+    /* The Close Button */
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close1 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close1:hover,
+    .close1:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close2 {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .close2:hover,
+    .close2:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close3 {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .close3:hover,
+    .close3:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+
+
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 100%;
+        padding: 3px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        width: 10%;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    #tr1 {
+        background-color: silver;
+        font-size: 35px;
+        color: maroon;
+        font-variant: all-small-caps;
+        height: 53px;
+    }
+
+    #tr2 {
+        font-size: 25px;
+        color: black;
+        font-variant: all-small-caps;
+        height: 70px;
+        text-align: center;
+        font-weight: bold;
+        font-variant-caps: all-small-caps;
+    }
+
+    #tr3 {
+        color: black;
+        font-variant: all-small-caps;
+        height: 0px;
+    }
+}
+
+#lab1
+{
+    display: block;
+color:
+white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+</style>
+
+<body onload="drop();fire();out_product_check();out_product_check1();">
+    <div>
+        <table style="width: 100%;
+border-right-style: dashed;
+color:
+whitesmoke;
+text-align: center;
+font-family: Arial initial;
+background: #7b2020;font-variant: initial;
+border-radius: 4px;
+padding-left: 10px;
+padding-right: 10px;
+height: 51px;
+font-size: 18px;
+font-weight: bolder;">
+            <tr style="height: 35px;">
+                <td style="text-align: left;">
+                   <label> Shop: <%#TagSSI,station1%></label>  
+                </td>
+                <td>
+                Machine:<%#TagSSI,st3_mc8%>
+                </td>
+                <td style="text-align: right;">
+                  <label id="dtd1"></label><label id="shf1"></label> 
+                </td>
+            </tr>
+            <tr style="height: 35px;">
+			<td colspan="2" style="width:80%;">
+			
+			<textarea id="chat" style="width: 99%;height: 32px;margin-bottom: 2px;font-size: 16px;font-weight: bold;padding: 6px;" rows="3" cols="50" maxlength="200" readonly ></textarea>
+	</td>
+                <td > <button style="float: right; margin-right: 0px; height: 30px;  width: 126px; white-space: nowrap;  transition: all .2s ease-out, color .2s ease-out;
+    cursor: pointer;   font-family: 'Poppins', sans-serif;  color: whitesmoke; text-align: center; font-size: 13px; background-color: #8c9cbf; background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    font-variant: initial;font-weight: inherit;  border: 2px solid; border-radius: 0px;" onclick="thread();">Chat</button></td>
+            </tr>
+        </table>
+    </div>
+    <div id="myModal2345" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="background-repeat: no-repeat;
+
+margin: auto;
+
+padding: 20px;
+
+border: 1px solid lightseagreen;
+
+width: 90%;
+
+height: 75%;
+
+border-block-width: thick;">
+
+
+ <input id="ctpdata" value="" >
+
+</div>
+</div>
+
+
+
+
+
+<div id="thread_modal" class="modal" style="background: transparent;">
+        <!-- Modal content -->
+                       <div class="modal-content" style="width: 870px;padding:0px;height:auto;">
+                  <header style="white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+font-family: 'Poppins', sans-serif;
+color:
+whitesmoke;
+background-color:
+#8c9cbf;
+background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+font-variant: initial;
+font-weight: inherit;
+padding: 5px;
+font-size: 9px;
+width: -webkit-available;height:35px;">
+
+
+                     <label class="lab1" style="font-size: 13px;
+font-weight: bold;
+color:
+white;
+white-space: nowrap;
+font-family: 'Poppins',sans-serif;">Hi: <%#TagSSI,operator8%></label>
+                     <button id="clo1"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;">X</button>
+                  </header>
+                  <div style="height:460px; background: white;padding-top: 4px;padding-bottom: 4px;">
+				  
+				  <iframe style="width: 100%;height: inherit;" src="chat3.shtm"></iframe>
+                      </div>
+                  <footer style="height:20;background:#930707;padding-top: 4px;padding-bottom: 4px;">
+                     <table style="width: 100%">
+                        <tr>
+                           <td style="width: 25%"></td>
+                           <td style="width: 25%"></td>
+                           <td style="width: 25%"></td>
+                        </tr>
+                     </table>
+                  </footer>
+               </div>
+</div>
+
+
+
+          <form style=" float:right;height:auto;"  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Product start data enter successfully');">
+    
+	<table style="width: 100%;">
+	<tr>
+	<td style="    height: 40px;
+    width: 140px;
+    white-space: nowrap;
+    transition: all .2s ease-out, color .2s ease-out;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 13px;
+    background-color: #8c9cbf;
+    background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    font-variant: initial;
+    font-weight: inherit;
+    border: 2px solid;
+    border-radius: 0px;">Operator Name</td>
+	<td style="width:33%">
+	
+	<select style="height: 40px;
+    width: 100%;
+    white-space: nowrap;
+    transition: all .2s ease-out, color .2s ease-out;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 13px;
+    background-color: #8c9cbf;
+    background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    font-variant: initial;
+    font-weight: inherit;
+    border: 2px solid;
+    border-radius: 0px;" id="oper" onchange="opt();"  data-child-id='id_child' class='dependent-selects__parent'>
+                                 <option value="<%#TagSSI,operator8%>"><%#TagSSI,operator8%></option>
+                                  </select>
+	
+	</td>
+	<td style="width:33%">
+	
+	<button style="height: 40px;
+    width: 140px;
+    white-space: nowrap;
+    transition: all .2s ease-out, color .2s ease-out;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 13px;
+    background-color: #8c9cbf;
+    background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    font-variant: initial;
+    font-weight: inherit;
+    border: 2px solid;
+    border-radius: 0px;margin:0px;padding:0px;" class="button" id="button1">Save</button>
+	
+	</td>
+	</tr>
+	
+	</table>
+	
+	
+	
+	
+	
+	
+      
+                                  <script type="text/javascript">
+                                     function opt()
+                                     {
+
+
+                                      var a=document.getElementById("oper").value;
+                                      document.getElementById("op12").value=a;
+}
+                                  </script>
+                  
+         
+       <input type="hidden" name="TagName1" value="operator3">
+                            <input id="op12" style="visibility: hidden;height: 1px;width: 1px;"  name="TagValue1" size="20" value="<%#TagSSI,operator8%>" required>
+          <input type="hidden" name="ResultPageOk" value="/usr/sdext/Factory/machines/machine8/table2.shtm">
+                        </form>
+</br>
+    <table id="t1" style="
+         width: 95%;
+         border-top-color: currentcolor;
+         border-top-style: solid;
+         border-top-width: 4px;
+         border-bottom-color: currentcolor;
+         border-bottom-style: solid;
+         border-bottom-width: 4px;
+         border-image-outset: 0;
+         border-image-repeat: stretch;
+         border-image-slice: 100%;
+         border-image-source: none;
+         border-image-width: 1;
+         padding: 8px;
+         margin: 1%;">
+        <tr id="tr1">
+            <th>Output Product code</th>
+            <th>Material Input Id:</th>
+            <th>Machine Speed</th>
+
+        </tr>
+        <tr id="tr2">
+            <td>
+                <%#TagSSI,Grade8%>
+            </td>
+        
+            <td id="inp_code">
+                
+            </td>
+            <td id="s2"></td>
+        </tr>
+        <tr id="tr3">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="tr1">
+            <th>AVAILABILITY</th>
+            <th>SLOW SPEED</th>
+            <th>DOWNTIME</th>
+            <th>shift (KG) </th>
+        </tr>
+        <tr id="tr2">
+            <td id="s3"></td>
+            <td id="s4"></td>
+            <td id="s5"></td>
+            <td id="kg11" rowspan="2"><%#TagSSI,kg8%>kg (total)</td>
+            </tr>
+        <tr id="tr2">
+            <td id="s6"></td>
+            <td id="s7"></td>
+            <td id="s8"></td>
+           
+        </tr>
+    </table>
+    <button style="width: 30%;
+height: 58px;
+margin-left: 18%;
+white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+cursor: pointer;
+font-family: 'Poppins', sans-serif;
+color:
+whitesmoke;
+text-align: center;
+font-size: 28px;
+background: #7b2020;
+font-variant: initial;
+font-weight: inherit;" id="myBtn">Submit Production Detail</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal" style="height:auto;">
+        <!-- Modal content -->
+        <div class="modal-content" style="background-repeat: no-repeat;
+
+margin: auto;
+
+
+padding: 20px;
+
+border: 1px solid lightseagreen;
+
+width: 90%;
+
+height:550px;
+border-block-width: thick;">
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+                /* Create two equal columns that floats next to each other */
+
+                .column {
+                    float: left;
+                    width: 50%;
+                    padding: 10px;
+                    height: 300px;
+                    /* Should be removed. Only for demonstration */
+                }
+                /* Clear floats after the columns */
+
+                .row:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+
+                .alert
+            </style>
+			
+			<button id="clo2"  style="width: 20px;height: 20px;font-size: 12px;font-weight: bold;color:red;text-align: center;padding: 0px;float: right;">X</button>
+			
+ <div class="row" style="overflow: visible;">
+               <div class="column" style="width: 50%;border-right: 3px solid darkmagenta;">
+                  <p style="font-size: 18px;
+                     font-variant: petite-caps;
+                     font-weight: bold;
+                     color: #8b0e1a;
+                     text-align: center;">
+                     Enter Product Details
+                  </p>
+                  <form  id ="form_start1"style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Product start successfully');">
+                     <table id="t21" style="width: 100%;">
+                        <tr>
+                           <th>
+                              <label>Supplier Name:</label>
+                           </th>
+                           <td>
+                             <select id="supplier_id" onchange="output();" data-child-id='id_child' class='dependent-selects__parent'>
+                                 <option value="<%#TagSSI,sup8%>"><%#TagSSI,sup8%></option>
+                                  </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <label>Incoming Product Code:</label>
+                           </th>
+                           <td>
+                            <select id="inp_pro_code"  onchange="output();" data-child-id='id_child' class='dependent-selects__parent'>
+                                 <option value="<%#TagSSI,in_pr_co8%>"><%#TagSSI,in_pr_co8%></option>
+                              </select>
+                              
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <label>Input Ref. id:</label>
+                           </th>
+                           <td>
+                               <input type="hidden" name="TagName1" value="coil8">
+                            <input id="coil_run"  onkeypress="return RestrictCommaSemicolon(event);"  name="TagValue1" size="50" value="<%#TagSSI,op_coil8%>"  required>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <label>Input quantity:</label>
+                           </th>
+                           <td>
+                            <input onkeypress="return isNumberKey(this,event);" id="inp_qty1"    size="50"  value="<%#TagSSI,wd8_inp_qty%>" required>
+                           </td>
+                        </tr>
+                        <tr >
+                           <th>
+                              <label>Output Product code:</label>
+                           </th>
+                           <td>
+                              <select id="out_pro_code" onchange="output();" data-child-id='id_child' class='dependent-selects__parent' >
+                                 <option value="<%#TagSSI,grade8%>"><%#TagSSI,grade8%></option>
+                                 
+                              </select>
+                           </td>
+                           </tr>
+                           <tr>
+                           <th>
+                           Output Ref. Id:
+                           </th>
+                           <td>
+                                <input type="hidden" name="TagName2" value="reel8">
+                            <input  name="TagValue2"  onkeypress="return RestrictCommaSemicolon(event);" id="out_value" oninput="out_product_check();"  size="20" value="<%#TagSSI,reel8%>" required>
+                           
+                           </td>
+                           
+                           
+                        </tr>
+                     </table>
+                            <input type="hidden" name="ResultPageOk" id="start1" value="">
+                            <input type="hidden" name="TagName3" value="dia8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="dia"   name="TagValue3" size="50" value="<%#TagSSI,dia8%>"  required>
+                            <input type="hidden" name="TagName4" value="grade8">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="out_pro_co"  name="TagValue4" size="50" value="<%#TagSSI,grade8%>"  required>
+                            <input type="hidden" name="TagName5" value="set_speed8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="spd"  name="TagValue5" size="50" value="<%#TagSSI,set_speed8%>"  required>
+                            <input type="hidden" name="TagName6" value="wd8_speed_usl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_usl"  name="TagValue6" size="50" value="<%#TagSSI,wd8_speed_usl%>"  required>
+                            <input type="hidden" name="TagName7" value="wd8_speed_lsl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_lsl" name="TagValue7" size="50" value="<%#TagSSI,wd8_speed_lsl%>"  required>
+                            <input type="hidden" name="TagName8" value="targetkg_8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_kg" name="TagValue8" size="50" value="<%#TagSSI,targetkg_8%>"  required>    
+                            <input type="hidden" name="TagName9" value="wd8_kg_lsl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="tg_lsl" name="TagValue9" size="50" value="<%#TagSSI,wd8_kg_lsl%>"  required>
+                            <input type="hidden" name="TagName10" value="wd8_kg_usl">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_usl" name="TagValue10" size="50" value="<%#TagSSI,wd8_kg_usl%>"  required>
+                            <input type="hidden" name="TagName11" value="wd_target_up8">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_t" name="TagValue11" size="50" value="<%#TagSSI,wd_target_up8%>"  required>
+                            <input type="hidden" name="TagName12" value="wd8_up_lsl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;"id="up_lsl"   name="TagValue12" size="50" value="<%#TagSSI,wd8_up_lsl%>"  required>
+                            <input type="hidden" name="TagName13" value="wd8_up_usl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="up_usl"   name="TagValue13" size="50" value="<%#TagSSI,wd8_up_usl%>"  required>
+                            <input type="hidden" name="TagName14" value="in_pr_co8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="in_pro_co"   name="TagValue14" size="50" value="<%#TagSSI,in_pr_co8%>"  required>
+                            <input type="hidden" name="TagName15" value="sup8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="sup_inp"   name="TagValue15" size="50" value="<%#TagSSI,sup8%>"  required>
+                            <input type="hidden" name="TagName16" value="button8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="sub_but"   name="TagValue16" size="50" value="<%#TagSSI,button8%>"  required>
+                            <input type="hidden" name="TagName17" value="wd8_inp_qty">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="inp_qty_id1"   name="TagValue17" size="50" value="<%#TagSSI,wd8_inp_qty%>"  required>
+
+
+                              </form>
+
+                               <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%;
+                        border: 2px solid gray;" class="button" onclick="prd_sub()"id="but_save1">Save</button>
+                            <label id="status"></label>
+                    
+               </div>
+               <div class="column" style="width: 50%;">
+                <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%; 
+                        border: 2px solid gray;float:right;" class="button" onclick="reset1();"  >Reset</button>
+                    <p style="font-size: 18px;
+                     font-variant: petite-caps;
+                     font-weight: bold;
+                     color: #8b0e1a;
+                     text-align: center;">
+                     Submit Product Production Details
+                  </p>
+                    <form id="form1" style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Product start data enter successfully');">
+                     <table id="t21" style="width: 100%;">
+                        
+                        <tr>
+                           <th>
+                              <label>Output Produced kg:</label>
+                           </th>
+                           <td>
+                               <input type="hidden" name="TagName1" value="kg_h8">
+                            <input onkeypress="return isNumberKey(this,event);" id="qty1" placeholder="Enter output kg" name="TagValue1" size="20" value="" required>
+                           </td>
+                        </tr>
+                        </table>
+                       <input type="hidden" name="TagName2" value="wd8_inp_qty">
+                        <input style="visibility:hidden;width:1px;height:1px;" name="TagValue2" size="20" value="0" >
+                        
+                         <input type="hidden" name="ResultPageOk" id="qtr1"  value="">
+                        </form>
+                         <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%;
+                        border: 2px solid gray;" class="button" onclick="subform();" id="but_sub1">Submit</button>
+                        
+                            
+
+
+               </div>
+              
+            </div>
+             <div id="kgsubmit">
+                  <style type="text/css">
+                     @-webkit-keyframes blinker {
+                     from {
+                     opacity: 1.0;
+                     }
+                     to {
+                     opacity: 0.0;
+                     }
+                     }
+                     .blink {
+                     text-decoration: blink;
+                     -webkit-animation-name: blinker;
+                     -webkit-animation-duration: 0.6s;
+                     -webkit-animation-iteration-count: infinite;
+                     -webkit-animation-timing-function: ease-in-out;
+                     -webkit-animation-direction: alternate;
+                     color: red;
+                     font-size: 20px;
+                     font-weight: bolder;
+                     }
+                  </style>
+                  <p class="blink">!! Please Submit Kg !!</p>
+               </div>
+  </div>
+</div>
+
+    <script type="text/javascript">
+        function abc1() {
+            var a = document.getElementById("id_parent111").value;
+            document.getElementById("pro111").value = a;
+        }
+
+
+    </script>
+
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="background-repeat: no-repeat;
+
+margin: auto;
+
+    margin-top: auto;
+
+margin-top: auto;
+
+padding: 20px;
+
+border: 1px solid lightseagreen;
+
+width: 86%;
+
+height: auto;
+
+border-block-width: thick;
+
+margin-top: -74px;">
+ <div class="row" style="overflow: visible;">
+ <button style="float: right; margin-right: 0px; height: 30px;  width: 126px; white-space: nowrap;  transition: all .2s ease-out, color .2s ease-out;
+    cursor: pointer;   font-family: 'Poppins', sans-serif;  color: whitesmoke; text-align: center; font-size: 13px; background-color: #8c9cbf; background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    font-variant: initial;font-weight: inherit;  border: 2px solid; border-radius: 0px;" onclick="open_link();">Chat</button>
+
+<div class="column" style="width: 50%;border-right: 3px solid darkmagenta;">
+            <form  method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Data Submitted successfully');">
+                <h2 style="width: 100%; background: yellow; text-align: center; color: red;margin-top: -10px;"> !!  MACHINE DOWN  !!  </h2>
+                <h3 style="width: 100%; background: lightblue; text-align: center; color: red;margin-top: -10px;"> Enter Downtime Reason  </h3>
+                <table >
+                    <tr>
+                        <td width="26%">
+                            <label> Major: </label>
+                        </td>
+                        <td width="30%">
+                            <select onchange="val(); ss1();" name="parent" id="id_parent" data-child-id='id_child' class='dependent-selects__parent'>
+                                <option value="<%#TagSSI,major8%>">
+                                   <%#TagSSI,major8%>
+                                </option>
+                            </select>
+                        </td>
+                        <td width="1%">
+                            <input type="hidden" name="TagName1" value="major8">
+                            <input id="error1" name="TagValue1" size="20" value="<%#TagSSI,major8%>" style="visibility: hidden;" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label width="26%"> Minor: </label>
+                        </td>
+                        <td width="30%">
+                            <select onchange="val1(); ss2();" name="child" id="id_child" class='dependent-selects__child'>
+                                <option value="<%#TagSSI,sub_major8%>"><%#TagSSI,sub_major8%> </option>
+                            </select>
+                        </td>
+                        <td width="1%">
+                            <input type="hidden" name="TagName2" value="sub_major8">
+                            <input id="error2" name="TagValue2" size="20" value="<%#TagSSI,sub_major8%>" style="visibility: hidden;" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="26%">
+                            <label> Sub Minor: </label>
+                        </td>
+                        <td width="30%">
+                            <select onchange="val2(); ss3();" name="parent2" id="id_parent2" data-child-id='id_child2' class='dependent-selects__parent'>
+                                <option value="<%#TagSSI,minor8%>"><%#TagSSI,minor8%></option>
+                            </select>
+                        </td>
+                        <td width="1%">
+                            <input type="hidden" name="TagName3" value="minor8">
+                            <input id="error3" name="TagValue3" size="20" value="<%#TagSSI,minor8%>" style="visibility: hidden;" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">
+                            <label> Sub Minor: </label>
+                        </td>
+                        <td width="30%">
+                            <select onchange="ss4()" name="child2" id="id_child2" class='dependent-selects__child' data-text-if-parent-empty="Select Parent 2">
+                                <option value="<%#TagSSI,sub_minor8%>"><%#TagSSI,sub_minor8%></option>
+                            </select>
+                        </td>
+                        <td width="1%">
+                            <input type="hidden" name="TagName4" value="sub_minor8">
+                            <input id="error4" name="TagValue4" size="20" value="<%#TagSSI,sub_minor8%>" style="visibility: hidden;" required>
+                        </td>
+                    </tr>
+                </table>
+                <input style="background-color: #8b0e1a;
+width: 97px;
+height: 30px;
+color: whitesmoke;
+text-align: center;
+font-size: 15px;
+font-weight: bold;
+font-variant: all-small-caps;
+border-radius: 4px;
+border: 2px solid gray;" class="button" id="2" type="submit" value="Save">
+                <input type="hidden" name="ResultPageOk" value="/usr/sdext/Factory/machines/machine8/table2.shtm">
+
+            </form>
+                        <form method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Data Submitd successfully');">
+                <input type="hidden" name="TagName1" value="submit8">
+                <input type="hidden" id="random-number1" name="TagValue1" size="20" value="<%#TagSSI,submit8%>" />
+                <input type="hidden" name="ResultPageOk" value="/usr/sdext/Factory/machines/machine8/table2.shtm">
+                <button style="background-color: #8b0e1a;width: 97px;height: 30px;color: whitesmoke;text-align: center;font-size: 15px;font-weight: bold;font-variant: all-small-caps;border-radius: 4px;margin-left: 0.5%;border: 2px solid gray;" class="button" id="button" onclick="getElementById('random-number1').value=Math.floor(Math.random()*10000);myFunction3();">submit</button>
+            </form>
+        </div>
+        <div class="column" >
+              <h2 style="width: 100%; background: yellow; text-align: center; color: red;margin-top: -10px;"> Chat Box  </h2>
+              <table style="width: 70%;">
+<tr>
+    <td> <textarea id="chat1" style="width: fit-content;" rows="3" cols="70" maxlength="200" readonly ></textarea>
+</td>
+</tr>    
+</table>
+
+
+                
+</div>
+</div>
+
+           <hr>
+             <div class="row" style="overflow: visible;">
+
+<div class="column" style="width: 50%;border-right: 3px solid darkmagenta;">
+                  <p style="font-size: 18px;
+                     font-variant: petite-caps;
+                     font-weight: bold;
+                     color: #8b0e1a;
+                     text-align: center;">
+                     Enter Product Details
+                  </p>
+             <form id="form_start2" style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Product start successfully');">
+                     <table id="t21" style="width: 100%;">
+                        <tr>
+                           <th>
+                              <label>Supplier Name:</label>
+                           </th>
+                           <td>
+                             <select id="supplier_id1" onchange="output1();" data-child-id='id_child' class='dependent-selects__parent'>
+                                 <option value="<%#TagSSI,sup8%>"><%#TagSSI,sup8%></option>
+                                  </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <label>Incoming Product Code:</label>
+                           </th>
+                           <td>
+                            <select id="inp_pro_code1"  onchange="output1();" data-child-id='id_child' class='dependent-selects__parent'>
+                                 <option value="<%#TagSSI,in_pr_co8%>"><%#TagSSI,in_pr_co8%></option>
+                              </select>
+                              
+                           </td>
+                        </tr>
+                        
+                        <tr>
+                           <th>
+                              <label>Input Ref. id:</label>
+                           </th>
+                           <td>
+                               <input type="hidden" name="TagName1" value="coil8">
+                            <input  id="coil_run1" onkeypress="return RestrictCommaSemicolon(event);" name="TagValue1" size="50" value="<%#TagSSI,op_coil8%>"  required>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <label>Input quantity:</label>
+                           </th>
+                           <td>
+                            <input onkeypress="return isNumberKey(this,event);" id="inp_qty2"    size="50" value="<%#TagSSI,wd8_inp_qty%>" required>
+                           </td>
+                        </tr>
+                        <tr >
+                           <th>
+                              <label>Output Product code:</label>
+                           </th>
+                           <td>
+                              <select id="out_pro_code1" onchange="output1();" data-child-id='id_child' class='dependent-selects__parent' >
+                                 <option value="<%#TagSSI,grade8%>"><%#TagSSI,grade8%></option>
+                                 
+                              </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <th>
+                           Output Ref. Id:
+                           </th>
+                           <td>
+                                <input type="hidden" name="TagName2" value="reel8">
+                            <input  name="TagValue1" onkeypress="return RestrictCommaSemicolon(event);" id="out_value1" oninput="out_product_check1();" size="20" value="<%#TagSSI,reel8%>" required>
+                           </td>
+                           
+                           
+                        </tr>
+                     </table>
+                     
+                            
+                            <input type="hidden" name="ResultPageOk" id="start2" value="">
+                            <input type="hidden" name="TagName3" value="dia8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="dia1"   name="TagValue3" size="50" value="<%#TagSSI,dia8%>"  required>
+                            <input type="hidden" name="TagName4" value="grade8">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="out_pro_co1"  name="TagValue4" size="50" value="<%#TagSSI,grade8%>"  required>
+                            <input type="hidden" name="TagName5" value="set_speed8">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd1"  name="TagValue5" size="50" value="<%#TagSSI,set_speed8%>"  required>
+                            <input type="hidden" name="TagName6" value="wd8_speed_usl">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="spd_usl1"  name="TagValue6" size="50" value="<%#TagSSI,wd8_speed_usl%>"  required>
+                            <input type="hidden" name="TagName7" value="wd8_speed_lsl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="spd_lsl1" name="TagValue7" size="50" value="<%#TagSSI,wd8_speed_lsl%>"  required>
+                            <input type="hidden" name="TagName8" value="targetkg_8">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="tg_kg1" name="TagValue8" size="50" value="<%#TagSSI,targetkg_8%>"  required>    
+                            <input type="hidden" name="TagName9" value="wd8_kg_lsl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="tg_lsl1" name="TagValue9" size="50" value="<%#TagSSI,wd8_kg_lsl%>"  required>
+                            <input type="hidden" name="TagName10" value="wd8_kg_usl">
+                            <input  style="width: 1px; height: 1px;visibility: hidden;" id="tg_usl1" name="TagValue10" size="50" value="<%#TagSSI,wd8_kg_usl%>"  required>
+                            <input type="hidden" name="TagName11" value="wd_target_up8">
+                            <input   style="width: 1px; height: 1px;visibility: hidden;" id="up_t1" name="TagValue11" size="50" value="<%#TagSSI,wd_target_up8%>"  required>
+                            <input type="hidden" name="TagName12" value="wd8_up_lsl">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="up_lsl1"   name="TagValue12" size="50" value="<%#TagSSI,wd8_up_lsl%>"  required>
+                            <input type="hidden" name="TagName13" value="wd8_up_usl">
+                            <input id="up_usl1"  style="width: 1px; height: 1px;visibility: hidden;" name="TagValue13" size="50" value="<%#TagSSI,wd8_up_usl%>"  required>
+                            <input type="hidden" name="TagName14" value="in_pr_co8">
+                            <input id="in_pro_co1"   name="TagValue14" size="50"style="width: 1px; height: 1px;visibility: hidden;" value="<%#TagSSI,in_pr_co8%>"  required>
+                            <input type="hidden" name="TagName15" value="sup8">
+                            <input id="sup_inp1"   name="TagValue15" size="50" value="<%#TagSSI,sup8%>" style="width: 1px; height: 1px;visibility: hidden;" required>
+                            <input type="hidden" name="TagName16" value="button8">
+                            <input id="sub_but1"   name="TagValue16" size="50" value="<%#TagSSI,button8%>" style="width: 1px; height: 1px;visibility: hidden;" required>
+                             <input type="hidden" name="TagName17" value="wd8_inp_qty">
+                            <input style="width: 1px; height: 1px;visibility: hidden;" id="inp_qty_id2"   name="TagValue17" size="50" value="<%#TagSSI,wd8_inp_qty%>"  required>
+
+
+
+                              </form> 
+                            <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%;
+                        border: 2px solid gray;" onclick="prd_sub1();" class="button" id="but_save2">Save</button>
+                            <label id="status1"><label>
+                              </div>
+               <div class="column" style="width: 50%;">
+                <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%; 
+                        border: 2px solid gray;float:right;" class="button" onclick="reset1();"   >Reset</button>
+                    <p style="font-size: 18px;
+                     font-variant: petite-caps;
+                     font-weight: bold;
+                     color: #8b0e1a;
+                     text-align: center;">
+                     
+                     Submit Product Production Details
+                  </p>
+                    <form id="form2" style="height:auto; width: 100%" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Product start data enter successfully');">
+                     <table id="t21" style="width: 100%;">
+                      
+                        <tr>
+                           <th>
+                              <label>Output Produced kg:</label>
+                           </th>
+                           <td>
+                               <input type="hidden" name="TagName1" value="kg_h8">
+                            <input onkeypress="return isNumberKey(this,event);" id="qty2" placeholder="Enter output Kg" name="TagValue1" size="20" value="" required>
+                           </td>
+                        </tr>
+                        </table>
+                        <input type="hidden" name="TagName2" value="wd8_inp_qty">
+                        <input style="visibility:hidden;width:1px;height:1px;" name="TagValue2" size="20" value="0" >
+                       
+                         <input type="hidden" name="ResultPageOk" id="qtr2" value="">
+                        </form>
+                             <button style="background-color: #8b0e1a;
+                        width: 97px;
+                        height: 30px;
+                        color: whitesmoke;
+                        text-align: center;
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-variant: all-small-caps;
+                        border-radius: 4px;
+                        margin-left: 0.5%;
+                        border: 2px solid gray;" class="button" onclick="subform1()" id="but_sub2">Submit</button>
+                        
+                        
+                        
+                
+                        
+
+
+               </div>
+              
+
+            </div>
+
+               <div id="kgsubmit12">
+                  <style type="text/css">
+                     @-webkit-keyframes blinker {
+                     from {
+                     opacity: 1.0;
+                     }
+                     to {
+                     opacity: 0.0;
+                     }
+                     }
+                     .blink {
+                     text-decoration: blink;
+                     -webkit-animation-name: blinker;
+                     -webkit-animation-duration: 0.6s;
+                     -webkit-animation-iteration-count: infinite;
+                     -webkit-animation-timing-function: ease-in-out;
+                     -webkit-animation-direction: alternate;
+                     color: red;
+                     font-size: 20px;
+                     font-weight: bolder;
+                     }
+                  </style>
+                  <p class="blink">!! Please Submit Kg !!</p>
+               </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function abc() {
+            var a = document.getElementById("id_parent11").value;
+            document.getElementById("pro11").value = a;
+        }
+
+    </script>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        function random() {
+            return Mathfloor(Math.random() * 10);
+
+        }
+
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+		var btn1 = document.getElementById("clo2");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+      
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+
+            modal.style.display = "block";
+            }
+
+         btn1.onclick = function() {
+
+            modal.style.display = "none";
+            }
+      
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+      
+    </script>
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById("myModal1");
+
+        // When the user clicks the button, open the modal
+
+        // When the user clicks on <span> (x), close the modal
+    </script>
+    <script type="text/javascript">
+        function fire() {
+                //console.log(inp_name);
+                 
+            document.getElementById("error1").value = "";
+            document.getElementById("error2").value = "";
+            document.getElementById("error3").value = "";
+            document.getElementById("error4").value = "";
+
+            
+           
+        }
+
+        var e1;
+        var e2;
+        var e3;
+        var e4;
+
+        function val() {
+            var d = document.getElementById("id_parent").value;
+            e1 = d;
+                    var shift = [];
+                    var operator = [];
+                    var cars = [];
+                    var ab = [];
+					$('#id_child')
+				.find('option')
+				.remove()
+				.end()
+				.append('<option value="<%#TagSSI,sub_major8%>"><%#TagSSI,sub_major8%></option>')
+				.val('<%#TagSSI,sub_major8%>');
+                    // Push column data into data list
+                    for (var i = 1; i < downtime_reason.length - 1; i++) {
+                        shift[i] = downtime_reason[i][5];
+
+                        cars[i] = downtime_reason[i][3];
+                        var name = downtime_reason[i][3];
+                    }
+                    for (var i = 0; i < shift.length; i++) {
+                        var n = d.localeCompare(cars[i]);
+                        if (n == 0) {
+                            ab[i] = shift[i];
+
+                        }
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        var option = document.createElement("OPTION"),
+                            txt = document.createTextNode(ab[i]);
+                        option.appendChild(txt);
+                        option.setAttribute("value", ab[i]);
+                        id_child.insertBefore(option, id_child.lastChild);
+                    }
+
+               
+        }
+
+        function val1() {
+            var d = document.getElementById("id_child").value;
+            e2 = d;
+        
+                    var shift = [];
+                    var operator = [];
+                    var cars = [];
+                    var ab = [];
+					$('#id_parent2')
+				.find('option')
+				.remove()
+				.end()
+				.append('<option value="<%#TagSSI,minor8%>"><%#TagSSI,minor8%></option>')
+				.val('<%#TagSSI,minor8%>');
+                    // Push column data into data list
+                    for (var i = 1; i <downtime_reason.length - 1; i++) {
+                        shift[i] = downtime_reason[i][7];
+                        cars[i] = downtime_reason[i][5];
+                        var name =downtime_reason[i][5];
+                    }
+                    for (var i = 0; i < shift.length; i++) {
+                        var n = d.localeCompare(cars[i]);
+                        if (n == 0) {
+                            ab[i] = shift[i];
+
+                        }
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        var option = document.createElement("OPTION"),
+                            txt = document.createTextNode(ab[i]);
+                        option.appendChild(txt);
+                        option.setAttribute("value", ab[i]);
+                        id_parent2.insertBefore(option, id_parent2.lastChild);
+                    }
+
+            
+        }
+
+        function val2() {
+            var d = document.getElementById("id_parent2").value;
+            e3 = d;
+            
+                    var shift = [];
+                    var operator = [];
+                    var cars = [];
+                    var ab = [];
+					
+					$('#id_child2')
+				.find('option')
+				.remove()
+				.end()
+				.append('<option value="<%#TagSSI,sub_minor8%>"><%#TagSSI,sub_minor8%></option>')
+				.val('<%#TagSSI,sub_minor8%>');
+                    // Push column data into data list
+                    for (var i = 1; i < downtime_reason.length - 1; i++) {
+                        shift[i] = downtime_reason[i][8];
+                        cars[i] = downtime_reason[i][7];
+                    }
+                    for (var i = 0; i < shift.length; i++) {
+                        var n = d.localeCompare(cars[i]);
+                        if (n == 0) {
+                            ab[i] = shift[i];
+
+                        }
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        ab = ab.filter((x, i, a) => a.indexOf(x) == i)
+
+                    }
+                    for (var i = 0; i < ab.length; i++) {
+                        var option = document.createElement("OPTION"),
+                            txt = document.createTextNode(ab[i]);
+                        option.appendChild(txt);
+                        option.setAttribute("value", ab[i]);
+                        id_child2.insertBefore(option, id_child2.lastChild);
+                    }
+
+             
+        }
+
+        function ss1() {
+            document.getElementById("error1").value = e1;
+
+        }
+        function ss2() {
+            document.getElementById("error2").value = e2;
+
+        }
+        function ss3() {
+            document.getElementById("error3").value = e3;
+
+        }
+        function ss4() {
+            var d = document.getElementById("id_child2").value;
+            e4 = d;
+            document.getElementById("error4").value = e4;
+
+        }
+    </script>
+    <button align="center" ; style="width: 30%;
+height: 58px;
+margin-left: 30px;
+white-space: nowrap;
+border-radius: .5px;
+transition: all .2s ease-out, color .2s ease-out;
+cursor: pointer;
+font-family: 'Poppins', sans-serif;
+color:
+whitesmoke;
+text-align: center;
+font-size: 28px;
+background: #7b2020;
+font-variant: initial;
+font-weight: inherit;         " id="myBtn2">Shift Down Time Record</button>
+    <div id="kgsubmit1">
+
+        <p style="text-align: center;" class="blink">!! Please Submit Kg !!</p>
+
+    </div>
+    <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content1" style="background-repeat: no-repeat;
+         padding: 0px;
+         border: 1px solid lightseagreen;
+         width: 98%;
+         height: 71%;
+         border-block-width: thick;
+         margin-top: -6%;">
+            <label style="text-align: center; margin-left: 20%; color: red;"> Shift Down Time </label> <span class="close2">&times;</span>
+            <br>
+            <iframe src="tablereason.shtm" style="width: 100%;
+         height: 637px;
+         border: none;"></iframe>
+        </div>
+    </div>
+    <script>
+        var modal2 = document.getElementById("myModal2");
+		var btn2 = document.getElementById("myBtn2");
+		var span2 = document.getElementsByClassName("close2")[0];
+		btn2.onclick = function() {
+            modal2.style.display = "block";
+        }
+			span2.onclick = function() {
+            modal2.style.display = "none";
+				}
+window.onclick = function(event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+    </script>
+    </div>
+
+            <div id="myModal7" class="modal" style="border: none;">
+               <div class="modal-content" style="width: 868px; border: none;">
+                <form id="reset_form" method="POST" action="/rcgi.binrcgi.bin/UpdateTagForm" onsubmit="alert('Data Reset successfully');">
+                   
+                   <input type="hidden" name="TagName1" value="trig_but8">
+                   <input id="ret_tg" name="TagValue1" size="20" value="" style="visibility: hidden;" >
+                   <input type="hidden" name="ResultPageOk" value="/usr/sdext/Factory/machines/machine8/table2.shtm">
+
+            </form>
+                  
+               </div>
+            </div>
+
+            <script type="text/javascript">
+              
+
+
+function thread()
+{
+     var modal = document.getElementById("thread_modal");
+	 
+	 var btn=document.getElementById("clo1");
+     modal.style.display = "block";
+	 btn.onclick = function() 
+      {
+      modal.style.display = "none";
+      }
+
+}
+
+
+function open_link()
+{
+window.open('chat3.shtm', '_blank');
+}
+            </script>
+
+</body>
+</html>

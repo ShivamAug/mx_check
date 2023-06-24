@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+ <script type="text/javascript" src="../js/jquery.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script type="text/javascript" src="../js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="../js/csv_to_html_table2.js"></script>
+<link rel="stylesheet" href="../css/dataTables.bootstrap.css" />
+<body>
+
+
+      <input id="abc" type="text" name="Download as CSV " hidden>
+      <div id='table-container' style="width: 93%;
+
+height: 557px;
+
+margin-left: 27px;"></div>
+
+<script type="text/javascript">
+  CsvToHtmlTable.init({
+        csv_path: 'data/shift_down_reason.csv',
+        element: 'table-container',
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": true},
+        custom_formatting: [[]]
+      });
+</script>
+</body>
+</html>

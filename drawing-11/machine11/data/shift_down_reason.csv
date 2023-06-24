@@ -1,0 +1,3 @@
+Date,Shift,Operator,DownTime,From Time,To Time,Major,Minor,Sub Minor,Sub Sub Minor
+23/06/2023,A,FRAN/60241,2.00,23/06/2023 07:30:01,23/06/2023 07:32:01,reason not entered,null,null,null
+23/06/2023,A,FRAN/60241,16.00,23/06/2023 07:49:01,23/06/2023 08:05:01,FUNCIONAL,Paro de linea,Detector de Marana,Traslape

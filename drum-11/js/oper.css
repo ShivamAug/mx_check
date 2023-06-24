@@ -1,0 +1,231 @@
+/* The Modal (background) */
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: whitesmoke;
+    }
+
+    label {
+        font-size: 18px;
+        font-weight: bolder;
+        font-variant: petite-caps;
+        margin-right: 15px;
+        color: unset;
+        width: 100%;
+    }
+
+    select {
+       width: 100%;
+font-size: 20px;
+color: maroon;
+margin-bottom: 0px;
+font-weight: bold;
+height: 30px;
+    }
+
+    input {
+       width: 100%;
+
+font-size: 15px;
+
+color: maroon;
+
+margin-bottom: 0px;
+
+font-weight: bold;
+    }
+
+    #t21 tr {
+        background-color: lightgrey;
+    }
+
+    #t21 th {
+        text-align: inherit;
+        width: 40%;
+    }
+    /* Modal Content */
+
+    .modal-content {
+        background-repeat: no-repeat;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid lightseagreen;
+        width: 70%;
+        height: 70%;
+        border-block-width: thick;
+    }
+    /* The Close Button */
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close1 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close1:hover,
+    .close1:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close2 {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .close2:hover,
+    .close2:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .close3 {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .close3:hover,
+    .close3:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 100%;
+        padding: 3px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        width: 10%;
+    }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    #tr1 {
+        background-color: silver;
+        font-size: 35px;
+        color: maroon;
+        font-variant: all-small-caps;
+        height: 53px;
+    }
+
+    #tr2 {
+        font-size: 25px;
+        color: black;
+        font-variant: all-small-caps;
+        height: 70px;
+        text-align: center;
+        font-weight: bold;
+        font-variant-caps: all-small-caps;
+    }
+
+    #tr3 {
+        color: black;
+        font-variant: all-small-caps;
+        height: 0px;
+    }
+}
+
+#lab1
+{
+    display: block;
+color:
+white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}

@@ -1,0 +1,4 @@
+Date,Shift,Operator,DownTime,From Time,To Time,Major,Minor,Sub Minor,Sub Sub Minor
+23/06/2023,A,ALE/60489,19.00,23/06/2023 07:30:02,23/06/2023 07:49:01,FUNCIONAL,Arranque de Linea,Inicio de Turno,NA
+23/06/2023,A,ALE/60489,1.00,23/06/2023 07:50:01,23/06/2023 07:51:01,TECNICO,Electrico,Sensor Seguridad,NA
+23/06/2023,A,ALE/60489,2.00,23/06/2023 08:53:01,23/06/2023 08:56:02,FUNCIONAL,Cambio de Reel,lleno,NA

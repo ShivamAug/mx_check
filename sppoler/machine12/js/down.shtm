@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>operatorscreen</title>
+</head>
+<link rel="stylesheet" href="css/custom.css" />
+</head>
+<script src="js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/csv_to_html_table2.js"></script>
+
+<body>
+<div style="float:center;">
+<ul>
+  <li ><a href="table1.shtm">Operator Screen</a></li>
+  <li ><a href="Live.shtm">Live Charts</a></li>
+  <!--<li ><a href="Production.shtm">Production Data</a></li>
+  <li style="background:red;"><a href="down.shtm">Down time record</a></li>
+ <li><a href="prodata.shtm">Product Data</a></li>
+ <li><a href="setting.shtm">Setting</a></li>-->
+</ul></div>
+</br>
+
+ <input id="abc" type="text" name="Download as CSV " hidden>
+      <div id='table-container' style="width: 93%;height: 557px;margin-left: 27px;"></div>
+
+<script type="text/javascript">
+  CsvToHtmlTable.init({
+        csv_path: 'data/down_reason.csv',
+        element: 'table-container',
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": true},
+        custom_formatting: [[]]
+      });
+</script>
+ </body>
+</html>
