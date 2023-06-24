@@ -1701,7 +1701,7 @@ function qa_div_hide() {
                   </tr>
                   <tr >
                      <td colspan="2">
-                        <input class="pop_input" id="coil_run" onkeyup="alphaMobile_New(event);" autocomplete="off" value="<%#TagSSI,op_coil1%>"style="font-size: 25px; height: auto;">
+                        <input class="pop_input" id="coil_run" onkeyup="alphaMobile_New(event);"  value="<%#TagSSI,op_coil1%>"style="font-size: 25px; height: auto;">
                      </td>
                   </tr>
                   <tr>
