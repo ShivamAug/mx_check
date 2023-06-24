@@ -1,1 +1,6 @@
 Date,Shift,Operator,DownTime,From Time,To Time,Major,Minor,Sub Minor,Sub Sub Minor
+23/06/2023,B,FRAN/60537,95.17,23/06/2023 22:30:33,24/06/2023 00:08:14,no plan,no plan,no plan,no plan
+23/06/2023,B,FRAN/60537,0,24/06/2023 00:05:33,24/06/2023 00:05:33,IoT_testing,N/A,N/A,N/A
+23/06/2023,B,FRAN/60537,0.50,24/06/2023 00:08:23,24/06/2023 00:08:52,no plan,no plan,no plan,no plan
+23/06/2023,B,FRAN/60537,0.67,24/06/2023 00:08:53,24/06/2023 00:09:29,IoT_testing,N/A,N/A,N/A
+23/06/2023,B,FRAN/60537,1,24/06/2023 00:09:33,24/06/2023 00:10:33,IoT_testing,N/A,N/A,N/A
